@@ -16,28 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `asiakas`
+-- Table structure for table `card`
 --
 
-DROP TABLE IF EXISTS `asiakas`;
+DROP TABLE IF EXISTS `card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `asiakas` (
+CREATE TABLE `card` (
+  `id_card` int DEFAULT NULL,
+  `pin` varchar(255) DEFAULT NULL,
   `id_Asiakas` int DEFAULT NULL,
-  `nimi` varchar(45) DEFAULT NULL,
-  `lahiosoite` varchar(45) DEFAULT NULL,
-  `puhelinnumero` varchar(45) DEFAULT NULL
+  `id_Tili` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `asiakas`
+-- Dumping data for table `card`
 --
 
-LOCK TABLES `asiakas` WRITE;
-/*!40000 ALTER TABLE `asiakas` DISABLE KEYS */;
-INSERT INTO `asiakas` VALUES (1,'Joonatan Yrjänä','Ukkoherrantie 2C50','0442799298'),(2,'Riku Paananen','Oksapiha 1A','0443341037'),(3,'Nea Pauna','Ruukinkuja 2A65','0406645999'),(4,'Ville Similä','Sairaskatu 43','0442871131');
-/*!40000 ALTER TABLE `asiakas` ENABLE KEYS */;
+LOCK TABLES `card` WRITE;
+/*!40000 ALTER TABLE `card` DISABLE KEYS */;
+INSERT INTO `card` VALUES (1111,'1111',1,1),(2222,'2222',2,2),(3333,'3333',3,3),(4444,'4444',4,4);
+/*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
