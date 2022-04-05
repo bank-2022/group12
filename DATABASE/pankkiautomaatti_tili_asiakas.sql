@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: pankkiautomaatti
 -- ------------------------------------------------------
@@ -23,8 +23,8 @@ DROP TABLE IF EXISTS `tili_asiakas`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `tili_asiakas` (
-  `id_Tili` int DEFAULT NULL,
-  `id_Asiakas` int DEFAULT NULL
+  `id_account` int DEFAULT NULL,
+  `id_customer` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -47,4 +47,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 14:11:53
+-- Dump completed on 2022-04-05 16:19:52

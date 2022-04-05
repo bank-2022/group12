@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: pankkiautomaatti
 -- ------------------------------------------------------
@@ -25,8 +25,11 @@ DROP TABLE IF EXISTS `card`;
 CREATE TABLE `card` (
   `id_card` int DEFAULT NULL,
   `pin` varchar(255) DEFAULT NULL,
-  `id_Asiakas` int DEFAULT NULL,
-  `id_Tili` int DEFAULT NULL
+  `id_customer` int DEFAULT NULL,
+  `id_account` int DEFAULT NULL,
+  `locked` tinyint(1) DEFAULT NULL,
+  `attempts` int DEFAULT NULL,
+  UNIQUE KEY `id_card` (`id_card`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +39,7 @@ CREATE TABLE `card` (
 
 LOCK TABLES `card` WRITE;
 /*!40000 ALTER TABLE `card` DISABLE KEYS */;
-INSERT INTO `card` VALUES (1111,'1111',1,1),(2222,'2222',2,2),(3333,'3333',3,3),(4444,'4444',4,4);
+INSERT INTO `card` VALUES (1111,'$2a$10$jE2r0YUQDjuCe/sALkaZOOMKrIDJYnEqAbPaqFKU6Ob9tV32zVJWe',1,1,NULL,NULL),(2222,'$2a$10$tugKwWeZ.atNZHnW/F8vm.KK4Jt20IalTQW4UdNIXsjP2RIywzPs6',2,2,NULL,NULL),(3333,'$2a$10$zy.YzbZqhKjouYGlR1toHeNUtrGgiw9S27XThn//fqmt3zKmxX3bK',3,3,NULL,NULL),(4444,'$2a$10$0dlbo2t1WSDrt5dWKICKGupeiHEuGCiaT7O12gTxtdXjDxd7WqyW6',4,4,NULL,NULL);
 /*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 14:11:52
+-- Dump completed on 2022-04-05 16:19:53

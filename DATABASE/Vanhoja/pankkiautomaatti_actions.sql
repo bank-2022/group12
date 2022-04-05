@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: pankkiautomaatti
 -- ------------------------------------------------------
@@ -16,31 +16,29 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `actions`
+-- Table structure for table `tilitapahtumat`
 --
 
-DROP TABLE IF EXISTS `actions`;
+DROP TABLE IF EXISTS `tilitapahtumat`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `actions` (
-  `id_actions` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  `action` varchar(45) DEFAULT NULL,
-  `total` float DEFAULT NULL,
-  `id_account` int DEFAULT NULL,
-  `id_card` int DEFAULT NULL,
-  UNIQUE KEY `id_actions` (`id_actions`)
+CREATE TABLE `tilitapahtumat` (
+  `id_Tilitapahtumat` int DEFAULT NULL,
+  `paivays` datetime DEFAULT NULL,
+  `tapahtuma` varchar(45) DEFAULT NULL,
+  `summa` float DEFAULT NULL,
+  `id_Tili` int DEFAULT NULL,
+  `id_Kortti` int DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `actions`
+-- Dumping data for table `tilitapahtumat`
 --
 
-LOCK TABLES `actions` WRITE;
-/*!40000 ALTER TABLE `actions` DISABLE KEYS */;
-INSERT INTO `actions` VALUES (1,'2022-04-05 13:25:00','talletus',50,1,1),(2,'2022-04-05 13:35:00','otto',20,1,1);
-/*!40000 ALTER TABLE `actions` ENABLE KEYS */;
+LOCK TABLES `tilitapahtumat` WRITE;
+/*!40000 ALTER TABLE `tilitapahtumat` DISABLE KEYS */;
+/*!40000 ALTER TABLE `tilitapahtumat` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-05 16:19:53
+-- Dump completed on 2022-03-31 14:11:52

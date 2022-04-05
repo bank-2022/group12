@@ -16,31 +16,31 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `actions`
+-- Table structure for table `card`
 --
 
-DROP TABLE IF EXISTS `actions`;
+DROP TABLE IF EXISTS `card`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `actions` (
-  `id_actions` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  `action` varchar(45) DEFAULT NULL,
-  `total` float DEFAULT NULL,
-  `id_account` int DEFAULT NULL,
+CREATE TABLE `card` (
   `id_card` int DEFAULT NULL,
-  UNIQUE KEY `id_actions` (`id_actions`)
+  `pin` varchar(255) DEFAULT NULL,
+  `id_customer` int DEFAULT NULL,
+  `id_account` int DEFAULT NULL,
+  `locked` tinyint(1) DEFAULT NULL,
+  `attempts` int DEFAULT NULL,
+  UNIQUE KEY `id_card` (`id_card`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `actions`
+-- Dumping data for table `card`
 --
 
-LOCK TABLES `actions` WRITE;
-/*!40000 ALTER TABLE `actions` DISABLE KEYS */;
-INSERT INTO `actions` VALUES (1,'2022-04-05 13:25:00','talletus',50,1,1),(2,'2022-04-05 13:35:00','otto',20,1,1);
-/*!40000 ALTER TABLE `actions` ENABLE KEYS */;
+LOCK TABLES `card` WRITE;
+/*!40000 ALTER TABLE `card` DISABLE KEYS */;
+INSERT INTO `card` VALUES (1111,'$2a$10$jE2r0YUQDjuCe/sALkaZOOMKrIDJYnEqAbPaqFKU6Ob9tV32zVJWe',1,1,NULL,NULL),(2222,'$2a$10$tugKwWeZ.atNZHnW/F8vm.KK4Jt20IalTQW4UdNIXsjP2RIywzPs6',2,2,NULL,NULL),(3333,'$2a$10$zy.YzbZqhKjouYGlR1toHeNUtrGgiw9S27XThn//fqmt3zKmxX3bK',3,3,NULL,NULL),(4444,'$2a$10$0dlbo2t1WSDrt5dWKICKGupeiHEuGCiaT7O12gTxtdXjDxd7WqyW6',4,4,NULL,NULL);
+/*!40000 ALTER TABLE `card` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +52,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-05 16:19:53
+-- Dump completed on 2022-04-05 16:20:11

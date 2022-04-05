@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: pankkiautomaatti
 -- ------------------------------------------------------
@@ -24,9 +24,10 @@ DROP TABLE IF EXISTS `customer`;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `customer` (
   `id_customer` int DEFAULT NULL,
-  `nimi` varchar(45) DEFAULT NULL,
-  `lahiosoite` varchar(45) DEFAULT NULL,
-  `puhelinnumero` varchar(45) DEFAULT NULL
+  `name` varchar(45) DEFAULT NULL,
+  `adress` varchar(45) DEFAULT NULL,
+  `phone_number` varchar(45) DEFAULT NULL,
+  UNIQUE KEY `id_customer` (`id_customer`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -36,7 +37,7 @@ CREATE TABLE `customer` (
 
 LOCK TABLES `customer` WRITE;
 /*!40000 ALTER TABLE `customer` DISABLE KEYS */;
-INSERT INTO `customer` VALUES (1,'Joonatan Yrjänä','Ukkoherrantie 2C50','0442799298'),(2,'Riku Paananen','Oksapiha 1A','0443341037'),(3,'Nea Pauna','Ruukinkuja 2A65','0406645999'),(4,'Ville Similä','Sairaskatu 43','0442871131');
+INSERT INTO `customer` VALUES (1,'Joonatan Yrjänä','Ukkoherrantie 2C50','0442799298'),(2,'Riku Paananen','Oksapiha 1A','0443341037'),(3,'Nea Pauna','Ruukinkuja 2A65','0406645999'),(4,'Ville Similä','Sairaskatu 43','0442871131'),(5,'Testi','Sairaskatu 1','0401234567');
 /*!40000 ALTER TABLE `customer` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -49,4 +50,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 14:11:52
+-- Dump completed on 2022-04-05 16:19:51

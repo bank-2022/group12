@@ -16,31 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `actions`
+-- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `actions`;
+DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `actions` (
-  `id_actions` int DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  `action` varchar(45) DEFAULT NULL,
-  `total` float DEFAULT NULL,
+CREATE TABLE `account` (
   `id_account` int DEFAULT NULL,
-  `id_card` int DEFAULT NULL,
-  UNIQUE KEY `id_actions` (`id_actions`)
+  `account_number` varchar(45) DEFAULT NULL,
+  `balance` float DEFAULT NULL,
+  UNIQUE KEY `id_account` (`id_account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `actions`
+-- Dumping data for table `account`
 --
 
-LOCK TABLES `actions` WRITE;
-/*!40000 ALTER TABLE `actions` DISABLE KEYS */;
-INSERT INTO `actions` VALUES (1,'2022-04-05 13:25:00','talletus',50,1,1),(2,'2022-04-05 13:35:00','otto',20,1,1);
-/*!40000 ALTER TABLE `actions` ENABLE KEYS */;
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (1,'FI21 4234 8093 0004 56',2314),(2,'FI09 4956 5533 0000 76',8723),(3,'FI05 4323 5064 0001 78',7256),(4,'FI25 4108 8730 0004 17',10236),(5,'FI04 4562 1452 8522 41',150);
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -52,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-04-05 16:19:53
+-- Dump completed on 2022-04-05 16:20:14

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.28, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.27, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: pankkiautomaatti
 -- ------------------------------------------------------
@@ -16,27 +16,28 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `tili`
+-- Table structure for table `account`
 --
 
-DROP TABLE IF EXISTS `tili`;
+DROP TABLE IF EXISTS `account`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `tili` (
-  `id_Tili` int DEFAULT NULL,
-  `tilinumero` varchar(45) DEFAULT NULL,
-  `saldo` float DEFAULT NULL
+CREATE TABLE `account` (
+  `id_account` int DEFAULT NULL,
+  `account_number` varchar(45) DEFAULT NULL,
+  `balance` float DEFAULT NULL,
+  UNIQUE KEY `id_account` (`id_account`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `tili`
+-- Dumping data for table `account`
 --
 
-LOCK TABLES `tili` WRITE;
-/*!40000 ALTER TABLE `tili` DISABLE KEYS */;
-INSERT INTO `tili` VALUES (1,'FI21 4234 8093 0004 56',2314),(2,'FI09 4956 5533 0000 76',8723),(3,'FI05 4323 5064 0001 78',7256),(4,'FI25 4108 8730 0004 17',10236);
-/*!40000 ALTER TABLE `tili` ENABLE KEYS */;
+LOCK TABLES `account` WRITE;
+/*!40000 ALTER TABLE `account` DISABLE KEYS */;
+INSERT INTO `account` VALUES (1,'FI21 4234 8093 0004 56',2314),(2,'FI09 4956 5533 0000 76',8723),(3,'FI05 4323 5064 0001 78',7256),(4,'FI25 4108 8730 0004 17',10236),(5,'FI04 4562 1452 8522 41',150);
+/*!40000 ALTER TABLE `account` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
@@ -48,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2022-03-31 14:11:52
+-- Dump completed on 2022-04-05 16:19:54
