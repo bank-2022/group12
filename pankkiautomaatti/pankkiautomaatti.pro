@@ -12,18 +12,21 @@ CONFIG += c++11
 SOURCES += \
     main.cpp \
     mainwindow.cpp \
+    nostarahaa.cpp \
     paavalikko.cpp \
     salasana.cpp \
     saldo.cpp
 
 HEADERS += \
     mainwindow.h \
+    nostarahaa.h \
     paavalikko.h \
     salasana.h \
     saldo.h
 
 FORMS += \
     mainwindow.ui \
+    nostarahaa.ui \
     paavalikko.ui \
     salasana.ui \
     saldo.ui

@@ -2,7 +2,7 @@
 #define PAAVALIKKO_H
 #include "saldo.h"
 #include <QDialog>
-
+#include <nostarahaa.h>
 namespace Ui {
 class paavalikko;
 }
@@ -23,6 +23,8 @@ private slots:
 private:
     Ui::paavalikko *ui;
     saldo *Psaldo;
+    nostarahaa *withdraw;
+
 };
 
 #endif // PAAVALIKKO_H
