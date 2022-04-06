@@ -13,17 +13,20 @@ SOURCES += \
     main.cpp \
     mainwindow.cpp \
     paavalikko.cpp \
-    salasana.cpp
+    salasana.cpp \
+    saldo.cpp
 
 HEADERS += \
     mainwindow.h \
     paavalikko.h \
-    salasana.h
+    salasana.h \
+    saldo.h
 
 FORMS += \
     mainwindow.ui \
     paavalikko.ui \
-    salasana.ui
+    salasana.ui \
+    saldo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

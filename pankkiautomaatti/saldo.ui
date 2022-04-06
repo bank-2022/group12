@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>saldo</class>
+ <widget class="QDialog" name="saldo">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>200</x>
+     <y>150</y>
+     <width>341</width>
+     <height>141</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Saldosi on 1e, mene töihin</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="pushButton_takaisin">
+   <property name="geometry">
+    <rect>
+     <x>50</x>
+     <y>480</y>
+     <width>131</width>
+     <height>51</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Takaisin</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
