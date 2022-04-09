@@ -15,3 +15,8 @@ nostarahaa::~nostarahaa()
 
 
 
+void nostarahaa::on_pushButton_takaisin1_clicked()
+{
+   this->close();
+}
+

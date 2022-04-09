@@ -1,6 +1,7 @@
 #include "paavalikko.h"
 #include "ui_paavalikko.h"
 
+
 paavalikko::paavalikko(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::paavalikko)
@@ -26,5 +27,13 @@ Psaldo->exec();
 void paavalikko::on_pushButton_withdraw_clicked()
 {
 withdraw->exec();
+}
+
+
+void paavalikko::on_pushButton_logout_clicked()
+{
+    this->close();
+
+
 }
 

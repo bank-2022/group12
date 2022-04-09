@@ -45,8 +45,7 @@ private slots:
 private:
     Ui::salasana *ui;
     paavalikko *Mainmenu;
-    void connectKeys();
-    void keywasClicked();
+
 
 
 

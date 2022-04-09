@@ -20,6 +20,8 @@ private slots:
 
     void on_pushButton_withdraw_clicked();
 
+    void on_pushButton_logout_clicked();
+
 private:
     Ui::paavalikko *ui;
     saldo *Psaldo;

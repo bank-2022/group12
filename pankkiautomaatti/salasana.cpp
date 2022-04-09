@@ -38,9 +38,6 @@ void salasana::on_pushButton_kirjaudu_clicked()
 
 
 
-
-
-
 void salasana::on_pushButton_1_clicked()
 {
 ui->lineEdit_PIN->setText(ui->lineEdit_PIN->text() + "1");

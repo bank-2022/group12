@@ -2,7 +2,6 @@
 #define NOSTARAHAA_H
 
 #include <QDialog>
-
 namespace Ui {
 class nostarahaa;
 }
@@ -16,7 +15,8 @@ public:
     ~nostarahaa();
 
 private slots:
-    void on_pushButton_muusumma_clicked();
+
+    void on_pushButton_takaisin1_clicked();
 
 private:
     Ui::nostarahaa *ui;

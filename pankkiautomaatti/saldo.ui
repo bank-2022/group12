@@ -22,6 +22,9 @@
      <height>141</height>
     </rect>
    </property>
+   <property name="styleSheet">
+    <string notr="true">backround-color: grey</string>
+   </property>
    <property name="text">
     <string>Saldosi on 1e, mene töihin</string>
    </property>
@@ -31,15 +34,46 @@
     <rect>
      <x>50</x>
      <y>480</y>
-     <width>131</width>
+     <width>186</width>
      <height>51</height>
     </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: grey;
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: grey;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
    </property>
    <property name="text">
     <string>Takaisin</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>-20</y>
+     <width>800</width>
+     <height>600</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string/>
+   </property>
+   <property name="pixmap">
+    <pixmap resource="img.qrc">:/img/fade.png</pixmap>
+   </property>
+  </widget>
+  <zorder>label</zorder>
+  <zorder>lineEdit</zorder>
+  <zorder>pushButton_takaisin</zorder>
  </widget>
- <resources/>
+ <resources>
+  <include location="img.qrc"/>
+ </resources>
  <connections/>
 </ui>
