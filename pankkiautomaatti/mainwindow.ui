@@ -33,14 +33,14 @@
       <x>0</x>
       <y>0</y>
       <width>831</width>
-      <height>491</height>
+      <height>571</height>
      </rect>
     </property>
     <property name="text">
      <string/>
     </property>
     <property name="pixmap">
-     <pixmap resource="resource.qrc">:/resources/img/800x600.2.jpg</pixmap>
+     <pixmap resource="GUI.qrc">:/img/Credit-Card-and-Payments-Backgrounds-800x600 (1).jpg</pixmap>
     </property>
    </widget>
    <widget class="QLabel" name="label_2">
@@ -79,7 +79,9 @@
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources>
-  <include location="resource.qrc"/>
+  <include location="GUI.qrc"/>
+  <include location="GUI.qrc"/>
+  <include location="GUI.qrc"/>
  </resources>
  <connections/>
 </ui>
