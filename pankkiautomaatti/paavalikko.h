@@ -3,6 +3,7 @@
 #include "saldo.h"
 #include <QDialog>
 #include <nostarahaa.h>
+
 namespace Ui {
 class paavalikko;
 }
@@ -22,10 +23,12 @@ private slots:
 
     void on_pushButton_logout_clicked();
 
+
 private:
     Ui::paavalikko *ui;
     saldo *Psaldo;
     nostarahaa *withdraw;
+
 
 };
 

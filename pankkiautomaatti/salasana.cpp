@@ -24,6 +24,7 @@ salasana::~salasana()
 
 
 
+
 void salasana::on_pushButton_kirjaudu_clicked()
 {
     QString PIN = ui->lineEdit_PIN->text();

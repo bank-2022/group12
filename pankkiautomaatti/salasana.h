@@ -15,6 +15,7 @@ public:
     explicit salasana(QWidget *parent = nullptr);
     ~salasana();
 
+void closeThiswindow();
 private slots:
 
 
@@ -46,7 +47,8 @@ private:
     Ui::salasana *ui;
     paavalikko *Mainmenu;
 
-
+signals:
+    void closeWindow();
 
 
 

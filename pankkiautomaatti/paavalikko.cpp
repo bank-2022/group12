@@ -1,7 +1,6 @@
 #include "paavalikko.h"
 #include "ui_paavalikko.h"
 
-
 paavalikko::paavalikko(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::paavalikko)
@@ -32,8 +31,9 @@ withdraw->exec();
 
 void paavalikko::on_pushButton_logout_clicked()
 {
-    this->close();
+ this->close();
 
 
 }
+
 
