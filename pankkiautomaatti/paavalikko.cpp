@@ -9,6 +9,7 @@ paavalikko::paavalikko(QWidget *parent) :
     Psaldo = new saldo;
     withdraw = new nostarahaa;
     Transactions = new browseTransactions;
+
 }
 
 paavalikko::~paavalikko()
@@ -35,7 +36,6 @@ withdraw->exec();
 void paavalikko::on_pushButton_logout_clicked()
 {
  this->close();
-
 
 }
 

@@ -4,7 +4,6 @@
 #include <QDialog>
 #include <nostarahaa.h>
 #include <browsetransactions.h>
-
 namespace Ui {
 class paavalikko;
 }
@@ -17,13 +16,13 @@ public:
     explicit paavalikko(QWidget *parent = nullptr);
     ~paavalikko();
 
+
 private slots:
     void on_pushButton_showtotal_clicked();
 
     void on_pushButton_withdraw_clicked();
 
     void on_pushButton_logout_clicked();
-
 
     void on_pushButton_actions_clicked();
 
