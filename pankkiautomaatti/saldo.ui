@@ -249,7 +249,14 @@
     </palette>
    </property>
    <property name="styleSheet">
-    <string notr="true">background-color: rgb(239, 255, 203);</string>
+    <string notr="true">background-color: rgb(239, 255, 203);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: grey;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
    </property>
    <property name="text">
     <string>Saldosi on 1e, mene töihin</string>

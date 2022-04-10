@@ -10,6 +10,7 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    browsetransactions.cpp \
     main.cpp \
     mainwindow.cpp \
     nostarahaa.cpp \
@@ -18,6 +19,7 @@ SOURCES += \
     saldo.cpp
 
 HEADERS += \
+    browsetransactions.h \
     mainwindow.h \
     nostarahaa.h \
     paavalikko.h \
@@ -25,6 +27,7 @@ HEADERS += \
     saldo.h
 
 FORMS += \
+    browsetransactions.ui \
     mainwindow.ui \
     nostarahaa.ui \
     paavalikko.ui \

@@ -8,6 +8,7 @@ paavalikko::paavalikko(QWidget *parent) :
     ui->setupUi(this);
     Psaldo = new saldo;
     withdraw = new nostarahaa;
+    Transactions = new browseTransactions;
 }
 
 paavalikko::~paavalikko()
@@ -15,6 +16,8 @@ paavalikko::~paavalikko()
     delete ui;
     delete Psaldo;
     delete withdraw;
+    delete Transactions;
+
 }
 
 void paavalikko::on_pushButton_showtotal_clicked()
@@ -36,4 +39,10 @@ void paavalikko::on_pushButton_logout_clicked()
 
 }
 
+
+
+void paavalikko::on_pushButton_actions_clicked()
+{
+    Transactions->exec();
+}
 

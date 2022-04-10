@@ -162,14 +162,19 @@
    <property name="geometry">
     <rect>
      <x>190</x>
-     <y>90</y>
+     <y>80</y>
      <width>375</width>
      <height>24</height>
     </rect>
    </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(239, 255, 203);
-</string>
+    border-style: outset;
+ 
+    border-radius: 10px;
+    border-color: grey;
+    min-width: 10em;
+    padding: 6px;</string>
    </property>
    <property name="maxLength">
     <number>4</number>
