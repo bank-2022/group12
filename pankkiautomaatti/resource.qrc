@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>img/Ekakuva.jpg</file>
+        <file>img/800x600.2.jpg</file>
+    </qresource>
+</RCC>

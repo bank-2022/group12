@@ -1,0 +1,8 @@
+<RCC>
+    <qresource prefix="/">
+        <file>GUI.qrc</file>
+        <file>img/Credit-Card-and-Payments-Backgrounds-800x600 (1).jpg</file>
+        <file>img/beige.jpg</file>
+        <file>img/paper_texture_beige_179500_800x600.jpg</file>
+    </qresource>
+</RCC>

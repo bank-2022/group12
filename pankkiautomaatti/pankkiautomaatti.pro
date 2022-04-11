@@ -10,22 +10,37 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    browsetransactions.cpp \
     main.cpp \
     mainwindow.cpp \
+    nostarahaa.cpp \
     paavalikko.cpp \
-    salasana.cpp
+    salasana.cpp \
+    saldo.cpp
 
 HEADERS += \
+    browsetransactions.h \
     mainwindow.h \
+    nostarahaa.h \
     paavalikko.h \
-    salasana.h
+    salasana.h \
+    saldo.h
 
 FORMS += \
+    browsetransactions.ui \
     mainwindow.ui \
+    nostarahaa.ui \
     paavalikko.ui \
-    salasana.ui
+    salasana.ui \
+    saldo.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    GUI.qrc \
+    img.qrc \
+    resource.qrc
+
