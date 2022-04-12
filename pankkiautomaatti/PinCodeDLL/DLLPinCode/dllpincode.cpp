@@ -16,6 +16,17 @@ DLLPinCode::~DLLPinCode()
 
 }
 
+void DLLPinCode::startupPin()
+{
+    oPinEngineClass->show();
+    oPinEngineClass->exec();
+}
+
+void DLLPinCode::closePin()
+{
+    oPinEngineClass->close();
+}
+
 void DLLPinCode::receivePinFromEngine(QString receivedPin)
 {
     emit sendPinToExe(receivedPin);

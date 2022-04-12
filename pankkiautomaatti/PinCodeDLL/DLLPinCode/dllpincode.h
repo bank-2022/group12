@@ -13,6 +13,8 @@ class DLLPINCODE_EXPORT DLLPinCode : public QWidget
 public:
     DLLPinCode();
     ~DLLPinCode();
+    void startupPin();
+    void closePin();
 
 private:
     PinEngineClass *oPinEngineClass;
