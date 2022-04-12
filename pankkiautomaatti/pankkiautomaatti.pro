@@ -44,3 +44,10 @@ RESOURCES += \
     img.qrc \
     resource.qrc
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/release/ -lDLLPinCode
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/debug/ -lDLLPinCode
+else:unix: LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/ -lDLLPinCode
+
+INCLUDEPATH += $$PWD/PinCodeDLL/DLLPinCode
+DEPENDPATH += $$PWD/PinCodeDLL/DLLPinCode

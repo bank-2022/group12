@@ -6,6 +6,7 @@
 #include <QDebug>
 #include <QString>
 #include <QWidget>
+#include <QApplication>
 
 class DLLPINCODE_EXPORT DLLPinCode : public QWidget
 

@@ -15,13 +15,15 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    Pword = new salasana;
+     oDllPinCode = new DLLPinCode;
+    //Pword = new salasana;
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete Pword;
+    delete oDllPinCode;
+    //delete Pword;
 }
 
 
@@ -30,6 +32,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
-    Pword->exec();
+    oDllPinCode->startupPin();
+    //Pword->exec();
 }
 

@@ -3,6 +3,7 @@
 #include <QMainWindow>
 #include <QMessageBox>
 #include "salasana.h"
+#include "dllpincode.h"
 
 
 QT_BEGIN_NAMESPACE
@@ -22,6 +23,7 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
-    salasana *Pword;
+    //salasana *Pword;
+    DLLPinCode *oDllPinCode;
 };
 #endif // MAINWINDOW_H

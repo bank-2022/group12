@@ -366,7 +366,14 @@ release/dllpincode.o: ../../../pankkiautomaatti/PinCodeDLL/DLLPinCode/dllpincode
 		C:/Qt/5.15.2/mingw81_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QWidget \
 		C:/Qt/5.15.2/mingw81_32/include/QtCore/QDebug \
-		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QString \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QApplication \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtGui/qinputmethod.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\dllpincode.o ..\..\..\pankkiautomaatti\PinCodeDLL\DLLPinCode\dllpincode.cpp
 
 release/pinengineclass.o: ../../../pankkiautomaatti/PinCodeDLL/DLLPinCode/pinengineclass.cpp ../../../pankkiautomaatti/PinCodeDLL/DLLPinCode/pinengineclass.h \
@@ -482,7 +489,19 @@ release/pinengineclass.o: ../../../pankkiautomaatti/PinCodeDLL/DLLPinCode/pineng
 		C:/Qt/5.15.2/mingw81_32/include/QtGui/qpen.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtGui/qtextoption.h \
 		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QWidget \
-		ui_pinengineclass.h
+		ui_pinengineclass.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/QVariant \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QApplication \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qcoreapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtCore/qeventloop.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qdesktopwidget.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtGui/qguiapplication.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtGui/qinputmethod.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/QPushButton \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qpushbutton.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtWidgets/qabstractbutton.h \
+		C:/Qt/5.15.2/mingw81_32/include/QtGui/qicon.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o release\pinengineclass.o ..\..\..\pankkiautomaatti\PinCodeDLL\DLLPinCode\pinengineclass.cpp
 
 release/moc_pinengineclass.o: release/moc_pinengineclass.cpp 
