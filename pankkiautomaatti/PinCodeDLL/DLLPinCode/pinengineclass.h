@@ -4,8 +4,10 @@
 #include <QDialog>
 #include <QLineEdit>
 #include <QWidget>
-
-
+//poista jos tarvii alemmat
+#include <QPushButton>
+#include <QStyle>
+#include <QMessageBox>
 namespace Ui {
 class PinEngineClass;
 }
@@ -22,6 +24,8 @@ signals:
     void emitPin(QString);
 
 private slots:
+
+
     void on_pushButton_1_clicked();
 
     void on_pushButton_2_clicked();
@@ -42,9 +46,9 @@ private slots:
 
     void on_pushButton_0_clicked();
 
-    void on_pushButton_Clear_clicked();
+    void on_pushButton_clear_clicked();
 
-    void on_pushButton_Sign_clicked();
+    void on_pushButton_login_2_clicked();
 
 private:
     Ui::PinEngineClass *ui;

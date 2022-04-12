@@ -17,6 +17,14 @@ nostarahaa::~nostarahaa()
 
 void nostarahaa::on_pushButton_takaisin1_clicked()
 {
-   this->close();
+    this->close();
 }
+
+void nostarahaa::on_pushButton_3_Muusumma_clicked()
+{
+
+
+}
+
+
 

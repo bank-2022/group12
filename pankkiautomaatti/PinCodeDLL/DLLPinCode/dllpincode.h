@@ -1,6 +1,5 @@
 #ifndef DLLPINCODE_H
 #define DLLPINCODE_H
-
 #include "DLLPinCode_global.h"
 #include "pinengineclass.h"
 #include <QDebug>

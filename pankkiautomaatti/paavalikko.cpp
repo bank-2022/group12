@@ -1,5 +1,8 @@
 #include "paavalikko.h"
 #include "ui_paavalikko.h"
+#include <QDateTime>
+#include <QDateTimeEdit>
+
 
 paavalikko::paavalikko(QWidget *parent) :
     QDialog(parent),
@@ -21,6 +24,8 @@ paavalikko::~paavalikko()
 
 }
 
+
+
 void paavalikko::on_pushButton_showtotal_clicked()
 {
 Psaldo->exec();
@@ -35,7 +40,9 @@ withdraw->exec();
 
 void paavalikko::on_pushButton_logout_clicked()
 {
- this->close();
+    qApp->quit();
+    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+
 
 }
 
@@ -45,4 +52,8 @@ void paavalikko::on_pushButton_actions_clicked()
 {
     Transactions->exec();
 }
+
+
+
+
 

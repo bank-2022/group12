@@ -30,3 +30,6 @@ DISTFILES +=
 
 FORMS += \
     pinengineclass.ui
+
+RESOURCES += \
+    DLLimg.qrc

@@ -1,27 +1,26 @@
-#ifndef SALASANA_H
-#define SALASANA_H
-#include "paavalikko.h"
+#ifndef MUUSUMMA_H
+#define MUUSUMMA_H
 #include <QDialog>
-
+#include <QMessageBox>
+#include <QLabel>
+#include <QLineEdit>
+#include <QString>
 namespace Ui {
-class salasana;
+class Muusumma;
 }
 
-class salasana : public QDialog
+class Muusumma : public QDialog
 {
     Q_OBJECT
 
 public:
-    explicit salasana(QWidget *parent = nullptr);
-    ~salasana();
-
+    explicit Muusumma(QWidget *parent = nullptr);
+    ~Muusumma();
 
 private slots:
+    void on_pushButton_Ok_clicked();
 
-
-    /*void on_pushButton_kirjaudu_clicked();
-
-   void on_pushButton_1_clicked();
+    void on_pushButton_1_clicked();
 
     void on_pushButton_2_clicked();
 
@@ -41,16 +40,8 @@ private slots:
 
     void on_pushButton_0_clicked();
 
-    void on_pushButton_kumita_clicked();*/
-
 private:
-    Ui::salasana *ui;
-    paavalikko *Mainmenu;
-
-
-
-
-
+    Ui::Muusumma *ui;
 };
 
-#endif // SALASANA_H
+#endif // MUUSUMMA_H

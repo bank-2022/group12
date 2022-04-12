@@ -4,6 +4,7 @@
 #include <QDialog>
 #include <nostarahaa.h>
 #include <browsetransactions.h>
+#include <QProcess>
 namespace Ui {
 class paavalikko;
 }
@@ -15,6 +16,7 @@ class paavalikko : public QDialog
 public:
     explicit paavalikko(QWidget *parent = nullptr);
     ~paavalikko();
+    void kello();
 
 
 private slots:
@@ -25,6 +27,8 @@ private slots:
     void on_pushButton_logout_clicked();
 
     void on_pushButton_actions_clicked();
+
+    void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
 private:
     Ui::paavalikko *ui;

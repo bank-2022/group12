@@ -29,7 +29,7 @@ void DLLPinCode::closePin()
 
 void DLLPinCode::receivePinFromEngine(QString receivedPin)
 {
-    emit sendPinToExe(receivedPin);
+    //emit sendPinToExe(receivedPin);
 }
 
 
