@@ -7,6 +7,7 @@ PinEngineClass::PinEngineClass(QWidget *parent) :
     ui(new Ui::PinEngineClass)
 {
     ui->setupUi(this);
+    ui->lineEdit_Pincode->setMaxLength(4);
 }
 
 
@@ -78,22 +79,27 @@ void PinEngineClass::on_pushButton_0_clicked()
 }
 
 
-void PinEngineClass::on_pushButton_clear_clicked()
+void PinEngineClass::on_pushButton_Clear_clicked()
 {
-    pin = ui->lineEdit_Pincode->text();
     ui->lineEdit_Pincode->clear();
-    emit emitPin(pin);
 }
 
 
-void PinEngineClass::on_pushButton_login_2_clicked()
+void PinEngineClass::on_pushButton_Sign_clicked()
 {
-    QString PIN = ui->lineEdit_Pincode->text();
-    if(PIN == "1234"){
+    QString pinCode = ui->lineEdit_Pincode->text();
+    this->setPin(pinCode);
+    ui->lineEdit_Pincode->clear();
 
-    }
-    else {
-        QMessageBox::warning(this, "kirjaudu","Pin koodi on väärä");
-    }
+}
+
+const QString &PinEngineClass::getPin() const
+{
+    return pin;
+}
+
+void PinEngineClass::setPin(const QString &newPin)
+{
+    pin = newPin;
 }
 

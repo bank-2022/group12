@@ -57,7 +57,7 @@
    <property name="title">
     <string/>
    </property>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>90</x>
@@ -153,7 +153,7 @@
       </widget>
      </item>
      <item row="5" column="2">
-      <widget class="QPushButton" name="pushButton_login_2">
+      <widget class="QPushButton" name="pushButton_Sign">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(239, 255, 203);
     border-style: outset;
@@ -187,7 +187,7 @@
       </widget>
      </item>
      <item row="5" column="0">
-      <widget class="QPushButton" name="pushButton_clear">
+      <widget class="QPushButton" name="pushButton_Clear">
        <property name="styleSheet">
         <string notr="true">background-color: rgb(239, 255, 203);
     border-style: outset;
@@ -291,6 +291,15 @@
     border-color: grey;
     min-width: 10em;
     padding: 6px;</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Password</enum>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="placeholderText">
+    <string>Syötä PIN-koodisi</string>
    </property>
   </widget>
  </widget>
@@ -411,7 +420,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_login_2</sender>
+   <sender>pushButton_Sign</sender>
    <signal>clicked()</signal>
    <receiver>lineEdit_Pincode</receiver>
    <slot>selectAll()</slot>
@@ -475,7 +484,7 @@
    </hints>
   </connection>
   <connection>
-   <sender>pushButton_clear</sender>
+   <sender>pushButton_Clear</sender>
    <signal>clicked()</signal>
    <receiver>lineEdit_Pincode</receiver>
    <slot>clear()</slot>

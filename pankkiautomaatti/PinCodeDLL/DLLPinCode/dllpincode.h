@@ -14,15 +14,16 @@ public:
     ~DLLPinCode();
     void startupPin();
     void closePin();
+    QString returnPinCode();
+
+    const QString &getPinCode() const;
+    void setPinCode(const QString &newPinCode);
 
 private:
     PinEngineClass *oPinEngineClass;
+    QString pinCode;
 
-public slots:
-    void receivePinFromEngine(QString);
 
-signals:
-    void sendPinToExe(QString);
 
 };
 

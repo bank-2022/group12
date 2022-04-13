@@ -28,7 +28,7 @@ private slots:
 
     void on_pushButton_actions_clicked();
 
-    void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
+    //void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
 private:
     Ui::paavalikko *ui;

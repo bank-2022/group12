@@ -16,7 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     //Pword = new salasana;
-    oDllPinCode = new DLLPinCode;
 }
 
 MainWindow::~MainWindow()
@@ -33,6 +32,8 @@ void MainWindow::on_pushButton_clicked()
 {
     oDllPinCode = new DLLPinCode;
     oDllPinCode->startupPin();
+    QString testipin = oDllPinCode->returnPinCode();
+    qDebug() << testipin;
 
 }
 

@@ -20,6 +20,9 @@ public:
     explicit PinEngineClass(QWidget *parent = nullptr);
     ~PinEngineClass();
 
+    const QString &getPin() const;
+    void setPin(const QString &newPin);
+
 signals:
     void emitPin(QString);
 
@@ -46,9 +49,9 @@ private slots:
 
     void on_pushButton_0_clicked();
 
-    void on_pushButton_clear_clicked();
+    void on_pushButton_Clear_clicked();
 
-    void on_pushButton_login_2_clicked();
+    void on_pushButton_Sign_clicked();
 
 private:
     Ui::PinEngineClass *ui;

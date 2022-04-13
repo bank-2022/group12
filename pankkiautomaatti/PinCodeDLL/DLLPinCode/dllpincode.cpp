@@ -4,7 +4,7 @@ DLLPinCode::DLLPinCode()
 {
     qDebug() << "Pincode luotu";
     oPinEngineClass = new PinEngineClass;
-    QObject::connect(oPinEngineClass, &PinEngineClass::emitPin, this, &DLLPinCode::receivePinFromEngine);
+    //QObject::connect(oPinEngineClass, &PinEngineClass::emitPin, this, &DLLPinCode::receivePinFromEngine);
 
 }
 
@@ -18,8 +18,9 @@ DLLPinCode::~DLLPinCode()
 
 void DLLPinCode::startupPin()
 {
-    oPinEngineClass->show();
+   // oPinEngineClass->show();
     oPinEngineClass->exec();
+    pinCode=oPinEngineClass->getPin();
 }
 
 void DLLPinCode::closePin()
@@ -27,9 +28,12 @@ void DLLPinCode::closePin()
     oPinEngineClass->close();
 }
 
-void DLLPinCode::receivePinFromEngine(QString receivedPin)
+QString DLLPinCode::returnPinCode()
 {
-    //emit sendPinToExe(receivedPin);
+    return pinCode;
 }
+
+
+
 
 
