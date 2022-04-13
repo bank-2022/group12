@@ -4,6 +4,7 @@
 #include <QMessageBox>
 #include "salasana.h"
 #include "PinCodeDLL/DLLPinCode/dllpincode.h"
+#include "paavalikko.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -16,6 +17,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void checkPin();
 
 private slots:
     void on_pushButton_clicked();
@@ -24,6 +26,9 @@ private:
     Ui::MainWindow *ui;
     //salasana *Pword;
     DLLPinCode *oDllPinCode;
+    paavalikko *mainMenu;
+    QString testipin;
+    int attempts=0;
 
 };
 #endif // MAINWINDOW_H

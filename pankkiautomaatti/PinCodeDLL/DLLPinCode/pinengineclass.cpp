@@ -1,5 +1,7 @@
 #include "pinengineclass.h"
 #include "ui_pinengineclass.h"
+#include <QDebug>
+#include "dllpincode.h"
 
 
 PinEngineClass::PinEngineClass(QWidget *parent) :
@@ -15,6 +17,7 @@ PinEngineClass::~PinEngineClass()
 {
     delete ui;
     ui = nullptr;
+
 }
 
 
@@ -90,6 +93,7 @@ void PinEngineClass::on_pushButton_Sign_clicked()
     QString pinCode = ui->lineEdit_Pincode->text();
     this->setPin(pinCode);
     ui->lineEdit_Pincode->clear();
+    this->close();
 
 }
 
@@ -101,5 +105,17 @@ const QString &PinEngineClass::getPin() const
 void PinEngineClass::setPin(const QString &newPin)
 {
     pin = newPin;
+}
+
+void PinEngineClass::closePinObject()
+{
+     qDebug() << "closepinobject";
+    this->close();
+
+}
+
+void PinEngineClass::wrongPinCode()
+{
+     QMessageBox::warning(this, "kirjaudu","Pin koodi on väärä");
 }
 
