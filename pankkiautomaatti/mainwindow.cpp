@@ -16,8 +16,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     mainMenu = new paavalikko;
-    //connect(oDllPinCode, SIGNAL(emitPin(QString)),
-      //      this, SLOT
     //Pword = new salasana;
 }
 
@@ -36,14 +34,11 @@ void MainWindow::checkPin()
     while (i == 0){
     oDllPinCode = new DLLPinCode;
     oDllPinCode->startupPin();
-    qDebug() << "testi1";
     testipin = oDllPinCode->returnPinCode();
-    qDebug() << testipin;
-    qDebug() << "Pääsi tänne";
+
 
    if(testipin == "1234"){
        i++;
-       qDebug() << "testi";
        oDllPinCode->closePin();
        mainMenu->exec();
 
@@ -51,7 +46,6 @@ void MainWindow::checkPin()
    }
    else{
       attempts++;
-      qDebug() << attempts;
        oDllPinCode->wrongPin();
 
 
