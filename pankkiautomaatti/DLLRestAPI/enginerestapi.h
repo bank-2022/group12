@@ -15,6 +15,14 @@ class engineRestApi : public QObject
 public:
     engineRestApi();
     ~engineRestApi();
+    void getPinEngine (QNetworkReply *reply);
+    QNetworkAccessManager *getManager;
+    QNetworkReply *reply;
+    QByteArray response_data;
+private:
+
+public slots:
+
 };
 
 

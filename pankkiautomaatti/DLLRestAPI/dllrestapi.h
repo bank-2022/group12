@@ -11,6 +11,9 @@ class DLLRESTAPI_EXPORT DLLRestAPI
 public:
     DLLRestAPI();
     ~DLLRestAPI();
+    QString getPin();
+private:
+    engineRestApi *oGetPinEngine;
 };
 
 #endif // DLLRESTAPI_H
