@@ -4,7 +4,7 @@ const account = require('../models/account_model');
 
 router.get('/:id?',
  function(request, response) {
-    account.getBalance(function(err, dbResult) {
+    account.getBalance(request.params.id, function(err, dbResult) {
       if (err) {
         response.json(err);
       } else {
@@ -12,6 +12,17 @@ router.get('/:id?',
         response.json(dbResult);
       }
     });
+});
+
+router.put('/:id', 
+function(request, response) {
+  account.updateBalance(request.params.id, request.body, function(err, dbResult) {
+    if (err) {
+      response.json(err);
+    } else {
+      response.json(dbResult);
+    }
+  });
 });
 
 module.exports = router;

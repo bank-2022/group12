@@ -12,6 +12,7 @@ var accountRouter = require('./routes/account');
 var actionsRouter = require('./routes/actions');
 var loginRouter = require('./routes/login');
 var balanceRouter = require('./routes/balance');
+var getfiveRouter = require('./routes/getfive');
 
 var app = express();
 
@@ -33,6 +34,6 @@ app.use('/account', accountRouter);
 app.use('/actions', actionsRouter);
 app.use('/login', loginRouter);
 app.use('/balance', balanceRouter);
-
+app.use('/getfive', getfiveRouter);
 
 module.exports = app;
