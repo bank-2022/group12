@@ -17,7 +17,7 @@
    <property name="geometry">
     <rect>
      <x>0</x>
-     <y>40</y>
+     <y>20</y>
      <width>771</width>
      <height>621</height>
     </rect>
@@ -1046,6 +1046,49 @@
     </property>
     <property name="text">
      <string>Kirjaudu ulos</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lineEdit">
+    <property name="geometry">
+     <rect>
+      <x>505</x>
+      <y>30</y>
+      <width>251</width>
+      <height>71</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(239, 255, 203);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: grey;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
+    </property>
+    <property name="text">
+     <string>Asiakkaan nimi</string>
+    </property>
+   </widget>
+   <widget class="QDateTimeEdit" name="dateTimeEdit">
+    <property name="geometry">
+     <rect>
+      <x>530</x>
+      <y>330</y>
+      <width>221</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">background-color: rgb(239, 255, 203);
+    border-style: outset;
+    border-width: 2px;
+    border-radius: 10px;
+    border-color: grey;
+    font: bold 14px;
+    min-width: 10em;
+    padding: 6px;</string>
     </property>
    </widget>
   </widget>

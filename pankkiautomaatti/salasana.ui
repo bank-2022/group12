@@ -186,9 +186,9 @@
   <widget class="QLabel" name="PIN">
    <property name="geometry">
     <rect>
-     <x>140</x>
-     <y>60</y>
-     <width>401</width>
+     <x>160</x>
+     <y>50</y>
+     <width>121</width>
      <height>81</height>
     </rect>
    </property>
@@ -429,7 +429,7 @@
    <property name="geometry">
     <rect>
      <x>60</x>
-     <y>190</y>
+     <y>140</y>
      <width>661</width>
      <height>361</height>
     </rect>
@@ -3423,7 +3423,7 @@ font color: black</string>
     <string/>
    </property>
    <property name="pixmap">
-    <pixmap resource="GUI.qrc">:/img/paper_texture_beige_179500_800x600.jpg</pixmap>
+    <pixmap resource="PinCodeDLL/DLLPinCode/DLLimg.qrc">:/img/paper_texture_beige_179500_800x600.jpg</pixmap>
    </property>
   </widget>
   <zorder>label</zorder>
@@ -3431,11 +3431,7 @@ font color: black</string>
   <zorder>PIN</zorder>
   <zorder>groupBox</zorder>
  </widget>
- <resources>
-  <include location="GUI.qrc"/>
-  <include location="GUI.qrc"/>
-  <include location="GUI.qrc"/>
- </resources>
+ <resources/>
  <connections>
   <connection>
    <sender>pushButton_1</sender>
@@ -3444,8 +3440,8 @@ font color: black</string>
    <slot>copy()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>239</x>
-     <y>202</y>
+     <x>241</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>249</x>
@@ -3460,8 +3456,8 @@ font color: black</string>
    <slot>update()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>372</x>
-     <y>208</y>
+     <x>489</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>357</x>
@@ -3476,8 +3472,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>507</x>
-     <y>211</y>
+     <x>682</x>
+     <y>230</y>
     </hint>
     <hint type="destinationlabel">
      <x>554</x>
@@ -3492,8 +3488,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>202</x>
-     <y>256</y>
+     <x>204</x>
+     <y>286</y>
     </hint>
     <hint type="destinationlabel">
      <x>205</x>
@@ -3508,8 +3504,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>286</x>
-     <y>309</y>
+     <x>288</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>280</x>
@@ -3524,8 +3520,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>419</x>
-     <y>311</y>
+     <x>489</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>411</x>
@@ -3540,8 +3536,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>520</x>
-     <y>312</y>
+     <x>682</x>
+     <y>342</y>
     </hint>
     <hint type="destinationlabel">
      <x>511</x>
@@ -3556,8 +3552,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>387</x>
-     <y>368</y>
+     <x>489</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>390</x>
@@ -3572,8 +3568,8 @@ font color: black</string>
    <slot>clear()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>231</x>
-     <y>361</y>
+     <x>233</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>227</x>
@@ -3588,8 +3584,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>544</x>
-     <y>368</y>
+     <x>682</x>
+     <y>398</y>
     </hint>
     <hint type="destinationlabel">
      <x>532</x>
@@ -3604,8 +3600,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>254</y>
+     <x>489</x>
+     <y>286</y>
     </hint>
     <hint type="destinationlabel">
      <x>318</x>
@@ -3620,8 +3616,8 @@ font color: black</string>
    <slot>selectAll()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>672</x>
-     <y>277</y>
+     <x>682</x>
+     <y>286</y>
     </hint>
     <hint type="destinationlabel">
      <x>469</x>

@@ -19,7 +19,7 @@ public:
 private slots:
 
 
-    void on_pushButton_kirjaudu_clicked();
+    /*void on_pushButton_kirjaudu_clicked();
 
    void on_pushButton_1_clicked();
 
@@ -41,7 +41,7 @@ private slots:
 
     void on_pushButton_0_clicked();
 
-    void on_pushButton_kumita_clicked();
+    void on_pushButton_kumita_clicked();*/
 
 private:
     Ui::salasana *ui;

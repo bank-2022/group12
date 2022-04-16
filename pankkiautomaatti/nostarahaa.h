@@ -18,6 +18,8 @@ private slots:
 
     void on_pushButton_takaisin1_clicked();
 
+    void on_pushButton_3_Muusumma_clicked();
+
 private:
     Ui::nostarahaa *ui;
 };

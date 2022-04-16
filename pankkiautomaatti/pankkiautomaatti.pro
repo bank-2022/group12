@@ -13,6 +13,7 @@ SOURCES += \
     browsetransactions.cpp \
     main.cpp \
     mainwindow.cpp \
+    muusumma.cpp \
     nostarahaa.cpp \
     paavalikko.cpp \
     salasana.cpp \
@@ -21,6 +22,7 @@ SOURCES += \
 HEADERS += \
     browsetransactions.h \
     mainwindow.h \
+    muusumma.h \
     nostarahaa.h \
     paavalikko.h \
     salasana.h \
@@ -29,6 +31,7 @@ HEADERS += \
 FORMS += \
     browsetransactions.ui \
     mainwindow.ui \
+    muusumma.ui \
     nostarahaa.ui \
     paavalikko.ui \
     salasana.ui \
@@ -44,3 +47,10 @@ RESOURCES += \
     img.qrc \
     resource.qrc
 
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/release/ -lDLLPinCode
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/debug/ -lDLLPinCode
+else:unix: LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/ -lDLLPinCode
+
+INCLUDEPATH += $$PWD/PinCodeDLL
+DEPENDPATH += $$PWD/PinCodeDLL

@@ -26,7 +26,7 @@ salasana::~salasana()
 
 
 
-void salasana::on_pushButton_kirjaudu_clicked()
+/*void salasana::on_pushButton_kirjaudu_clicked()
 {
     QString PIN = ui->lineEdit_PIN->text();
     if(PIN == "1234"){
@@ -36,11 +36,11 @@ void salasana::on_pushButton_kirjaudu_clicked()
         QMessageBox::warning(this, "kirjaudu","Pin koodi on väärä");
     }
 }
+*/
 
 
 
-
-void salasana::on_pushButton_1_clicked()
+/*void salasana::on_pushButton_1_clicked()
 {
 ui->lineEdit_PIN->setText(ui->lineEdit_PIN->text() + "1");
 
@@ -103,6 +103,6 @@ void salasana::on_pushButton_0_clicked()
 void salasana::on_pushButton_kumita_clicked()
 {
   ui->lineEdit_PIN->clear();
-}
+}*/
 
 
