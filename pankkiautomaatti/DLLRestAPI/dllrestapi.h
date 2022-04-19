@@ -11,9 +11,14 @@ class DLLRESTAPI_EXPORT DLLRestAPI
 public:
     DLLRestAPI();
     ~DLLRestAPI();
-    QString getPin();
+    void interfaceLogin(QString id_card, QString pinCode);
+    engineRestApi *oEngineRestApi;
+
 private:
-    engineRestApi *oGetPinEngine;
+
+
+public slots:
+
 };
 
 #endif // DLLRESTAPI_H

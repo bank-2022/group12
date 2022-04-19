@@ -15,13 +15,15 @@ class engineRestApi : public QObject
 public:
     engineRestApi();
     ~engineRestApi();
-    void getPinEngine (QNetworkReply *reply);
-    QNetworkAccessManager *getManager;
+    void loginEngine(QString id_card, QString pinCode);
+    QNetworkAccessManager *loginManager;
     QNetworkReply *reply;
     QByteArray response_data;
+
 private:
 
 public slots:
+    void loginSlot(QNetworkReply *reply);
 
 };
 

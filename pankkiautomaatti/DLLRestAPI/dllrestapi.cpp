@@ -2,15 +2,17 @@
 
 DLLRestAPI::DLLRestAPI()
 {
-    oGetPinEngine = new engineRestApi;
+    oEngineRestApi = new engineRestApi;
 }
 
 DLLRestAPI::~DLLRestAPI()
 {
-    delete oGetPinEngine;
+    delete oEngineRestApi;
+    oEngineRestApi=nullptr;
 }
 
-QString DLLRestAPI::getPin()
+void DLLRestAPI::interfaceLogin(QString id_card, QString pinCode)
 {
-
+    oEngineRestApi->loginEngine(id_card, pinCode);
 }
+

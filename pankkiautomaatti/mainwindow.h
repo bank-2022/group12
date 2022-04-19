@@ -5,6 +5,7 @@
 #include "salasana.h"
 #include "PinCodeDLL/DLLPinCode/dllpincode.h"
 #include "paavalikko.h"
+#include "DLLRestAPI/dllrestapi.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,15 +20,21 @@ public:
     ~MainWindow();
     void checkPin();
 
+
 private slots:
     void on_pushButton_clicked();
+
+public slots:
+
 
 private:
     Ui::MainWindow *ui;
     //salasana *Pword;
     DLLPinCode *oDllPinCode;
+    DLLRestAPI *oDllRestApi;
     paavalikko *mainMenu;
     QString testipin;
+    QString cardId;
     int attempts=0;
 
 };

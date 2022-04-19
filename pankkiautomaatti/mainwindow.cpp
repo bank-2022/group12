@@ -35,6 +35,9 @@ void MainWindow::checkPin()
     oDllPinCode = new DLLPinCode;
     oDllPinCode->startupPin();
     testipin = oDllPinCode->returnPinCode();
+    cardId="1111";
+    oDllRestApi->interfaceLogin(testipin, cardId);
+
 
 
    if(testipin == "1234"){
@@ -60,9 +63,13 @@ void MainWindow::checkPin()
 
 
 
+
+
 void MainWindow::on_pushButton_clicked()
 {
     checkPin();
 
 }
+
+
 

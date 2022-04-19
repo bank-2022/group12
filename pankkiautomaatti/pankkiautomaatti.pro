@@ -56,3 +56,8 @@ else:unix: LIBS += -L$$PWD/PinCodeDLL/DLLPinCode/build/ -lDLLPinCode
 
 INCLUDEPATH += $$PWD/PinCodeDLL
 DEPENDPATH += $$PWD/PinCodeDLL
+
+win32: LIBS += -L$$PWD/DLLRestAPI/build/debug/ -lDLLRestAPI
+
+INCLUDEPATH += $$PWD/DLLRestAPI
+DEPENDPATH += $$PWD/DLLRestAPI
