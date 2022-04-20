@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>img/paper_texture_beige_179500_800x600.jpg</file>
+    </qresource>
+</RCC>
