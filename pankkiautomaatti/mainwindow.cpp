@@ -9,6 +9,9 @@
 #include <QPushButton>
 #include <QtWidgets/QApplication>
 #include <QMessageBox>
+#include <QtNetwork>
+#include <QNetworkAccessManager>
+#include <QJsonDocument>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
