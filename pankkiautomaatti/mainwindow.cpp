@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     mainMenu = new paavalikko;
-    //Pword = new salasana;
+
+
 }
 
 MainWindow::~MainWindow()
@@ -26,7 +27,9 @@ MainWindow::~MainWindow()
     delete oDllPinCode;
     oDllPinCode=nullptr;
     delete mainMenu;
+
 }
+
 
 void MainWindow::checkPin()
 {
@@ -36,7 +39,7 @@ void MainWindow::checkPin()
     oDllPinCode->startupPin();
     testipin = oDllPinCode->returnPinCode();
     cardId="1111";
-    oDllRestApi->interfaceLogin(testipin, cardId);
+    //oDllRestApi->interfaceLogin(testipin, cardId);
 
 
 

@@ -2,10 +2,10 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <QMessageBox>
-#include "salasana.h"
 #include "PinCodeDLL/DLLPinCode/dllpincode.h"
 #include "paavalikko.h"
 #include "DLLRestAPI/dllrestapi.h"
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -24,12 +24,11 @@ public:
 private slots:
     void on_pushButton_clicked();
 
-public slots:
 
+public slots:
 
 private:
     Ui::MainWindow *ui;
-    //salasana *Pword;
     DLLPinCode *oDllPinCode;
     DLLRestAPI *oDllRestApi;
     paavalikko *mainMenu;

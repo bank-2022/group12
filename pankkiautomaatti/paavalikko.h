@@ -5,6 +5,9 @@
 #include <nostarahaa.h>
 #include <browsetransactions.h>
 #include <QProcess>
+#include <QDebug>
+#include <QTimer>
+#include <QDateTime>
 namespace Ui {
 class paavalikko;
 }
@@ -18,8 +21,15 @@ public:
     ~paavalikko();
     void kello();
 
+public slots:
+    void showtime();
+
+
+
 
 private slots:
+    void timerout();
+
     void on_pushButton_showtotal_clicked();
 
     void on_pushButton_withdraw_clicked();
@@ -35,6 +45,8 @@ private:
     saldo *Psaldo;
     nostarahaa *withdraw;
     browseTransactions *Transactions;
+    QTimer *timer;
+    QTimer *showTime;
 
 
 

@@ -1071,24 +1071,17 @@
      <string>Asiakkaan nimi</string>
     </property>
    </widget>
-   <widget class="QDateTimeEdit" name="dateTimeEdit">
+   <widget class="QLabel" name="label_aika">
     <property name="geometry">
      <rect>
-      <x>530</x>
-      <y>330</y>
-      <width>221</width>
-      <height>51</height>
+      <x>590</x>
+      <y>470</y>
+      <width>131</width>
+      <height>61</height>
      </rect>
     </property>
-    <property name="styleSheet">
-     <string notr="true">background-color: rgb(239, 255, 203);
-    border-style: outset;
-    border-width: 2px;
-    border-radius: 10px;
-    border-color: grey;
-    font: bold 14px;
-    min-width: 10em;
-    padding: 6px;</string>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

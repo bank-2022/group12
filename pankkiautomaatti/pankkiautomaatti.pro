@@ -18,7 +18,6 @@ SOURCES += \
     muusumma.cpp \
     nostarahaa.cpp \
     paavalikko.cpp \
-    salasana.cpp \
     saldo.cpp
 
 HEADERS += \
@@ -27,7 +26,6 @@ HEADERS += \
     muusumma.h \
     nostarahaa.h \
     paavalikko.h \
-    salasana.h \
     saldo.h
 
 FORMS += \
@@ -36,7 +34,6 @@ FORMS += \
     muusumma.ui \
     nostarahaa.ui \
     paavalikko.ui \
-    salasana.ui \
     saldo.ui
 
 # Default rules for deployment.

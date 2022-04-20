@@ -1,5 +1,7 @@
 #include "saldo.h"
 #include "ui_saldo.h"
+#include "paavalikko.h"
+
 
 saldo::saldo(QWidget *parent) :
     QDialog(parent),
@@ -11,15 +13,18 @@ saldo::saldo(QWidget *parent) :
     fiveActions();
 
 }
-
 saldo::~saldo()
 {
     delete ui;
+
 }
 
 void saldo::on_pushButton_takaisin_clicked()
 {
     this->close();
+
+
+
 }
 
 //Asiakkaan tiedot ------------------------------------------------------
@@ -97,7 +102,7 @@ void saldo::fiveActionsSlot(QNetworkReply *reply)
     QString fiveActions;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    fiveActions+=json_obj["date"].toString()+"\r"+json_obj["action"].toString()+"\r"+json_obj["total"].toInt()+"\r";
+    fiveActions+=json_obj["date"].toString()+"\r"+json_obj["action"].toString()+"\r"+QString::number(json_obj["total"].toInt())+"\r";
 
 }
     qDebug() << fiveActions;
