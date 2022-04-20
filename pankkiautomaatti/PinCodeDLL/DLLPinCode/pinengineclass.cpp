@@ -114,8 +114,15 @@ void PinEngineClass::closePinObject()
 
 }
 
-void PinEngineClass::wrongPinCode()
+void PinEngineClass::wrongPinCode(int attempts)
 {
-     QMessageBox::warning(this, "kirjaudu","Pin koodi on väärä");
+    if (attempts == 3){
+        QMessageBox::warning(this, "Kirjaudu","Kortti lukittu, ota yhteyttä järjestelmänvalvojaan");
+    }
+    else{
+    int i = 3-attempts;
+    QString s = QString::number(i);
+     QMessageBox::warning(this, "Kirjaudu","Pin koodi on väärä, " + s + " yritystä jäljellä.");
+    }
 }
 

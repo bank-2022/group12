@@ -34,9 +34,9 @@ QString DLLPinCode::returnPinCode()
     return pinCode;
 }
 
-void DLLPinCode::wrongPin()
+void DLLPinCode::wrongPin(int attempts)
 {
-    oPinEngineClass->wrongPinCode();
+    oPinEngineClass->wrongPinCode(attempts);
 }
 
 

@@ -15,7 +15,7 @@ public:
     void startupPin();
     void closePin();
     QString returnPinCode();
-    void wrongPin();
+    void wrongPin(int attempts);
 
     const QString &getPinCode() const;
     void setPinCode(const QString &newPinCode);

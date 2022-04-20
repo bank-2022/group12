@@ -34,42 +34,43 @@ MainWindow::~MainWindow()
 }
 
 
-void MainWindow::checkPin()
-{
-    int i=0;
-    while (i == 0){
-    oDllPinCode = new DLLPinCode;
-    oDllPinCode->startupPin();
-    testipin = oDllPinCode->returnPinCode();
-    cardId="1111";
-    //oDllRestApi->interfaceLogin(testipin, cardId);
+
+    void MainWindow::checkPin()
+    {
+        int i=0;
+        oDllPinCode = new DLLPinCode;
+        while (i == 0){
+        oDllPinCode->startupPin();
+        testipin = oDllPinCode->returnPinCode();
+        cardId="1111";
+        //oDllRestApi->interfaceLogin(testipin, cardId); //Ei toimi
 
 
+        if(attempts==3 || cardLocked == true){
+            i++;
+             oDllPinCode->wrongPin(3);
+             //oDllRestApi->lockCard();     Ei vielä koodattu
+        }
 
-   if(testipin == "1234"){
-       i++;
-       oDllPinCode->closePin();
-       mainMenu->exec();
+        else if(testipin == "1234"){
+           i++;
+           oDllPinCode->closePin();
+           mainMenu->exec();
 
 
-   }
-   else{
-      attempts++;
-       oDllPinCode->wrongPin();
+       }
+       else{
+          attempts++;
+           oDllPinCode->wrongPin(attempts);
+           if (attempts==3){
+               i++;
+               oDllPinCode->closePin();
 
+           }
 
-       //if (attempts==3){
-       //    lockCard();
-       //    closePin();
-       //}
-  }
+      }
+        }
     }
-}
-
-
-
-
-
 
 void MainWindow::on_pushButton_clicked()
 {

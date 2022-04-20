@@ -23,7 +23,7 @@ public:
     const QString &getPin() const;
     void setPin(const QString &newPin);
     void closePinObject();
-    void wrongPinCode();
+    void wrongPinCode(int attempts);
 
 signals:
     void emitPin(QString);

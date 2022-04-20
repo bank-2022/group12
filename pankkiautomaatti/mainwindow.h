@@ -35,6 +35,7 @@ private:
     QString testipin;
     QString cardId;
     int attempts=0;
+    bool cardLocked=false;
 
 };
 #endif // MAINWINDOW_H
