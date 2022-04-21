@@ -353,11 +353,22 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>470</x>
+     <y>20</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>label</zorder>
   <zorder>pushButton_takaisin</zorder>
   <zorder>lineEdit_balance</zorder>
   <zorder>textEdit_customer</zorder>
   <zorder>textEdit_actions</zorder>
+  <zorder>lcdNumber</zorder>
  </widget>
  <resources>
   <include location="GUI.qrc"/>

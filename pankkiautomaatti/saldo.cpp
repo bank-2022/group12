@@ -1,6 +1,7 @@
 #include "saldo.h"
 #include "ui_saldo.h"
-#include "paavalikko.h"
+
+
 
 
 saldo::saldo(QWidget *parent) :
@@ -8,20 +9,40 @@ saldo::saldo(QWidget *parent) :
     ui(new Ui::saldo)
 {
     ui->setupUi(this);
-    customerData();
-    balance();
-    fiveActions();
+    Timer = new QTimer(this);
+    connect(Timer, SIGNAL(timeout()), this, SLOT(taimerout()));
+    Timer->setInterval(1000);
+    Timer->start(10000);
+    qDebug() << "saldo";
+
+
 
 }
 saldo::~saldo()
 {
     delete ui;
+    delete Timer;
+
 
 }
 
+void saldo::taimerout()
+{
+    this->hide();
+    paavalikko *Pvalikko = new paavalikko;
+    this->~saldo();
+    Pvalikko->show();
+
+}
+
+
 void saldo::on_pushButton_takaisin_clicked()
 {
-    this->close();
+    this->hide();
+    paavalikko *Pvalikko = new paavalikko;
+    this->~saldo();
+    Pvalikko->show();
+
 
 
 

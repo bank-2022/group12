@@ -302,6 +302,16 @@
     <string>Syötä PIN-koodisi</string>
    </property>
   </widget>
+  <widget class="QLCDNumber" name="lcdNumber">
+   <property name="geometry">
+    <rect>
+     <x>630</x>
+     <y>40</y>
+     <width>101</width>
+     <height>61</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
  <resources>
   <include location="DLLimg.qrc"/>

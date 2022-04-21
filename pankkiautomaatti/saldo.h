@@ -8,6 +8,8 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QTimer>
+#include "paavalikko.h"
 
 namespace Ui {
 class saldo;
@@ -23,6 +25,8 @@ public:
 
 
 private slots:
+
+    void taimerout();
     void on_pushButton_takaisin_clicked();
     void customerData();
     void customerDataSlot(QNetworkReply *reply);
@@ -36,6 +40,7 @@ private:
     QNetworkAccessManager *getManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QTimer *Timer;
 
 
 

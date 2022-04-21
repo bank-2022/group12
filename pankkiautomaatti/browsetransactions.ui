@@ -314,13 +314,13 @@
     <enum>Qt::Vertical</enum>
    </property>
   </widget>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>600</x>
      <y>20</y>
      <width>188</width>
-     <height>78</height>
+     <height>79</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -359,6 +359,16 @@
      </widget>
     </item>
    </layout>
+  </widget>
+  <widget class="QLCDNumber" name="lcdNumber_browse">
+   <property name="geometry">
+    <rect>
+     <x>410</x>
+     <y>30</y>
+     <width>101</width>
+     <height>51</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <resources>

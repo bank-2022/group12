@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include <QStyle>
 #include <QMessageBox>
+
 namespace Ui {
 class PinEngineClass;
 }
@@ -58,6 +59,7 @@ private slots:
 private:
     Ui::PinEngineClass *ui;
     QString pin;
+
 };
 
 #endif // PINENGINECLASS_H

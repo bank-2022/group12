@@ -18,7 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    mainMenu = new paavalikko;
+
 
 
 }
@@ -26,7 +26,6 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
-    //delete Pword;
     delete oDllPinCode;
     oDllPinCode=nullptr;
     delete mainMenu;
@@ -55,7 +54,11 @@ MainWindow::~MainWindow()
         else if(testipin == "1234"){
            i++;
            oDllPinCode->closePin();
-           mainMenu->exec();
+           this->hide();
+           oDllPinCode->~DLLPinCode();
+           mainMenu = new paavalikko;
+           mainMenu->show();
+
 
 
        }
@@ -75,6 +78,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     checkPin();
+
 
 }
 

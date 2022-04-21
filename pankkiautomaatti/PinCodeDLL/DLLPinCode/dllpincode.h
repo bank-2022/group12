@@ -20,6 +20,8 @@ public:
     const QString &getPinCode() const;
     void setPinCode(const QString &newPinCode);
 
+private slots:
+
 private:
     PinEngineClass *oPinEngineClass;
     QString pinCode;

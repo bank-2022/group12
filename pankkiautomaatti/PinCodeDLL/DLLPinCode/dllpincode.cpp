@@ -1,5 +1,7 @@
 #include "dllpincode.h"
 
+
+
 DLLPinCode::DLLPinCode()
 {
     qDebug() << "Pincode luotu";
@@ -38,6 +40,7 @@ void DLLPinCode::wrongPin(int attempts)
 {
     oPinEngineClass->wrongPinCode(attempts);
 }
+
 
 
 

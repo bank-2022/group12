@@ -14,6 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
 #include <QtWidgets/QPushButton>
@@ -42,6 +43,7 @@ public:
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
     QLineEdit *lineEdit_Pincode;
+    QLCDNumber *lcdNumber;
 
     void setupUi(QDialog *PinEngineClass)
     {
@@ -233,6 +235,9 @@ public:
 "    padding: 6px;"));
         lineEdit_Pincode->setEchoMode(QLineEdit::Password);
         lineEdit_Pincode->setReadOnly(false);
+        lcdNumber = new QLCDNumber(PinEngineClass);
+        lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
+        lcdNumber->setGeometry(QRect(630, 40, 101, 61));
 
         retranslateUi(PinEngineClass);
         QObject::connect(pushButton_1, SIGNAL(clicked()), lineEdit_Pincode, SLOT(selectAll()));

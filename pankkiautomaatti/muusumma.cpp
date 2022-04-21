@@ -6,11 +6,27 @@ Muusumma::Muusumma(QWidget *parent) :
     ui(new Ui::Muusumma)
 {
     ui->setupUi(this);
+    timer = new QTimer(this);
+    connect(timer, SIGNAL(timeout()), this, SLOT(timerout()));
+    timer->setInterval(1000);
+    timer->start(10000);
+
+
 }
 
 Muusumma::~Muusumma()
 {
     delete ui;
+    delete timer;
+}
+
+void Muusumma::timerout()
+{
+    this->hide();
+    nostarahaa *Withdraw = new nostarahaa;
+    this->~Muusumma();
+    Withdraw->show();
+
 }
 
 void Muusumma::on_pushButton_Ok_clicked()

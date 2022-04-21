@@ -2,6 +2,11 @@
 #define NOSTARAHAA_H
 
 #include <QDialog>
+#include "paavalikko.h"
+#include <QTimer>
+#include <QWidget>
+#include "muusumma.h"
+
 namespace Ui {
 class nostarahaa;
 }
@@ -15,6 +20,7 @@ public:
     ~nostarahaa();
 
 private slots:
+    void taimerout();
 
     void on_pushButton_takaisin1_clicked();
 
@@ -22,6 +28,7 @@ private slots:
 
 private:
     Ui::nostarahaa *ui;
+    QTimer *Timer;
 };
 
 #endif // NOSTARAHAA_H

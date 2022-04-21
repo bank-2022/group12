@@ -19,7 +19,6 @@ class paavalikko : public QDialog
 public:
     explicit paavalikko(QWidget *parent = nullptr);
     ~paavalikko();
-    void kello();
 
 public slots:
     void showtime();
@@ -27,7 +26,11 @@ public slots:
 
 
 
+
 private slots:
+
+    void LCDshow();
+
     void timerout();
 
     void on_pushButton_showtotal_clicked();
@@ -40,13 +43,13 @@ private slots:
 
     //void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
 
-private:
+private:  
     Ui::paavalikko *ui;
-    saldo *Psaldo;
-    nostarahaa *withdraw;
-    browseTransactions *Transactions;
     QTimer *timer;
     QTimer *showTime;
+    QTimer *LCDtimer;
+    int time;
+
 
 
 
