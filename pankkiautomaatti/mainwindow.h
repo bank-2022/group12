@@ -33,6 +33,7 @@ private:
     DLLRestAPI *oDllRestApi;
     paavalikko *mainMenu;
     QString testipin;
+    QString loggedIn;
     QString cardId;
     int attempts=0;
     bool cardLocked=false;
