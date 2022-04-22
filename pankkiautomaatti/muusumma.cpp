@@ -7,9 +7,11 @@ Muusumma::Muusumma(QWidget *parent) :
 {
     ui->setupUi(this);
     timer = new QTimer(this);
-    connect(timer, SIGNAL(timeout()), this, SLOT(timerout()));
-    timer->setInterval(1000);
-    timer->start(10000);
+    LCDtimer = new QTimer(this);
+    connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
+    LCDtimer->start();
+    time=11;
+    LCDshow();
 
 
 }
@@ -18,14 +20,19 @@ Muusumma::~Muusumma()
 {
     delete ui;
     delete timer;
+    delete LCDtimer;
 }
 
-void Muusumma::timerout()
+void Muusumma::LCDshow()
 {
-    this->hide();
-    nostarahaa *Withdraw = new nostarahaa;
+    time--;
+    LCDtimer->setInterval(1000);
+    ui->lcdNumber_muusumma->display(time);
+    if (time==0) {
+    nostarahaa *Nrahaa = new nostarahaa;
     this->~Muusumma();
-    Withdraw->show();
+    Nrahaa->show();
+}
 
 }
 

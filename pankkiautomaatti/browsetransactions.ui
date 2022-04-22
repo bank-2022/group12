@@ -363,10 +363,10 @@
   <widget class="QLCDNumber" name="lcdNumber_browse">
    <property name="geometry">
     <rect>
-     <x>410</x>
-     <y>30</y>
-     <width>101</width>
-     <height>51</height>
+     <x>490</x>
+     <y>20</y>
+     <width>81</width>
+     <height>41</height>
     </rect>
    </property>
   </widget>

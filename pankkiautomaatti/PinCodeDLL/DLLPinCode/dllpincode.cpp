@@ -7,6 +7,7 @@ DLLPinCode::DLLPinCode()
     qDebug() << "Pincode luotu";
     oPinEngineClass = new PinEngineClass(this);
 
+
 }
 
 DLLPinCode::~DLLPinCode()
@@ -40,8 +41,6 @@ void DLLPinCode::wrongPin(int attempts)
 {
     oPinEngineClass->wrongPinCode(attempts);
 }
-
-
 
 
 

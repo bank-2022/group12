@@ -302,15 +302,56 @@
     <string>Syötä PIN-koodisi</string>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
-     <x>630</x>
-     <y>40</y>
-     <width>101</width>
+     <x>180</x>
+     <y>10</y>
+     <width>401</width>
      <height>61</height>
     </rect>
    </property>
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <widget class="QLabel" name="label_3">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>Yhteys katkeaa</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLCDNumber" name="lcdNumber_pin"/>
+    </item>
+    <item>
+     <widget class="QLabel" name="label_4">
+      <property name="font">
+       <font>
+        <pointsize>-1</pointsize>
+        <weight>75</weight>
+        <italic>false</italic>
+        <bold>true</bold>
+       </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: bold 14px;</string>
+      </property>
+      <property name="text">
+       <string>sekunnin kuluttua</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
   </widget>
  </widget>
  <resources>

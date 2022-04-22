@@ -17,7 +17,6 @@ public:
 
 private slots:
     void LCDshow();
-    //void taimerout();
     void on_pushButton_takaisin_transactions_clicked();
 
 private:

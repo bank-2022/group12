@@ -14,6 +14,7 @@
 #include <QtWidgets/QDialog>
 #include <QtWidgets/QGridLayout>
 #include <QtWidgets/QGroupBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QLCDNumber>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
@@ -43,7 +44,11 @@ public:
     QPushButton *pushButton_8;
     QPushButton *pushButton_9;
     QLineEdit *lineEdit_Pincode;
-    QLCDNumber *lcdNumber;
+    QWidget *widget;
+    QHBoxLayout *horizontalLayout;
+    QLabel *label_3;
+    QLCDNumber *lcdNumber_pin;
+    QLabel *label_4;
 
     void setupUi(QDialog *PinEngineClass)
     {
@@ -235,9 +240,35 @@ public:
 "    padding: 6px;"));
         lineEdit_Pincode->setEchoMode(QLineEdit::Password);
         lineEdit_Pincode->setReadOnly(false);
-        lcdNumber = new QLCDNumber(PinEngineClass);
-        lcdNumber->setObjectName(QString::fromUtf8("lcdNumber"));
-        lcdNumber->setGeometry(QRect(630, 40, 101, 61));
+        widget = new QWidget(PinEngineClass);
+        widget->setObjectName(QString::fromUtf8("widget"));
+        widget->setGeometry(QRect(180, 10, 401, 61));
+        horizontalLayout = new QHBoxLayout(widget);
+        horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
+        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+        label_3 = new QLabel(widget);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        QFont font;
+        font.setBold(true);
+        font.setItalic(false);
+        font.setWeight(75);
+        label_3->setFont(font);
+        label_3->setStyleSheet(QString::fromUtf8("font: bold 14px;"));
+
+        horizontalLayout->addWidget(label_3);
+
+        lcdNumber_pin = new QLCDNumber(widget);
+        lcdNumber_pin->setObjectName(QString::fromUtf8("lcdNumber_pin"));
+
+        horizontalLayout->addWidget(lcdNumber_pin);
+
+        label_4 = new QLabel(widget);
+        label_4->setObjectName(QString::fromUtf8("label_4"));
+        label_4->setFont(font);
+        label_4->setStyleSheet(QString::fromUtf8("font: bold 14px;"));
+
+        horizontalLayout->addWidget(label_4);
+
 
         retranslateUi(PinEngineClass);
         QObject::connect(pushButton_1, SIGNAL(clicked()), lineEdit_Pincode, SLOT(selectAll()));
@@ -275,6 +306,8 @@ public:
         pushButton_8->setText(QCoreApplication::translate("PinEngineClass", "8", nullptr));
         pushButton_9->setText(QCoreApplication::translate("PinEngineClass", "9", nullptr));
         lineEdit_Pincode->setPlaceholderText(QCoreApplication::translate("PinEngineClass", "Sy\303\266t\303\244 PIN-koodisi", nullptr));
+        label_3->setText(QCoreApplication::translate("PinEngineClass", "Yhteys katkeaa", nullptr));
+        label_4->setText(QCoreApplication::translate("PinEngineClass", "sekunnin kuluttua", nullptr));
     } // retranslateUi
 
 };

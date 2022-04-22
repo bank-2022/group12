@@ -5,6 +5,7 @@
 #include <QDebug>
 #include <QString>
 #include <QWidget>
+#include <QTimer>
 
 class DLLPINCODE_EXPORT DLLPinCode : public QWidget
 
@@ -25,6 +26,8 @@ private slots:
 private:
     PinEngineClass *oPinEngineClass;
     QString pinCode;
+
+
 
 
 

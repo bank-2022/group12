@@ -18,6 +18,7 @@ browseTransactions::~browseTransactions()
 {
     delete ui;
     delete Timer;
+    delete LCDtimer;
 }
 
 void browseTransactions::LCDshow()

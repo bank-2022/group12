@@ -7,24 +7,34 @@ nostarahaa::nostarahaa(QWidget *parent) :
 {
     ui->setupUi(this);
     Timer = new QTimer(this);
-    connect(Timer, SIGNAL(timeout()), this, SLOT(taimerout()));
-    Timer->setInterval(1000);
-    Timer->start(10000);
+    LCDtimer = new QTimer(this);
+    connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
+    LCDtimer->start();
+    time=11;
+    LCDshow();
+
+
 
 }
 
 nostarahaa::~nostarahaa()
 {
     delete ui;
+    delete LCDtimer;
+    delete Timer;
 }
 
-void nostarahaa::taimerout()
+void nostarahaa::LCDshow()
 {
-    this->hide();
+    time--;
+    LCDtimer->setInterval(1000);
+    ui->lcdNumber_nostarahaa->display(time);
+    if (time==0) {
     paavalikko *Pvalikko = new paavalikko;
     this->~nostarahaa();
     Pvalikko->show();
 }
+ }
 
 
 

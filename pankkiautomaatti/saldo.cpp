@@ -10,11 +10,11 @@ saldo::saldo(QWidget *parent) :
 {
     ui->setupUi(this);
     Timer = new QTimer(this);
-    connect(Timer, SIGNAL(timeout()), this, SLOT(taimerout()));
-    Timer->setInterval(1000);
-    Timer->start(10000);
-    qDebug() << "saldo";
-
+    LCDtimer = new QTimer(this);
+    connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
+    LCDtimer->start();
+    time=11;
+    LCDshow();
 
 
 }
@@ -22,19 +22,22 @@ saldo::~saldo()
 {
     delete ui;
     delete Timer;
+    delete LCDtimer;
 
 
 }
 
-void saldo::taimerout()
+void saldo::LCDshow()
 {
-    this->hide();
-    paavalikko *Pvalikko = new paavalikko;
+    time--;
+    LCDtimer->setInterval(1000);
+    ui->lcdNumber_saldo->display(time);
+    if (time==0) {
+    paavalikko *Pvalikko = new paavalikko;;
     this->~saldo();
     Pvalikko->show();
-
 }
-
+}
 
 void saldo::on_pushButton_takaisin_clicked()
 {

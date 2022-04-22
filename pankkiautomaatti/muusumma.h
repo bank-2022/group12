@@ -20,7 +20,8 @@ public:
     ~Muusumma();
 
 private slots:
-    void timerout();
+    void LCDshow();
+
     void on_pushButton_Ok_clicked();
 
     void on_pushButton_1_clicked();
@@ -46,6 +47,8 @@ private slots:
 private:
     Ui::Muusumma *ui;
     QTimer *timer;
+    QTimer *LCDtimer;
+    int time;
 };
 
 #endif // MUUSUMMA_H

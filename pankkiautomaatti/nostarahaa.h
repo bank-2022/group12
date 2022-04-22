@@ -20,7 +20,7 @@ public:
     ~nostarahaa();
 
 private slots:
-    void taimerout();
+    void LCDshow();
 
     void on_pushButton_takaisin1_clicked();
 
@@ -29,6 +29,8 @@ private slots:
 private:
     Ui::nostarahaa *ui;
     QTimer *Timer;
+    QTimer *LCDtimer;
+    int time;
 };
 
 #endif // NOSTARAHAA_H

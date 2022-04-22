@@ -2310,6 +2310,16 @@ p, li { white-space: pre-wrap; }
      <string>Omistajan tiedot</string>
     </property>
    </widget>
+   <widget class="QLCDNumber" name="lcdNumber_nostarahaa">
+    <property name="geometry">
+     <rect>
+      <x>460</x>
+      <y>10</y>
+      <width>81</width>
+      <height>31</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QLabel" name="label">
    <property name="geometry">

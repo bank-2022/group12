@@ -26,7 +26,7 @@ public:
 
 private slots:
 
-    void taimerout();
+    void LCDshow();
     void on_pushButton_takaisin_clicked();
     void customerData();
     void customerDataSlot(QNetworkReply *reply);
@@ -41,6 +41,8 @@ private:
     QNetworkReply *reply;
     QByteArray response_data;
     QTimer *Timer;
+    int time;
+    QTimer *LCDtimer;
 
 
 

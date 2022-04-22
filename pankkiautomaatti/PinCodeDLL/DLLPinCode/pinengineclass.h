@@ -8,6 +8,7 @@
 #include <QPushButton>
 #include <QStyle>
 #include <QMessageBox>
+#include <QProcess>
 
 namespace Ui {
 class PinEngineClass;
@@ -31,6 +32,7 @@ signals:
 
 private slots:
 
+    void LCDshow();
 
     void on_pushButton_1_clicked();
 
@@ -59,6 +61,8 @@ private slots:
 private:
     Ui::PinEngineClass *ui;
     QString pin;
+    QTimer *LCDtimer;
+    int time;
 
 };
 

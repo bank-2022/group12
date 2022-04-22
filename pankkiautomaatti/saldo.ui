@@ -353,7 +353,7 @@ p, li { white-space: pre-wrap; }
     <bool>true</bool>
    </property>
   </widget>
-  <widget class="QLCDNumber" name="lcdNumber">
+  <widget class="QLCDNumber" name="lcdNumber_saldo">
    <property name="geometry">
     <rect>
      <x>470</x>
@@ -368,7 +368,7 @@ p, li { white-space: pre-wrap; }
   <zorder>lineEdit_balance</zorder>
   <zorder>textEdit_customer</zorder>
   <zorder>textEdit_actions</zorder>
-  <zorder>lcdNumber</zorder>
+  <zorder>lcdNumber_saldo</zorder>
  </widget>
  <resources>
   <include location="GUI.qrc"/>
