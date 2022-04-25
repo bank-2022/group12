@@ -43,7 +43,7 @@ MainWindow::~MainWindow()
         oDllPinCode->startupPin();
         testipin = oDllPinCode->returnPinCode();
         cardId="1111";
-        //oDllRestApi->interfaceLogin(testipin, cardId); //Ei toimi
+//        oDllRestApi->interfaceLogin(testipin, cardId);
 
 
         if(attempts==3 || cardLocked == true){

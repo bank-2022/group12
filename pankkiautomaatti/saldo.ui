@@ -299,6 +299,9 @@
    <property name="text">
     <string/>
    </property>
+   <property name="readOnly">
+    <bool>true</bool>
+   </property>
   </widget>
   <widget class="QTextEdit" name="textEdit_customer">
    <property name="geometry">

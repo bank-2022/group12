@@ -4,20 +4,33 @@
 
 #include "DLLRestAPI_global.h"
 #include "enginerestapi.h"
+#include <QObject>
 
-
-class DLLRESTAPI_EXPORT DLLRestAPI
+class DLLRESTAPI_EXPORT DLLRestAPI : public QObject
 {
+    Q_OBJECT
 public:
-    DLLRestAPI();
+    DLLRestAPI(QObject * parent = nullptr);
     ~DLLRestAPI();
     void interfaceLogin(QString id_card, QString pinCode);
     engineRestApi *oEngineRestApi;
+    void interfaceCustomerData(QString id_account);
+    void interfaceBalance(QString id_card);
+    void interfaceFiveActions(QString id_account);
+    QString returnLogin();
+    QString returnBalance();
+    QString loggedIn;
+    QString balanceGot;
+
 
 private:
-
+    QByteArray a;
 
 public slots:
+    void recieveBalance(QString);
+
+signals:
+    void sendToExe(QString);
 
 };
 

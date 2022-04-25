@@ -27,7 +27,7 @@ public:
 private slots:
     void on_pushButton_takaisin_clicked();
     void balance();
-    void recieveData(QString);
+    void recieveData(QByteArrayData);
 //    QString recieveData();
 //    void customerData();
 //    void customerDataSlot(QNetworkReply *reply);
@@ -39,7 +39,7 @@ private slots:
 private:
     Ui::saldo *ui;
     DLLRestAPI *oDLLRestAPI;
-    QString a;
+    QString raha;
 //    QNetworkAccessManager *getManager;
 //    QNetworkReply *reply;
 //    QByteArray response_data;

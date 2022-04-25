@@ -1,6 +1,7 @@
 #include "saldo.h"
 #include "ui_saldo.h"
-#include "paavalikko.h"
+#include "paavalikko.h" 
+
 
 
 saldo::saldo(QWidget *parent) :
@@ -8,9 +9,12 @@ saldo::saldo(QWidget *parent) :
     ui(new Ui::saldo)
 {
     ui->setupUi(this);
-//    customerData();
-//    balance();
-//    fiveActions();
+    oDLLRestAPI = new DLLRestAPI;
+    oDLLRestAPI->interfaceBalance("1111");
+//    engineRestApi *eRestApi = new engineRestApi;
+
+    connect(oDLLRestAPI, SIGNAL(sendToExe(QString)), this, SLOT(recieveData(QString)));
+
 
 }
 saldo::~saldo()
@@ -22,9 +26,19 @@ saldo::~saldo()
 void saldo::on_pushButton_takaisin_clicked()
 {
     this->close();
+}
 
+void saldo::balance()
+{
 
+//    eRestApi->balance("1111");
 
+}
+
+void saldo::recieveData(QString a)
+{
+    qDebug() << "Saldo" + a;
+    ui->lineEdit_balance->setText(a);
 }
 
 ////Asiakkaan tiedot ------------------------------------------------------

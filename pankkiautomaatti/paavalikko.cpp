@@ -7,7 +7,7 @@ paavalikko::paavalikko(QWidget *parent) :
     ui(new Ui::paavalikko)
 {
     ui->setupUi(this);
-    Psaldo = new saldo;
+
     withdraw = new nostarahaa;
     Transactions = new browseTransactions;
     timer = new QTimer(this);
@@ -48,7 +48,7 @@ void paavalikko::timerout()
 
 void paavalikko::on_pushButton_showtotal_clicked()
 {
-
+Psaldo = new saldo;
 this->hide();
 Psaldo->exec();
 this->~paavalikko();
