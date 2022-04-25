@@ -3,6 +3,7 @@
 #include <QString>
 #include <QtSerialPort/QSerialPort>
 
+
 class EngineClass : public QObject
 {
     Q_OBJECT
@@ -16,7 +17,7 @@ public slots:
     void handleSignal();
 
 signals:
-   handle(QString ID);
+   void handle(QString ID);
 };
 
 #endif // ENGINECLASS_H

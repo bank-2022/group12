@@ -7,7 +7,7 @@
 
 class DLLSERIALPORT_EXPORT DLLSerialPort : public QObject
 {
-    Q_OBJECT
+Q_OBJECT
 public:
     DLLSerialPort();
     ~DLLSerialPort();
@@ -18,7 +18,7 @@ public slots:
     void recieveSignal(QString ID);
 
 signals:
-    passID(QString ID);
+    void passID(QString ID);
 
 };
 

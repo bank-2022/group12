@@ -5,3 +5,4 @@ api/.env
 pankkiautomaatti/build/
 
 pankkiautomaatti/*.user
+*.user
