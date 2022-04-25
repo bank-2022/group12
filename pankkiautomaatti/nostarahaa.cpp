@@ -57,3 +57,78 @@ Msumma->show();
 
 
 
+
+void nostarahaa::on_pushButton_withdraw20_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+
+
+}
+
+
+void nostarahaa::on_pushButton_withdraw40_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+
+
+void nostarahaa::on_pushButton_withdraw60_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+
+
+void nostarahaa::on_pushButton_withdraw80_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+
+
+void nostarahaa::on_pushButton_withdraw100_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+
+
+
+
+
+void nostarahaa::on_pushButton_200_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+
+
+void nostarahaa::on_pushButton_500_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+
+
+    LCDtimer->start();
+}
+

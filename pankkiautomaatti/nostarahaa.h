@@ -26,6 +26,24 @@ private slots:
 
     void on_pushButton_3_Muusumma_clicked();
 
+    void on_pushButton_withdraw20_clicked();
+
+    void on_pushButton_withdraw40_clicked();
+
+    void on_pushButton_withdraw60_clicked();
+
+    void on_pushButton_withdraw80_clicked();
+
+    void on_pushButton_withdraw100_clicked();
+
+    void on_pushButton_2_clicked();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_200_clicked();
+
+    void on_pushButton_500_clicked();
+
 private:
     Ui::nostarahaa *ui;
     QTimer *Timer;

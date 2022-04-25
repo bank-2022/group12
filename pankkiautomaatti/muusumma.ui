@@ -3069,5 +3069,198 @@ font color: black</string>
   <include location="GUI.qrc"/>
   <include location="GUI.qrc"/>
  </resources>
- <connections/>
+ <connections>
+  <connection>
+   <sender>pushButton_1</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>238</x>
+     <y>172</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>243</x>
+     <y>128</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_2</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>377</x>
+     <y>171</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_3</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>531</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>534</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_9</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>574</x>
+     <y>246</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>569</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_Ok</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>639</x>
+     <y>291</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>626</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_6</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>675</x>
+     <y>206</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>667</x>
+     <y>125</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_5</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>467</x>
+     <y>212</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>470</x>
+     <y>120</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_8</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>417</x>
+     <y>259</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>400</x>
+     <y>129</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_0</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>430</x>
+     <y>296</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>431</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_4</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>295</x>
+     <y>213</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>290</x>
+     <y>130</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_7</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>selectAll()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>220</x>
+     <y>258</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>220</x>
+     <y>132</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>pushButton_kumita</sender>
+   <signal>clicked()</signal>
+   <receiver>lineEdit_Muusumma</receiver>
+   <slot>clear()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>186</x>
+     <y>293</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>179</x>
+     <y>126</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
 </ui>

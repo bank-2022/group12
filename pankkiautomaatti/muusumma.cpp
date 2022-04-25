@@ -45,60 +45,99 @@ void Muusumma::on_pushButton_Ok_clicked()
 
 void Muusumma::on_pushButton_1_clicked()
 {
+ LCDtimer->stop();
+ time=11;
  ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "1");
+ LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_2_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "2");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_3_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "3");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_4_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "4");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_5_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "5");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_6_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "6");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_7_clicked()
 {
+    LCDtimer->stop();
+    time=11;
    ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "7");
+   LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_8_clicked()
 {
+
+    LCDtimer->stop();
+    time=11;
    ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "8");
+   LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_9_clicked()
 {
+    LCDtimer->stop();
+    time=11;
     ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "9");
+    LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_0_clicked()
 {
+    LCDtimer->stop();
+    time=11;
  ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "0");
+ LCDtimer->start();
+}
+
+
+void Muusumma::on_pushButton_kumita_clicked()
+{
+    LCDtimer->stop();
+    time=11;
+    LCDtimer->start();
 }
 

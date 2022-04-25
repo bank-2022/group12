@@ -766,7 +766,7 @@
       </widget>
      </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="pushButton_2">
+      <widget class="QPushButton" name="pushButton_200">
        <property name="palette">
         <palette>
          <active>
@@ -1009,7 +1009,7 @@
       </widget>
      </item>
      <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="pushButton_500">
        <property name="palette">
         <palette>
          <active>

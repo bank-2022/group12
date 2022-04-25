@@ -44,6 +44,8 @@ private slots:
 
     void on_pushButton_0_clicked();
 
+    void on_pushButton_kumita_clicked();
+
 private:
     Ui::Muusumma *ui;
     QTimer *timer;
