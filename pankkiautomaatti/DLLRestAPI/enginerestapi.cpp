@@ -24,7 +24,7 @@ void engineRestApi::loginEngine(QString id_card, QString pinCode)
 
     loginManager = new QNetworkAccessManager(this);
 
-    connect(loginManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
+    connect(loginManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(loginSlot(QNetworkReply*)));
 
     reply = loginManager->post(request, QJsonDocument(jsonObj).toJson());
 }
@@ -32,10 +32,22 @@ void engineRestApi::loginEngine(QString id_card, QString pinCode)
 void engineRestApi::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    //qDebug() << response_data;
-    QString loginFirst=response_data;
-    this->setLogin(loginFirst);
+
+    qDebug() << response_data << "dll";
+    QString loginFirst = QString(response_data);
+    //QString loginFirst=response_data;
+    emit loginData(loginFirst);
 }
+
+//const QString &engineRestApi::getLogin() const
+//{
+//    return login;
+//}
+
+//void engineRestApi::setLogin(const QString &newLogin)
+//{
+//    login = newLogin;
+//}
 
 //Asiakkaan tiedot ------------------------------------------------------
 
@@ -46,16 +58,6 @@ void engineRestApi::customerData(QString id_account)
     getManager = new QNetworkAccessManager(this);
     connect(getManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(customerDataSlot(QNetworkReply*)));
     reply = getManager->get(request);
-}
-
-const QString &engineRestApi::getLogin() const
-{
-    return login;
-}
-
-void engineRestApi::setLogin(const QString &newLogin)
-{
-    login = newLogin;
 }
 
 void engineRestApi::customerDataSlot(QNetworkReply *reply)

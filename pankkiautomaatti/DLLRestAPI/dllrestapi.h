@@ -6,10 +6,12 @@
 #include "enginerestapi.h"
 
 
-class DLLRESTAPI_EXPORT DLLRestAPI
+class DLLRESTAPI_EXPORT DLLRestAPI : public QObject
 {
+    Q_OBJECT
+
 public:
-    DLLRestAPI();
+    DLLRestAPI(QObject * parent = nullptr);
     ~DLLRestAPI();
     void interfaceLogin(QString id_card, QString pinCode);
     engineRestApi *oEngineRestApi;
@@ -20,9 +22,14 @@ public:
     QString loggedIn;
 
 private:
+    QByteArray l;
 
 
 public slots:
+    void receiveLogin(QString);
+
+signals:
+    void sendToExeLogin(QString);
 
 };
 

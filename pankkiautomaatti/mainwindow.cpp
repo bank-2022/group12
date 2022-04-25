@@ -14,12 +14,20 @@
 #include <QJsonDocument>
 #include <QThread>
 
+#include <memory>
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , loggedIn("true")
+    , attempts(0)
+    , i(0)
 {
     ui->setupUi(this);
     mainMenu = new paavalikko;
+    oDllPinCode = new DLLPinCode;
+    oDllRestApi = new DLLRestAPI;
+    connect(oDllRestApi, SIGNAL(sendToExeLogin(QString)), this, SLOT(receiveDataLogin(QString)));
 
 
 }
@@ -28,8 +36,6 @@ MainWindow::~MainWindow()
 {
     delete ui;
     //delete Pword;
-    delete oDllPinCode;
-    oDllPinCode=nullptr;
     delete mainMenu;
     mainMenu=nullptr;
     delete oDllRestApi;
@@ -41,52 +47,58 @@ MainWindow::~MainWindow()
 
     void MainWindow::checkPin()
     {
-        int i=0;
-        attempts=0;
-        oDllPinCode = new DLLPinCode;
-        oDllRestApi = new DLLRestAPI;
-        while (i == 0){
-        oDllPinCode->startupPin();
-        testipin = oDllPinCode->returnPinCode();
-        cardId="1111";
-        oDllRestApi->interfaceLogin(cardId, testipin);
-        QThread::msleep(1000);
-        loggedIn=oDllRestApi->returnLogin();
-
-        qDebug() << loggedIn;
-
-
-        if(attempts==3 /*|| cardLocked == true*/){
-            i++;
-             oDllPinCode->wrongPin(3);
-             //oDllRestApi->lockCard();     Ei vielä koodattu
-        }
-
-        else if(loggedIn == "true"){
-           i++;
-           oDllPinCode->closePin();
-           mainMenu->exec();
-
-
-       }
-       else{
-          attempts++;
-           oDllPinCode->wrongPin(attempts);
-           if (attempts==3){
-               i++;
-               oDllPinCode->closePin();
-
-           }
-
-      }
-        }
+            oDllPinCode->startupPin();
+            pin = oDllPinCode->returnPinCode();
+            cardId="1111";
+            oDllRestApi->interfaceLogin(cardId, pin);
     }
 
 void MainWindow::on_pushButton_clicked()
 {
     checkPin();
-
 }
+
+
+void MainWindow::receiveDataLogin(QString l)
+{
+    loggedIn = l;
+    qDebug() << loggedIn << "Receivedata";
+    this->tryToLogin();
+}
+
+void MainWindow::tryToLogin()
+{
+    if(attempts==3 /*|| cardLocked == true*/){
+        i++;
+         oDllPinCode->wrongPin(3);
+         //oDllRestApi->lockCard();     Ei vielä koodattu
+         oDllPinCode->closePin();
+         delete oDllPinCode;
+         oDllPinCode = nullptr;
+    }
+
+    if(loggedIn == "true"){
+       i++;
+       oDllPinCode->closePin();
+       delete oDllPinCode;
+       oDllPinCode = nullptr;
+       mainMenu->exec();
+   }
+   else{
+      attempts++;
+       oDllPinCode->wrongPin(attempts);
+       if (attempts==3){
+           i++;
+           oDllPinCode->closePin();
+           delete oDllPinCode;
+           oDllPinCode = nullptr;
+       }
+       else
+       {this->checkPin();}
+}
+}
+
+
 
 
 

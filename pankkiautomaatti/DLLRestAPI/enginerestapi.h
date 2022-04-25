@@ -30,6 +30,7 @@ public:
     const QString &getLogin() const;
     void setLogin(const QString &newLogin);
 
+
 private:
 
 public slots:
@@ -37,6 +38,9 @@ public slots:
     void fiveActionsSlot(QNetworkReply *reply);
     void balanceSlot(QNetworkReply *reply);
     void customerDataSlot(QNetworkReply *reply);
+
+signals:
+    void loginData(QString);
 
 };
 

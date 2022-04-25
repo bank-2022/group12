@@ -1,8 +1,9 @@
 #include "dllrestapi.h"
 
-DLLRestAPI::DLLRestAPI()
+DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
 {
     oEngineRestApi = new engineRestApi;
+    connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
 }
 
 DLLRestAPI::~DLLRestAPI()
@@ -14,7 +15,7 @@ DLLRestAPI::~DLLRestAPI()
 void DLLRestAPI::interfaceLogin(QString id_card, QString pinCode)
 {
     oEngineRestApi->loginEngine(id_card, pinCode);
-    loggedIn=oEngineRestApi->getLogin();
+//    loggedIn=oEngineRestApi->getLogin();
 }
 
 void DLLRestAPI::interfaceCustomerData(QString id_account)
@@ -32,8 +33,15 @@ void DLLRestAPI::interfaceFiveActions(QString id_account)
     oEngineRestApi->fiveActions(id_account);
 }
 
-QString DLLRestAPI::returnLogin()
+//QString DLLRestAPI::returnLogin()
+//{
+//    return loggedIn;
+//}
+
+void DLLRestAPI::receiveLogin(QString l)
 {
-    return loggedIn;
+    qDebug() << l << "sendtoexe";
+    emit sendToExeLogin(l);
+
 }
 

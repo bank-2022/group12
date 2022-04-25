@@ -2,14 +2,12 @@
 
 DLLPinCode::DLLPinCode()
 {
-    qDebug() << "Pincode luotu";
     oPinEngineClass = new PinEngineClass(this);
 
 }
 
 DLLPinCode::~DLLPinCode()
 {
-    qDebug() << "Pincode tuhottu";
     delete oPinEngineClass;
     oPinEngineClass = nullptr;
 
@@ -25,8 +23,8 @@ void DLLPinCode::startupPin()
 void DLLPinCode::closePin()
 {
     oPinEngineClass->closePinObject();
-    this->close();
-    qDebug() << "closepin";
+    //this->close();
+
 }
 
 QString DLLPinCode::returnPinCode()
