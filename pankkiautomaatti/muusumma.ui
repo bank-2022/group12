@@ -3051,10 +3051,10 @@ font color: black</string>
   <widget class="QLCDNumber" name="lcdNumber_muusumma">
    <property name="geometry">
     <rect>
-     <x>690</x>
+     <x>673</x>
      <y>20</y>
-     <width>64</width>
-     <height>41</height>
+     <width>81</width>
+     <height>51</height>
     </rect>
    </property>
   </widget>

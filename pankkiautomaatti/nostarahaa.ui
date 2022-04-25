@@ -2313,10 +2313,10 @@ p, li { white-space: pre-wrap; }
    <widget class="QLCDNumber" name="lcdNumber_nostarahaa">
     <property name="geometry">
      <rect>
-      <x>460</x>
+      <x>440</x>
       <y>10</y>
-      <width>81</width>
-      <height>31</height>
+      <width>101</width>
+      <height>51</height>
      </rect>
     </property>
    </widget>
