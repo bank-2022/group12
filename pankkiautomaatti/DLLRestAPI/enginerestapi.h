@@ -8,6 +8,7 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QString>
 
 class engineRestApi : public QObject
 {

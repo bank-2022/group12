@@ -19,7 +19,6 @@
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
-    , loggedIn("true")
     , attempts(0)
     , i(0)
 {
@@ -52,6 +51,8 @@ MainWindow::~MainWindow()
             pin = oDllPinCode->returnPinCode();
             cardId="1111";
             oDllRestApi->interfaceLogin(cardId, pin);
+            oDllRestApi->interfaceIsCardLocked(cardId);
+            qDebug() << cardLocked << "testin jälkeen";
     }
 
 void MainWindow::on_pushButton_clicked()
@@ -75,9 +76,8 @@ void MainWindow::receiveDataLockStatus(QString lock)
 
 void MainWindow::tryToLogin()
 {
-    oDllRestApi->interfaceIsCardLocked(cardId);
 
-    if(attempts==3 || cardLocked == "true"){
+    if(attempts==3 || cardLocked == "1"){
         i++;
          oDllPinCode->wrongPin(3);
          oDllRestApi->interfaceLockCard(cardId);
@@ -98,6 +98,7 @@ void MainWindow::tryToLogin()
        oDllPinCode->wrongPin(attempts);
        if (attempts==3){
            i++;
+           oDllRestApi->interfaceLockCard(cardId);
            oDllPinCode->closePin();
            delete oDllPinCode;
            oDllPinCode = nullptr;

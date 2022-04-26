@@ -121,7 +121,7 @@ void engineRestApi::fiveActionsSlot(QNetworkReply *reply)
     getManager->deleteLater();
 }
 
-void engineRestApi::lockCard(QString id_card)   //TÄMÄ PITÄÄ MUOKATA UPDATE MUOTOON
+void engineRestApi::lockCard(QString id_card)
 {
     QJsonObject jsonObj;
     jsonObj.insert("locked","1");
@@ -160,10 +160,12 @@ void engineRestApi::isCardLockedSlot(QNetworkReply *reply)
     QString lockStatus;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    lockStatus+=json_obj["locked"].toString()+"\r";
+    lockStatus+=QString::number(json_obj["locked"].toInt());
 
 }
-    qDebug() << lockStatus << "isCardLockedSlot";
+    QString cardLocked = QString(lockStatus);
+    qDebug() << cardLocked << "isCardLockedSlot";
+    emit cardLockedData(cardLocked);
     reply->deleteLater();
     getManager->deleteLater();
 }
