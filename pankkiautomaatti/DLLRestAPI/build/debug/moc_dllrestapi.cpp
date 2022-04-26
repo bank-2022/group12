@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DLLRestAPI_t {
-    QByteArrayData data[4];
-    char stringdata0[40];
+    QByteArrayData data[6];
+    char stringdata0[78];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -35,10 +35,14 @@ static const qt_meta_stringdata_DLLRestAPI_t qt_meta_stringdata_DLLRestAPI = {
 QT_MOC_LITERAL(0, 0, 10), // "DLLRestAPI"
 QT_MOC_LITERAL(1, 11, 14), // "sendToExeLogin"
 QT_MOC_LITERAL(2, 26, 0), // ""
-QT_MOC_LITERAL(3, 27, 12) // "receiveLogin"
+QT_MOC_LITERAL(3, 27, 19), // "sendToExeLockStatus"
+QT_MOC_LITERAL(4, 47, 12), // "receiveLogin"
+QT_MOC_LITERAL(5, 60, 17) // "receiveLockStatus"
 
     },
-    "DLLRestAPI\0sendToExeLogin\0\0receiveLogin"
+    "DLLRestAPI\0sendToExeLogin\0\0"
+    "sendToExeLockStatus\0receiveLogin\0"
+    "receiveLockStatus"
 };
 #undef QT_MOC_LITERAL
 
@@ -48,23 +52,27 @@ static const uint qt_meta_data_DLLRestAPI[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-       2,   14, // methods
+       4,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       1,       // signalCount
+       2,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   24,    2, 0x06 /* Public */,
+       1,    1,   34,    2, 0x06 /* Public */,
+       3,    1,   37,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       3,    1,   27,    2, 0x0a /* Public */,
+       4,    1,   40,    2, 0x0a /* Public */,
+       5,    1,   43,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
 
        0        // eod
@@ -77,7 +85,9 @@ void DLLRestAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->sendToExeLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 1: _t->receiveLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 1: _t->sendToExeLockStatus((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 2: _t->receiveLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 3: _t->receiveLockStatus((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -86,6 +96,13 @@ void DLLRestAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
             using _t = void (DLLRestAPI::*)(QString );
             if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DLLRestAPI::sendToExeLogin)) {
                 *result = 0;
+                return;
+            }
+        }
+        {
+            using _t = void (DLLRestAPI::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DLLRestAPI::sendToExeLockStatus)) {
+                *result = 1;
                 return;
             }
         }
@@ -121,13 +138,13 @@ int DLLRestAPI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 2)
+        if (_id < 4)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 2;
+        _id -= 4;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 2)
+        if (_id < 4)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 2;
+        _id -= 4;
     }
     return _id;
 }
@@ -137,6 +154,13 @@ void DLLRestAPI::sendToExeLogin(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 0, _a);
+}
+
+// SIGNAL 1
+void DLLRestAPI::sendToExeLockStatus(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 1, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

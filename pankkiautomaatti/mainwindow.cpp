@@ -28,6 +28,7 @@ MainWindow::MainWindow(QWidget *parent)
     oDllPinCode = new DLLPinCode;
     oDllRestApi = new DLLRestAPI;
     connect(oDllRestApi, SIGNAL(sendToExeLogin(QString)), this, SLOT(receiveDataLogin(QString)));
+    connect(oDllRestApi, SIGNAL(sendToExeLockStatus(QString)), this, SLOT(receiveDataLockStatus(QString)));
 
 
 }
@@ -66,12 +67,20 @@ void MainWindow::receiveDataLogin(QString l)
     this->tryToLogin();
 }
 
+void MainWindow::receiveDataLockStatus(QString lock)
+{
+    cardLocked = lock;
+    qDebug() << cardLocked << "Receivecarddata";
+}
+
 void MainWindow::tryToLogin()
 {
-    if(attempts==3 /*|| cardLocked == true*/){
+    oDllRestApi->interfaceIsCardLocked(cardId);
+
+    if(attempts==3 || cardLocked == "true"){
         i++;
          oDllPinCode->wrongPin(3);
-         //oDllRestApi->lockCard();     Ei vielä koodattu
+         oDllRestApi->interfaceLockCard(cardId);
          oDllPinCode->closePin();
          delete oDllPinCode;
          oDllPinCode = nullptr;

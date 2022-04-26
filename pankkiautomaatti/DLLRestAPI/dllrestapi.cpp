@@ -4,6 +4,7 @@ DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
 {
     oEngineRestApi = new engineRestApi;
     connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
+    connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
 }
 
 DLLRestAPI::~DLLRestAPI()
@@ -15,7 +16,6 @@ DLLRestAPI::~DLLRestAPI()
 void DLLRestAPI::interfaceLogin(QString id_card, QString pinCode)
 {
     oEngineRestApi->loginEngine(id_card, pinCode);
-//    loggedIn=oEngineRestApi->getLogin();
 }
 
 void DLLRestAPI::interfaceCustomerData(QString id_account)
@@ -33,15 +33,27 @@ void DLLRestAPI::interfaceFiveActions(QString id_account)
     oEngineRestApi->fiveActions(id_account);
 }
 
-//QString DLLRestAPI::returnLogin()
-//{
-//    return loggedIn;
-//}
+void DLLRestAPI::interfaceLockCard(QString id_card)
+{
+    oEngineRestApi->lockCard(id_card);
+}
+
+void DLLRestAPI::interfaceIsCardLocked(QString id_card)
+{
+    oEngineRestApi->isCardLocked(id_card);
+}
+
 
 void DLLRestAPI::receiveLogin(QString l)
 {
     qDebug() << l << "sendtoexe";
     emit sendToExeLogin(l);
 
+}
+
+void DLLRestAPI::receiveLockStatus(QString lock)
+{
+    qDebug() << lock << "Sendtoexe";
+    emit sendToExeLockStatus(lock);
 }
 

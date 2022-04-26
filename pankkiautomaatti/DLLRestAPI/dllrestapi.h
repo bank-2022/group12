@@ -18,18 +18,21 @@ public:
     void interfaceCustomerData(QString id_account);
     void interfaceBalance(QString id_card);
     void interfaceFiveActions(QString id_account);
-    QString returnLogin();
-    QString loggedIn;
+    void interfaceLockCard(QString id_card);
+    void interfaceIsCardLocked(QString id_card);
 
 private:
     QByteArray l;
+    QByteArray lock;
 
 
 public slots:
     void receiveLogin(QString);
+    void receiveLockStatus(QString);
 
 signals:
     void sendToExeLogin(QString);
+    void sendToExeLockStatus(QString);
 
 };
 

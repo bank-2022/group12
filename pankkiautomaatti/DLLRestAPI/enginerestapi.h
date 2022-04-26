@@ -25,11 +25,8 @@ public:
     void balance(QString id_card);
     void customerData(QString id_account);
     QString login;
-
-
-    const QString &getLogin() const;
-    void setLogin(const QString &newLogin);
-
+    void lockCard(QString id_card);
+    void isCardLocked(QString id_card);
 
 private:
 
@@ -38,9 +35,13 @@ public slots:
     void fiveActionsSlot(QNetworkReply *reply);
     void balanceSlot(QNetworkReply *reply);
     void customerDataSlot(QNetworkReply *reply);
+    void lockCardSlot(QNetworkReply *reply);
+    void isCardLockedSlot(QNetworkReply *reply);
+
 
 signals:
     void loginData(QString);
+    void cardLockedData(QString);
 
 };
 

@@ -35,19 +35,9 @@ void engineRestApi::loginSlot(QNetworkReply *reply)
 
     qDebug() << response_data << "dll";
     QString loginFirst = QString(response_data);
-    //QString loginFirst=response_data;
     emit loginData(loginFirst);
 }
 
-//const QString &engineRestApi::getLogin() const
-//{
-//    return login;
-//}
-
-//void engineRestApi::setLogin(const QString &newLogin)
-//{
-//    login = newLogin;
-//}
 
 //Asiakkaan tiedot ------------------------------------------------------
 
@@ -127,6 +117,53 @@ void engineRestApi::fiveActionsSlot(QNetworkReply *reply)
 
 }
     qDebug() << fiveActions;
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+
+void engineRestApi::lockCard(QString id_card)   //TÄMÄ PITÄÄ MUOKATA UPDATE MUOTOON
+{
+    QJsonObject jsonObj;
+    jsonObj.insert("locked","1");
+
+    QString site_url="http://localhost:3000/locked/"+ id_card;  //Onko oikein?
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(lockCardSlot(QNetworkReply*)));
+    reply = getManager->put(request, QJsonDocument(jsonObj).toJson());
+}
+
+void engineRestApi::lockCardSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    qDebug() << response_data;
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+
+void engineRestApi::isCardLocked(QString id_card)
+{
+    QString site_url="http://localhost:3000/locked/"+ id_card;  //Onko oikein?
+    QNetworkRequest request((site_url));
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(isCardLockedSlot(QNetworkReply*)));
+    reply = getManager->get(request);
+}
+
+void engineRestApi::isCardLockedSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString lockStatus;
+    foreach (const QJsonValue &value, json_array) {
+    QJsonObject json_obj = value.toObject();
+    lockStatus+=json_obj["locked"].toString()+"\r";
+
+}
+    qDebug() << lockStatus << "isCardLockedSlot";
     reply->deleteLater();
     getManager->deleteLater();
 }

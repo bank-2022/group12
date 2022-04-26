@@ -25,6 +25,7 @@ private slots:
 
 public slots:
     void receiveDataLogin(QString l);
+    void receiveDataLockStatus(QString lock);
 
 private:
     Ui::MainWindow *ui;
@@ -35,7 +36,7 @@ private:
     QString loggedIn;
     QString cardId;
     int attempts;
-    bool cardLocked;
+    QString cardLocked;
     int i;
     void tryToLogin();
 
