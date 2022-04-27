@@ -196,7 +196,6 @@ void engineRestApi::actionsSlot(QNetworkReply *reply)
 
     emit responseDataFromActions(actions);
 }
-    qDebug() << actions;
     reply->deleteLater();
     getManager->deleteLater();
 }

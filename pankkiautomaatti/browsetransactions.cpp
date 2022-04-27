@@ -22,7 +22,7 @@ browseTransactions::browseTransactions(QWidget *parent) :
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
-    connect(oDLLRestAPI, SIGNAL(sendActionsToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendActionsToExe(QString)), this, SLOT(receiveDataFromActions(QString)));
 }
 
 browseTransactions::~browseTransactions()

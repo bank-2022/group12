@@ -8,6 +8,7 @@ DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
     connect(oEngineRestApi, SIGNAL(responseDataFromBalance(QString)), this, SLOT(receiveBalance(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromCustomer(QString)), this, SLOT(receiveCustomer(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromFiveActions(QString)), this, SLOT(receiveFiveActions(QString)));
+    connect(oEngineRestApi, SIGNAL(responseDataFromActions(QString)), this, SLOT(receiveActions(QString)));
 
     connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
     connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
