@@ -58,3 +58,8 @@ win32: LIBS += -L$$PWD/DLLRestAPI/build/debug/ -lDLLRestAPI
 
 INCLUDEPATH += $$PWD/DLLRestAPI
 DEPENDPATH += $$PWD/DLLRestAPI
+
+win32: LIBS += -L$$PWD/serialportdll/build/debug/ -lDLLSerialPort
+
+INCLUDEPATH += $$PWD/serialportdll
+DEPENDPATH += $$PWD/serialportdll

@@ -2,6 +2,8 @@
 #define ENGINECLASS_H
 #include <QString>
 #include <QtSerialPort/QSerialPort>
+#include <QDebug>
+
 
 class EngineClass : public QObject
 {
@@ -11,12 +13,13 @@ public:
 
 private:
     QSerialPort *serial;
+    QSerialPortInfo *info;
 
 public slots:
     void handleSignal();
 
 signals:
-   handle(QString ID);
+   void handle(QString ID);
 };
 
 #endif // ENGINECLASS_H

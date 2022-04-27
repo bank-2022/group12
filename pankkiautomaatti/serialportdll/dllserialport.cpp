@@ -3,17 +3,16 @@
 DLLSerialPort::DLLSerialPort()
 {
     pEngineClass = new EngineClass;
-    QObject::connect(pEngineClass, SIGNAL(handled(QString)), this, SLOT(recieveSignal(QString)));
+    QObject::connect(pEngineClass, SIGNAL(handle(QString)), this, SLOT(recieveSignal(QString)));
 }
 
 DLLSerialPort::~DLLSerialPort()
 {
     delete pEngineClass;
-    pEngineClass = nullptr;
 }
 
 void DLLSerialPort::recieveSignal(QString ID)
 {
+    qDebug() << "DLL: "<< ID;
      emit passID(ID);
 }
-

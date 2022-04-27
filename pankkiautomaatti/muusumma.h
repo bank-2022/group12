@@ -5,6 +5,9 @@
 #include <QLabel>
 #include <QLineEdit>
 #include <QString>
+#include <QTimer>
+#include "nostarahaa.h"
+
 namespace Ui {
 class Muusumma;
 }
@@ -18,30 +21,25 @@ public:
     ~Muusumma();
 
 private slots:
+    void LCDshow();
     void on_pushButton_Ok_clicked();
-
     void on_pushButton_1_clicked();
-
     void on_pushButton_2_clicked();
-
     void on_pushButton_3_clicked();
-
     void on_pushButton_4_clicked();
-
     void on_pushButton_5_clicked();
-
     void on_pushButton_6_clicked();
-
     void on_pushButton_7_clicked();
-
     void on_pushButton_8_clicked();
-
     void on_pushButton_9_clicked();
-
     void on_pushButton_0_clicked();
+    void on_pushButton_kumita_clicked();
 
 private:
     Ui::Muusumma *ui;
+    QTimer *timer;
+    QTimer *LCDtimer;
+    int time;
 };
 
 #endif // MUUSUMMA_H

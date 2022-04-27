@@ -1,13 +1,14 @@
 #ifndef PAAVALIKKO_H
 #define PAAVALIKKO_H
-#include "saldo.h"
+
 #include <QDialog>
-#include <nostarahaa.h>
-#include <browsetransactions.h>
 #include <QProcess>
 #include <QDebug>
 #include <QTimer>
 #include <QDateTime>
+
+#include "DLLRestAPI/dllrestapi.h"
+#include "DLLRestAPI/enginerestapi.h"
 namespace Ui {
 class paavalikko;
 }
@@ -19,37 +20,27 @@ class paavalikko : public QDialog
 public:
     explicit paavalikko(QWidget *parent = nullptr);
     ~paavalikko();
-    void kello();
 
 public slots:
     void showtime();
-
-
-
+    void LCDshow();
 
 private slots:
     void timerout();
-
     void on_pushButton_showtotal_clicked();
-
     void on_pushButton_withdraw_clicked();
-
     void on_pushButton_logout_clicked();
-
     void on_pushButton_actions_clicked();
-
-    //void on_dateTimeEdit_dateTimeChanged(const QDateTime &dateTime);
+    void receiveDataFromCustomer(QString);
 
 private:
     Ui::paavalikko *ui;
-    saldo *Psaldo;
-    nostarahaa *withdraw;
-    browseTransactions *Transactions;
+    DLLRestAPI *oDLLRestAPI;
     QTimer *timer;
     QTimer *showTime;
-
-
-
+    QTimer *LCDtimer;
+    int time;
+    QString b;
 };
 
 #endif // PAAVALIKKO_H
