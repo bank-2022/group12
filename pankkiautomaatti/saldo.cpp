@@ -1,126 +1,69 @@
 #include "saldo.h"
 #include "ui_saldo.h"
-#include "paavalikko.h" 
-
-
+#include "paavalikko.h"
 
 saldo::saldo(QWidget *parent) :
     QDialog(parent),
     ui(new Ui::saldo)
 {
     ui->setupUi(this);
+
+    Timer = new QTimer(this);
+    LCDtimer = new QTimer(this);
+    connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
+    LCDtimer->start();
+    time=11;
+
     oDLLRestAPI = new DLLRestAPI;
     oDLLRestAPI->interfaceBalance("1111");
-//    engineRestApi *eRestApi = new engineRestApi;
+    oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceFiveActions("1");
 
-    connect(oDLLRestAPI, SIGNAL(sendToExe(QString)), this, SLOT(recieveData(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendFiveActionsToExe(QString)), this, SLOT(receiveDataFromFiveActions(QString)));
 
 
 }
 saldo::~saldo()
 {
     delete ui;
+    delete Timer;
+    delete LCDtimer;
+}
 
+void saldo::LCDshow()
+{
+    time--;
+    LCDtimer->setInterval(1000);
+    ui->lcdNumber_saldo->display(time);
+    if (time==0) {
+        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+}
 }
 
 void saldo::on_pushButton_takaisin_clicked()
 {
-    this->close();
+    this->hide();
+    paavalikko *Pvalikko = new paavalikko();
+    this->~saldo();
+    Pvalikko->show();
 }
 
-void saldo::balance()
+void saldo::receiveDataFromBalance(QString a)
 {
-
-//    eRestApi->balance("1111");
-
-}
-
-void saldo::recieveData(QString a)
-{
-    qDebug() << "Saldo" + a;
+    qDebug() << "Saldo: " + a;
     ui->lineEdit_balance->setText(a);
 }
 
-////Asiakkaan tiedot ------------------------------------------------------
+void saldo::receiveDataFromCustomer(QString b)
+{
+    qDebug() << "Asiakas: " + b;
+    ui->textEdit_customer->setText(b);
+}
 
-//void saldo::customerData()
-//{
-//    QString site_url="http://localhost:3000/customer/2";
-//    QNetworkRequest request((site_url));
-//    getManager = new QNetworkAccessManager(this);
-//    connect(getManager, SIGNAL(finished (QNetworkReply*)), this, SLOT(customerDataSlot(QNetworkReply*)));
-//    reply = getManager->get(request);
-//}
-
-//void saldo::customerDataSlot(QNetworkReply *reply)
-//{
-//    response_data=reply->readAll();
-//    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-//    QJsonArray json_array = json_doc.array();
-//    QString customer;
-//    foreach (const QJsonValue &value, json_array) {
-//    QJsonObject json_obj = value.toObject();
-//    customer+=(json_obj["name"].toString())+"\n"+json_obj["adress"].toString()+"\n" + json_obj["phone_number"].toString()+"\r";
-
-//}
-//    ui->textEdit_customer->setText(customer);
-//    reply->deleteLater();
-//    getManager->deleteLater();
-//}
-
-////Asiakkaan saldo ------------------------------------------------------
-
-
-//void saldo::balance()
-//{
-//    QString site_url="http://localhost:3000/balance/"+id_card;
-//    QNetworkRequest request((site_url));
-//    getManager = new QNetworkAccessManager(this);
-//    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(balanceSlot(QNetworkReply*)));
-//    reply = getManager->get(request);
-//}
-
-//void saldo::balanceSlot(QNetworkReply *reply)
-//{
-//    response_data=reply->readAll();
-//    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-//    QJsonArray json_array = json_doc.array();
-//    QString balance;
-//    foreach (const QJsonValue &value, json_array) {
-//    QJsonObject json_obj = value.toObject();
-//    balance+=QString::number(json_obj["balance"].toInt())+"€ \r";
-
-//}
-//    qDebug() << balance;
-//    ui->lineEdit_balance->setText(balance);
-//    reply->deleteLater();
-//    getManager->deleteLater();
-//}
-
-////Asiakkaan tilitapahtumat ------------------------------------------------------
-
-//void saldo::fiveActions()
-//{
-//    QString site_url="http://localhost:3000/getfive/2";
-//    QNetworkRequest request((site_url));
-//    getManager = new QNetworkAccessManager(this);
-//    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(fiveActionsSlot(QNetworkReply*)));
-//    reply = getManager->get(request);
-//}
-
-//void saldo::fiveActionsSlot(QNetworkReply *reply)
-//{
-//    response_data=reply->readAll();
-//    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
-//    QJsonArray json_array = json_doc.array();
-//    QString fiveActions;
-//    foreach (const QJsonValue &value, json_array) {
-//    QJsonObject json_obj = value.toObject();
-//    fiveActions+=json_obj["date"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
-
-//}
-//    qDebug() << fiveActions;
-//    ui->textEdit_actions->setText(fiveActions);
-//    reply->deleteLater();
-//    getManager->deleteLater();
-//}
+void saldo::receiveDataFromFiveActions(QString c)
+{
+    qDebug() << "Tapahtumat: " + c;
+    ui->textEdit_actions->setText(c);
+}

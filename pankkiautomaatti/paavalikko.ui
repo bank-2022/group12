@@ -1048,13 +1048,41 @@
      <string>Kirjaudu ulos</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLabel" name="label_aika">
     <property name="geometry">
      <rect>
-      <x>505</x>
+      <x>530</x>
+      <y>450</y>
+      <width>191</width>
+      <height>81</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>15</pointsize>
+     </font>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLCDNumber" name="lcdNumber">
+    <property name="geometry">
+     <rect>
+      <x>300</x>
+      <y>10</y>
+      <width>111</width>
+      <height>51</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QTextEdit" name="textEdit">
+    <property name="geometry">
+     <rect>
+      <x>560</x>
       <y>30</y>
-      <width>251</width>
-      <height>71</height>
+      <width>186</width>
+      <height>91</height>
      </rect>
     </property>
     <property name="styleSheet">
@@ -1067,21 +1095,14 @@
     min-width: 10em;
     padding: 6px;</string>
     </property>
-    <property name="text">
-     <string>Asiakkaan nimi</string>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
-   </widget>
-   <widget class="QLabel" name="label_aika">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>470</y>
-      <width>131</width>
-      <height>61</height>
-     </rect>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
     </property>
-    <property name="text">
-     <string/>
+    <property name="readOnly">
+     <bool>true</bool>
     </property>
    </widget>
   </widget>

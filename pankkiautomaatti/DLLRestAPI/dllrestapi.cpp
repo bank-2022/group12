@@ -4,7 +4,13 @@
 DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
 {
     oEngineRestApi = new engineRestApi;
-    connect(oEngineRestApi, SIGNAL(responseData(QString)), this, SLOT(recieveBalance(QString)));
+
+    connect(oEngineRestApi, SIGNAL(responseDataFromBalance(QString)), this, SLOT(receiveBalance(QString)));
+    connect(oEngineRestApi, SIGNAL(responseDataFromCustomer(QString)), this, SLOT(receiveCustomer(QString)));
+    connect(oEngineRestApi, SIGNAL(responseDataFromFiveActions(QString)), this, SLOT(receiveFiveActions(QString)));
+
+    connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
+    connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
 }
 
 DLLRestAPI::~DLLRestAPI()
@@ -16,7 +22,6 @@ DLLRestAPI::~DLLRestAPI()
 void DLLRestAPI::interfaceLogin(QString id_card, QString pinCode)
 {
     oEngineRestApi->loginEngine(id_card, pinCode);
-    loggedIn=oEngineRestApi->getLogin();
 }
 
 void DLLRestAPI::interfaceCustomerData(QString id_account)
@@ -27,27 +32,48 @@ void DLLRestAPI::interfaceCustomerData(QString id_account)
 void DLLRestAPI::interfaceBalance(QString id_card)
 {
     oEngineRestApi->balance(id_card);
-    balanceGot=oEngineRestApi->getGetBalance();
 }
 
 void DLLRestAPI::interfaceFiveActions(QString id_account)
 {
-//    oEngineRestApi->fiveActions(id_account);
+    oEngineRestApi->fiveActions(id_account);
 }
 
-QString DLLRestAPI::returnLogin()
+void DLLRestAPI::interfaceLockCard(QString id_card)
 {
-    return loggedIn;
+    oEngineRestApi->lockCard(id_card);
 }
 
-QString DLLRestAPI::returnBalance()
+void DLLRestAPI::interfaceIsCardLocked(QString id_card)
 {
-    return balanceGot;
-    qDebug()<< "balanceGot:" + balanceGot;
+    oEngineRestApi->isCardLocked(id_card);
 }
 
-void DLLRestAPI::recieveBalance(QString a)
+void DLLRestAPI::receiveLogin(QString l)
 {
-    emit sendToExe(a);
+    qDebug() << l << "sendtoexe";
+    emit sendToExeLogin(l);
+
+}
+
+void DLLRestAPI::receiveLockStatus(QString lock)
+{
+    qDebug() << lock << "Sendtoexe";
+    emit sendToExeLockStatus(lock);
+}
+
+void DLLRestAPI::receiveBalance(QString a)
+{
+    emit sendBalanceToExe(a);
+}
+
+void DLLRestAPI::receiveCustomer(QString b)
+{
+    emit sendCustomerToExe(b);
+}
+
+void DLLRestAPI::receiveFiveActions(QString c)
+{
+    emit sendFiveActionsToExe(c);
 }
 

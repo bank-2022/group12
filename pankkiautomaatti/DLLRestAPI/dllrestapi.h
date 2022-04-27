@@ -17,21 +17,29 @@ public:
     void interfaceCustomerData(QString id_account);
     void interfaceBalance(QString id_card);
     void interfaceFiveActions(QString id_account);
-    QString returnLogin();
-    QString returnBalance();
-    QString loggedIn;
-    QString balanceGot;
-
+    void interfaceLockCard(QString id_card);
+    void interfaceIsCardLocked(QString id_card);
 
 private:
-    QByteArray a;
+    QString a;
+    QString b;
+    QString c;
+    QByteArray l;
+    QByteArray lock;
 
 public slots:
-    void recieveBalance(QString);
+    void receiveBalance(QString);
+    void receiveCustomer(QString);
+    void receiveFiveActions(QString);
+    void receiveLogin(QString);
+    void receiveLockStatus(QString);
 
 signals:
-    void sendToExe(QString);
-
+    void sendBalanceToExe(QString);
+    void sendCustomerToExe(QString);
+    void sendFiveActionsToExe(QString);
+    void sendToExeLogin(QString);
+    void sendToExeLockStatus(QString);
 };
 
 #endif // DLLRESTAPI_H
