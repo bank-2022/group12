@@ -39,6 +39,11 @@ void DLLRestAPI::interfaceFiveActions(QString id_account)
     oEngineRestApi->fiveActions(id_account);
 }
 
+void DLLRestAPI::interfaceActions(QString id_account)
+{
+    oEngineRestApi->actions(id_account);
+}
+
 void DLLRestAPI::interfaceLockCard(QString id_card)
 {
     oEngineRestApi->lockCard(id_card);
@@ -75,5 +80,10 @@ void DLLRestAPI::receiveCustomer(QString b)
 void DLLRestAPI::receiveFiveActions(QString c)
 {
     emit sendFiveActionsToExe(c);
+}
+
+void DLLRestAPI::receiveActions(QString d)
+{
+    emit sendActionsToExe(d);
 }
 

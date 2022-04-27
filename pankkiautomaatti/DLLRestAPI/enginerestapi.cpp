@@ -32,7 +32,6 @@ void engineRestApi::loginEngine(QString id_card, QString pinCode)
 void engineRestApi::loginSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    qDebug() << response_data << "dll";
     QString loginFirst = QString(response_data);
     emit loginData(loginFirst);
 }
@@ -56,7 +55,6 @@ void engineRestApi::lockCard(QString id_card)
 void engineRestApi::lockCardSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
-    qDebug() << response_data;
     reply->deleteLater();
     getManager->deleteLater();
 }
@@ -84,7 +82,6 @@ void engineRestApi::isCardLockedSlot(QNetworkReply *reply)
 
 }
     QString cardLocked = QString(lockStatus);
-    qDebug() << cardLocked << "isCardLockedSlot";
     emit cardLockedData(cardLocked);
     reply->deleteLater();
     getManager->deleteLater();
@@ -114,8 +111,6 @@ void engineRestApi::customerDataSlot(QNetworkReply *reply)
 
     emit responseDataFromCustomer(customer);
 }
-    qDebug() << customer;
-
     reply->deleteLater();
     getManager->deleteLater();
 }
@@ -145,14 +140,13 @@ void engineRestApi::balanceSlot(QNetworkReply *reply)
     emit responseDataFromBalance(balance);
 
 }
-    qDebug() << balance;
     reply->deleteLater();
     getManager->deleteLater();
 }
 
 
 
-//Asiakkaan tilitapahtumat ------------------------------------------------------
+//Asiakkaan viisi viimeistä tilitapahtumaa ------------------------------------------------------
 
 void engineRestApi::fiveActions(QString id_account)
 {
@@ -175,7 +169,34 @@ void engineRestApi::fiveActionsSlot(QNetworkReply *reply)
 
     emit responseDataFromFiveActions(fiveActions);
 }
-    qDebug() << fiveActions;
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+
+//Asiakkaan tilitapahtumat ------------------------------------------------------
+
+void engineRestApi::actions(QString id_account)
+{
+    QString site_url="http://localhost:3000/actions/"+id_account;
+    QNetworkRequest request((site_url));
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(actionsSlot(QNetworkReply*)));
+    reply = getManager->get(request);
+}
+
+void engineRestApi::actionsSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString actions;
+    foreach (const QJsonValue &value, json_array) {
+    QJsonObject json_obj = value.toObject();
+    actions+=json_obj["date"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
+
+    emit responseDataFromActions(actions);
+}
+    qDebug() << actions;
     reply->deleteLater();
     getManager->deleteLater();
 }

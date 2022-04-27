@@ -24,12 +24,14 @@ private slots:
     void on_pushButton_takaisin_transactions_clicked();
     void receiveDataFromBalance(QString);
     void receiveDataFromCustomer(QString);
+    void receiveDataFromActions(QString);
 
 private:
     Ui::browseTransactions *ui;
     DLLRestAPI *oDLLRestAPI;
     QString a;
     QString b;
+    QString d;
     QTimer *LCDtimer;
     int time;
     QTimer *Timer;
