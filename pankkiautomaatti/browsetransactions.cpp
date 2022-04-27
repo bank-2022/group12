@@ -18,9 +18,11 @@ browseTransactions::browseTransactions(QWidget *parent) :
     oDLLRestAPI = new DLLRestAPI;
     oDLLRestAPI->interfaceBalance("1111");
     oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceActions("1");
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendActionsToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
 }
 
 browseTransactions::~browseTransactions()
@@ -60,5 +62,11 @@ void browseTransactions::receiveDataFromCustomer(QString b)
 {
     qDebug() << "Asiakas: " + b;
     ui->textEdit->setText(b);
+}
+
+void browseTransactions::receiveDataFromActions(QString d)
+{
+    qDebug() << "Tapahtumat: " + d;
+    ui->textEdit_2->setText(d);
 }
 

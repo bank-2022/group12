@@ -4,7 +4,8 @@ const actions = {
   getById: function(id, callback) {
     return db.query(`SELECT date, action, total FROM actions
     INNER JOIN account ON account.id_account=actions.id_account 
-    WHERE account.id_account=?`, [id], callback);
+    WHERE account.id_account=?
+    ORDER BY date DESC`, [id], callback);
   },
   getAll: function(callback) {
     return db.query('select * from actions', callback);

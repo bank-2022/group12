@@ -17,6 +17,7 @@ public:
     void interfaceCustomerData(QString id_account);
     void interfaceBalance(QString id_card);
     void interfaceFiveActions(QString id_account);
+    void interfaceActions(QString id_account);
     void interfaceLockCard(QString id_card);
     void interfaceIsCardLocked(QString id_card);
 
@@ -24,6 +25,7 @@ private:
     QString a;
     QString b;
     QString c;
+    QString d;
     QByteArray l;
     QByteArray lock;
 
@@ -31,6 +33,7 @@ public slots:
     void receiveBalance(QString);
     void receiveCustomer(QString);
     void receiveFiveActions(QString);
+    void receiveActions(QString);
     void receiveLogin(QString);
     void receiveLockStatus(QString);
 
@@ -38,6 +41,7 @@ signals:
     void sendBalanceToExe(QString);
     void sendCustomerToExe(QString);
     void sendFiveActionsToExe(QString);
+    void sendActionsToExe(QString);
     void sendToExeLogin(QString);
     void sendToExeLockStatus(QString);
 };
