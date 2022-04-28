@@ -21,11 +21,13 @@ public:
     QNetworkAccessManager *getManager;
     QNetworkReply *reply;
     QByteArray response_data;
+    QString login;
+
     void actions(QString id_account);
     void fiveActions(QString id_account);
     void balance(QString id_card);
-    void customerData(QString id_account);
-    QString login;
+    void updateBalance(QString id_card, QString newBalance);
+    void customerData(QString id_account);    
     void lockCard(QString id_card);
     void isCardLocked(QString id_card);
 
@@ -36,6 +38,7 @@ public slots:
     void actionsSlot(QNetworkReply *reply);
     void fiveActionsSlot(QNetworkReply *reply);
     void balanceSlot(QNetworkReply *reply);
+    void updateBalanceSlot(QNetworkReply *reply);
     void customerDataSlot(QNetworkReply *reply);
     void lockCardSlot(QNetworkReply *reply);
     void isCardLockedSlot(QNetworkReply *reply);

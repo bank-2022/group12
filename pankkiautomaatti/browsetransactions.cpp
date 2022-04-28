@@ -54,19 +54,16 @@ void browseTransactions::on_pushButton_takaisin_transactions_clicked()
 
 void browseTransactions::receiveDataFromBalance(QString a)
 {
-    qDebug() << "Saldo: " + a;
     ui->lineEdit_2->setText(a);
 }
 
 void browseTransactions::receiveDataFromCustomer(QString b)
 {
-    qDebug() << "Asiakas: " + b;
     ui->textEdit->setText(b);
 }
 
 void browseTransactions::receiveDataFromActions(QString d)
 {
-    qDebug() << "Tapahtumat: " + d;
     ui->textEdit_2->setText(d);
 }
 

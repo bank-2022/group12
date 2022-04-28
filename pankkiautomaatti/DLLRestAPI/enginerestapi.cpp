@@ -43,7 +43,7 @@ void engineRestApi::lockCard(QString id_card)
     QJsonObject jsonObj;
     jsonObj.insert("locked","1");
 
-    QString site_url="http://localhost:3000/locked/"+ id_card;  //Onko oikein?
+    QString site_url="http://localhost:3000/locked/"+ id_card;
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
@@ -63,7 +63,7 @@ void engineRestApi::lockCardSlot(QNetworkReply *reply)
 
 void engineRestApi::isCardLocked(QString id_card)
 {
-    QString site_url="http://localhost:3000/locked/"+ id_card;  //Onko oikein?
+    QString site_url="http://localhost:3000/locked/"+ id_card;
     QNetworkRequest request((site_url));
     getManager = new QNetworkAccessManager(this);
     connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(isCardLockedSlot(QNetworkReply*)));
@@ -135,7 +135,7 @@ void engineRestApi::balanceSlot(QNetworkReply *reply)
     QString balance;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    balance+=QString::number(json_obj["balance"].toInt())+" €";
+    balance+=QString::number(json_obj["balance"].toInt());
 
     emit responseDataFromBalance(balance);
 
@@ -165,7 +165,7 @@ void engineRestApi::fiveActionsSlot(QNetworkReply *reply)
     QString fiveActions;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    fiveActions+=json_obj["date"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
+    fiveActions+=json_obj["date1"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
 
     emit responseDataFromFiveActions(fiveActions);
 }
@@ -196,6 +196,29 @@ void engineRestApi::actionsSlot(QNetworkReply *reply)
 
     emit responseDataFromActions(actions);
 }
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+
+//Saldon päivitys ------------------------------------------------------
+
+void engineRestApi::updateBalance(QString id_account, QString newBalance)
+{
+    QJsonObject jsonObj;
+    jsonObj.insert("balance",newBalance);
+
+    QString site_url="http://localhost:3000/balance/"+ id_account;
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(updateBalanceSlot(QNetworkReply*)));
+    reply = getManager->put(request, QJsonDocument(jsonObj).toJson());
+}
+
+void engineRestApi::updateBalanceSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
     reply->deleteLater();
     getManager->deleteLater();
 }

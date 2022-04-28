@@ -35,6 +35,11 @@ void DLLRestAPI::interfaceBalance(QString id_card)
     oEngineRestApi->balance(id_card);
 }
 
+void DLLRestAPI::interfaceUpdateBalance(QString id_account, QString newBalance)
+{
+    oEngineRestApi->updateBalance(id_account,newBalance);
+}
+
 void DLLRestAPI::interfaceFiveActions(QString id_account)
 {
     oEngineRestApi->fiveActions(id_account);
@@ -57,14 +62,11 @@ void DLLRestAPI::interfaceIsCardLocked(QString id_card)
 
 void DLLRestAPI::receiveLogin(QString l)
 {
-    qDebug() << l << "sendtoexe";
     emit sendToExeLogin(l);
-
 }
 
 void DLLRestAPI::receiveLockStatus(QString lock)
 {
-    qDebug() << lock << "Sendtoexe";
     emit sendToExeLockStatus(lock);
 }
 

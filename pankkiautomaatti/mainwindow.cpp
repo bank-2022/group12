@@ -40,9 +40,9 @@ MainWindow::~MainWindow()
 
 void MainWindow::checkPin()
 {
+        cardId="1111";
         oDllPinCode->startupPin();
         pin = oDllPinCode->returnPinCode();
-        cardId="1111";
         oDllRestApi->interfaceLogin(cardId, pin);
         oDllRestApi->interfaceIsCardLocked(cardId);
 }

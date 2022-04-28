@@ -17,7 +17,6 @@ PinEngineClass::~PinEngineClass()
 {
     delete ui;
     ui = nullptr;
-
 }
 
 
@@ -109,9 +108,7 @@ void PinEngineClass::setPin(const QString &newPin)
 
 void PinEngineClass::closePinObject()
 {
-     qDebug() << "closepinobject";
     this->close();
-
 }
 
 void PinEngineClass::wrongPinCode(int attempts)

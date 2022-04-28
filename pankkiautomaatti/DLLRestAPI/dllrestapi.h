@@ -16,6 +16,7 @@ public:
     engineRestApi *oEngineRestApi;
     void interfaceCustomerData(QString id_account);
     void interfaceBalance(QString id_card);
+    void interfaceUpdateBalance(QString id_card, QString newBalance);
     void interfaceFiveActions(QString id_account);
     void interfaceActions(QString id_account);
     void interfaceLockCard(QString id_card);

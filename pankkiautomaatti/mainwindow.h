@@ -21,10 +21,14 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void checkPin();
+    QString cardId;
+
+    const QString &getCardId() const;
 
 private slots:
     void on_pushButton_clicked();
     void getID(QString);
+
 
 
 public slots:
@@ -40,7 +44,6 @@ private:
     QString testipin;
     QString pin;
     QString loggedIn;
-    QString cardId;
     int attempts;
     QString cardLocked;
     int i;
