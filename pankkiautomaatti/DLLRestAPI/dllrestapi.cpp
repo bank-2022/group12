@@ -8,6 +8,7 @@ DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
     connect(oEngineRestApi, SIGNAL(responseDataFromBalance(QString)), this, SLOT(receiveBalance(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromCustomer(QString)), this, SLOT(receiveCustomer(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromFiveActions(QString)), this, SLOT(receiveFiveActions(QString)));
+    connect(oEngineRestApi, SIGNAL(responseDataFromActions(QString)), this, SLOT(receiveActions(QString)));
 
     connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
     connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
@@ -34,6 +35,11 @@ void DLLRestAPI::interfaceBalance(QString id_card)
     oEngineRestApi->balance(id_card);
 }
 
+void DLLRestAPI::interfaceUpdateBalance(QString id_account, QString newBalance)
+{
+    oEngineRestApi->updateBalance(id_account,newBalance);
+}
+
 void DLLRestAPI::interfaceFiveActions(QString id_account)
 {
     oEngineRestApi->fiveActions(id_account);
@@ -56,14 +62,11 @@ void DLLRestAPI::interfaceIsCardLocked(QString id_card)
 
 void DLLRestAPI::receiveLogin(QString l)
 {
-    qDebug() << l << "sendtoexe";
     emit sendToExeLogin(l);
-
 }
 
 void DLLRestAPI::receiveLockStatus(QString lock)
 {
-    qDebug() << lock << "Sendtoexe";
     emit sendToExeLockStatus(lock);
 }
 

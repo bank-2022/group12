@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_engineRestApi_t {
-    QByteArrayData data[17];
-    char stringdata0[259];
+    QByteArrayData data[18];
+    char stringdata0[277];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -46,9 +46,10 @@ QT_MOC_LITERAL(10, 166, 5), // "reply"
 QT_MOC_LITERAL(11, 172, 11), // "actionsSlot"
 QT_MOC_LITERAL(12, 184, 15), // "fiveActionsSlot"
 QT_MOC_LITERAL(13, 200, 11), // "balanceSlot"
-QT_MOC_LITERAL(14, 212, 16), // "customerDataSlot"
-QT_MOC_LITERAL(15, 229, 12), // "lockCardSlot"
-QT_MOC_LITERAL(16, 242, 16) // "isCardLockedSlot"
+QT_MOC_LITERAL(14, 212, 17), // "updateBalanceSlot"
+QT_MOC_LITERAL(15, 230, 16), // "customerDataSlot"
+QT_MOC_LITERAL(16, 247, 12), // "lockCardSlot"
+QT_MOC_LITERAL(17, 260, 16) // "isCardLockedSlot"
 
     },
     "engineRestApi\0responseDataFromActions\0"
@@ -57,7 +58,8 @@ QT_MOC_LITERAL(16, 242, 16) // "isCardLockedSlot"
     "responseDataFromFiveActions\0loginData\0"
     "cardLockedData\0loginSlot\0QNetworkReply*\0"
     "reply\0actionsSlot\0fiveActionsSlot\0"
-    "balanceSlot\0customerDataSlot\0lockCardSlot\0"
+    "balanceSlot\0updateBalanceSlot\0"
+    "customerDataSlot\0lockCardSlot\0"
     "isCardLockedSlot"
 };
 #undef QT_MOC_LITERAL
@@ -68,7 +70,7 @@ static const uint qt_meta_data_engineRestApi[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      13,   14, // methods
+      14,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -76,21 +78,22 @@ static const uint qt_meta_data_engineRestApi[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   79,    2, 0x06 /* Public */,
-       3,    1,   82,    2, 0x06 /* Public */,
-       4,    1,   85,    2, 0x06 /* Public */,
-       5,    1,   88,    2, 0x06 /* Public */,
-       6,    1,   91,    2, 0x06 /* Public */,
-       7,    1,   94,    2, 0x06 /* Public */,
+       1,    1,   84,    2, 0x06 /* Public */,
+       3,    1,   87,    2, 0x06 /* Public */,
+       4,    1,   90,    2, 0x06 /* Public */,
+       5,    1,   93,    2, 0x06 /* Public */,
+       6,    1,   96,    2, 0x06 /* Public */,
+       7,    1,   99,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    1,   97,    2, 0x0a /* Public */,
-      11,    1,  100,    2, 0x0a /* Public */,
-      12,    1,  103,    2, 0x0a /* Public */,
-      13,    1,  106,    2, 0x0a /* Public */,
-      14,    1,  109,    2, 0x0a /* Public */,
-      15,    1,  112,    2, 0x0a /* Public */,
-      16,    1,  115,    2, 0x0a /* Public */,
+       8,    1,  102,    2, 0x0a /* Public */,
+      11,    1,  105,    2, 0x0a /* Public */,
+      12,    1,  108,    2, 0x0a /* Public */,
+      13,    1,  111,    2, 0x0a /* Public */,
+      14,    1,  114,    2, 0x0a /* Public */,
+      15,    1,  117,    2, 0x0a /* Public */,
+      16,    1,  120,    2, 0x0a /* Public */,
+      17,    1,  123,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
@@ -101,6 +104,7 @@ static const uint qt_meta_data_engineRestApi[] = {
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
@@ -128,9 +132,10 @@ void engineRestApi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 7: _t->actionsSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         case 8: _t->fiveActionsSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         case 9: _t->balanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 10: _t->customerDataSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 11: _t->lockCardSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 12: _t->isCardLockedSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 10: _t->updateBalanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 11: _t->customerDataSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 12: _t->lockCardSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 13: _t->isCardLockedSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -179,6 +184,13 @@ void engineRestApi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             }
             break;
         case 12:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 13:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -262,13 +274,13 @@ int engineRestApi::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 13)
+        if (_id < 14)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 13;
+        _id -= 14;
     }
     return _id;
 }

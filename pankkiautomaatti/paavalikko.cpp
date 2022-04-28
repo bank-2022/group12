@@ -92,7 +92,6 @@ void paavalikko::on_pushButton_actions_clicked()
 
 void paavalikko::receiveDataFromCustomer(QString b)
 {
-    qDebug() << "Asiakas: " + b;
     ui->textEdit->setText(b);
 }
 

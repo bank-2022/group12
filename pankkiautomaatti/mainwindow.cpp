@@ -40,25 +40,22 @@ MainWindow::~MainWindow()
 
 void MainWindow::checkPin()
 {
+        cardId="1111";
         oDllPinCode->startupPin();
         pin = oDllPinCode->returnPinCode();
-        cardId="1111";
         oDllRestApi->interfaceLogin(cardId, pin);
         oDllRestApi->interfaceIsCardLocked(cardId);
-        qDebug() << cardLocked << "testin jälkeen";
 }
 
 void MainWindow::receiveDataLogin(QString l)
 {
     loggedIn = l;
-    qDebug() << loggedIn << "Receivedata";
     this->tryToLogin();
 }
 
 void MainWindow::receiveDataLockStatus(QString lock)
 {
     cardLocked = lock;
-    qDebug() << cardLocked << "Receivecarddata";
 }
 
 void MainWindow::tryToLogin()
@@ -95,44 +92,6 @@ void MainWindow::tryToLogin()
        {this->checkPin();}
 }
 }
-
-//    void MainWindow::checkPin()
-//    {
-//        int i=0;
-//        oDllPinCode = new DLLPinCode;
-//        while (i == 0){
-//        oDllPinCode->startupPin();
-//        testipin = oDllPinCode->returnPinCode();
-//        cardId="1111";
-////        oDllRestApi->interfaceLogin(testipin, cardId);
-
-
-//        if(attempts==3 || cardLocked == true){
-//            i++;
-//             oDllPinCode->wrongPin(3);
-//             //oDllRestApi->lockCard();     Ei vielä koodattu
-//        }
-
-//        else if(testipin == "1234"){
-//           i++;
-//           oDllPinCode->closePin();
-//
-//           mainMenu->exec();
-
-
-//       }
-//       else{
-//          attempts++;
-//           oDllPinCode->wrongPin(attempts);
-//           if (attempts==3){
-//               i++;
-//               oDllPinCode->closePin();
-
-//           }
-
-//      }
-//        }
-//    }
 
 void MainWindow::on_pushButton_clicked()
 {

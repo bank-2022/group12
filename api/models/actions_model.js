@@ -2,7 +2,7 @@ const db = require('../database');
 
 const actions = {
   getById: function(id, callback) {
-    return db.query(`SELECT date, action, total FROM actions
+    return db.query(`SELECT date_format(date, '%d.%m.%y %T'), action, total FROM actions
     INNER JOIN account ON account.id_account=actions.id_account 
     WHERE account.id_account=?
     ORDER BY date DESC`, [id], callback);
@@ -12,7 +12,7 @@ const actions = {
   },
 
    getFive: function(id, callback) {
-    return db.query(`SELECT date, action, total 
+    return db.query(`SELECT date_format(date, '%d.%m.%y %T'), action, total 
     FROM actions
     INNER JOIN account ON account.id_account=actions.id_account
     WHERE account.id_account=?

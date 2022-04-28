@@ -1,6 +1,7 @@
 #include "saldo.h"
 #include "ui_saldo.h"
 #include "paavalikko.h"
+#include "mainwindow.cpp"
 
 saldo::saldo(QWidget *parent) :
     QDialog(parent),
@@ -38,7 +39,9 @@ void saldo::LCDshow()
     LCDtimer->setInterval(1000);
     ui->lcdNumber_saldo->display(time);
     if (time==0) {
-        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+        paavalikko *Pvalikko = new paavalikko;
+        this->~saldo();
+        Pvalikko->show();
 }
 }
 
@@ -52,18 +55,16 @@ void saldo::on_pushButton_takaisin_clicked()
 
 void saldo::receiveDataFromBalance(QString a)
 {
-    qDebug() << "Saldo: " + a;
-    ui->lineEdit_balance->setText(a);
+    ui->lineEdit_balance->setText(a +" €");
 }
 
 void saldo::receiveDataFromCustomer(QString b)
 {
-    qDebug() << "Asiakas: " + b;
     ui->textEdit_customer->setText(b);
 }
 
 void saldo::receiveDataFromFiveActions(QString c)
 {
-    qDebug() << "Tapahtumat: " + c;
+
     ui->textEdit_actions->setText(c);
 }
