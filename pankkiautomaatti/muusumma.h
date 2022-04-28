@@ -34,12 +34,15 @@ private slots:
     void on_pushButton_9_clicked();
     void on_pushButton_0_clicked();
     void on_pushButton_kumita_clicked();
+    void receiveSaldo(QString);
 
 private:
     Ui::Muusumma *ui;
     QTimer *timer;
     QTimer *LCDtimer;
     int time;
+    int raha;
+    QString f;
 };
 
 #endif // MUUSUMMA_H

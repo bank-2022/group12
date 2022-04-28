@@ -46,14 +46,16 @@ void nostarahaa::LCDshow()
 }
 }
 
-void nostarahaa::withdraw(int x)
+
+void nostarahaa::withdraw(int x, int total)
 {
-    saldo=saldo-x;
+    total=total-x;
     QString y = QString::number(x);
-    QString z = QString::number(saldo);
-    if (saldo >= 0){
+    QString z = QString::number(total);
+    if (total >= 0){
         oDLLRestAPI->interfaceUpdateBalance(id_account,z);
         QMessageBox::information(this, "Veloitus","Tililtäsi on veloitettu " + y + "€, ja kate on " + z + "€. Kiitos ja näkemiin!");
+
     }
     else{
         QMessageBox::warning(this, "Ei katetta","Tilisi kate ei riitä");
@@ -82,7 +84,7 @@ void nostarahaa::on_pushButton_withdraw20_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(20);
+    withdraw(20,saldo);
 }
 
 
@@ -91,7 +93,7 @@ void nostarahaa::on_pushButton_withdraw40_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(40);
+    withdraw(40,saldo);
 }
 
 void nostarahaa::on_pushButton_withdraw60_clicked()
@@ -99,7 +101,7 @@ void nostarahaa::on_pushButton_withdraw60_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(60);
+    withdraw(60,saldo);
 }
 
 void nostarahaa::on_pushButton_withdraw80_clicked()
@@ -107,7 +109,7 @@ void nostarahaa::on_pushButton_withdraw80_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(80);
+    withdraw(80,saldo);
 }
 
 void nostarahaa::on_pushButton_withdraw100_clicked()
@@ -115,7 +117,7 @@ void nostarahaa::on_pushButton_withdraw100_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(100);
+    withdraw(100,saldo);
 }
 
 void nostarahaa::on_pushButton_200_clicked()
@@ -123,7 +125,7 @@ void nostarahaa::on_pushButton_200_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(200);
+    withdraw(200,saldo);
 }
 
 void nostarahaa::on_pushButton_500_clicked()
@@ -131,12 +133,12 @@ void nostarahaa::on_pushButton_500_clicked()
     LCDtimer->stop();
     time=11;
     LCDtimer->start();
-    withdraw(500);
+    withdraw(500,saldo);
 }
 
 void nostarahaa::receiveDataFromBalance(QString a)
 {
-    ui->lineEdit->setText(a);
+    ui->lineEdit->setText(a + "€");
     saldo=a.toInt();
 
 }

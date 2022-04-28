@@ -54,7 +54,7 @@ void browseTransactions::on_pushButton_takaisin_transactions_clicked()
 
 void browseTransactions::receiveDataFromBalance(QString a)
 {
-    ui->lineEdit_2->setText(a);
+    ui->lineEdit_2->setText(a + "€");
 }
 
 void browseTransactions::receiveDataFromCustomer(QString b)

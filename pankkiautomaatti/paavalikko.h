@@ -26,7 +26,6 @@ public slots:
     void LCDshow();
 
 private slots:
-    void timerout();
     void on_pushButton_showtotal_clicked();
     void on_pushButton_withdraw_clicked();
     void on_pushButton_logout_clicked();

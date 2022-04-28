@@ -23,6 +23,8 @@ public:
     explicit nostarahaa(QWidget *parent = nullptr);
     ~nostarahaa();
 
+    void withdraw(int x, int total);
+
 private slots:
     void LCDshow();
     void on_pushButton_takaisin1_clicked();
@@ -50,7 +52,6 @@ private:
     int saldo;
     QString cardId;
     QString id_account;
-    void withdraw(int x);
 };
 
 #endif // NOSTARAHAA_H
