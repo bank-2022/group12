@@ -50,6 +50,11 @@ void DLLRestAPI::interfaceActions(QString id_account)
     oEngineRestApi->actions(id_account);
 }
 
+void DLLRestAPI::interfaceUpdateActions(QString date, QString action, QString total, QString id_account)
+{
+    oEngineRestApi->updateActions(date,action,total,id_account);
+}
+
 void DLLRestAPI::interfaceLockCard(QString id_card)
 {
     oEngineRestApi->lockCard(id_card);

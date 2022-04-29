@@ -165,7 +165,7 @@ void engineRestApi::fiveActionsSlot(QNetworkReply *reply)
     QString fiveActions;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    fiveActions+=json_obj["date"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
+    fiveActions+=json_obj["date_format(date, '%d.%m.%y %T')"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
 
     emit responseDataFromFiveActions(fiveActions);
 }
@@ -192,7 +192,7 @@ void engineRestApi::actionsSlot(QNetworkReply *reply)
     QString actions;
     foreach (const QJsonValue &value, json_array) {
     QJsonObject json_obj = value.toObject();
-    actions+=json_obj["date"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
+    actions+=json_obj["date_format(date, '%d.%m.%y %T')"].toString()+"   "+json_obj["action"].toString()+"   "+QString::number(json_obj["total"].toInt())+"\r";
 
     emit responseDataFromActions(actions);
 }
@@ -222,3 +222,30 @@ void engineRestApi::updateBalanceSlot(QNetworkReply *reply)
     reply->deleteLater();
     getManager->deleteLater();
 }
+
+//Tilitapahtumien päivitys ------------------------------------------------------
+
+void engineRestApi::updateActions(QString date, QString action, QString total, QString id_account)
+{
+    QJsonObject jsonObj;
+    jsonObj.insert("date",date);
+    jsonObj.insert("action",action);
+    jsonObj.insert("total",total);
+    jsonObj.insert("id_account",id_account);
+
+    QString site_url="http://localhost:3000/actions/"+ id_account;
+    QNetworkRequest request((site_url));
+    request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
+
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(updateActionsSlot(QNetworkReply*)));
+    reply = getManager->put(request, QJsonDocument(jsonObj).toJson());
+}
+
+void engineRestApi::updateActionsSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+

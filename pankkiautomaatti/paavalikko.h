@@ -8,7 +8,6 @@
 #include <QDateTime>
 
 #include "DLLRestAPI/dllrestapi.h"
-#include "DLLRestAPI/enginerestapi.h"
 namespace Ui {
 class paavalikko;
 }
@@ -26,7 +25,6 @@ public slots:
     void LCDshow();
 
 private slots:
-    void timerout();
     void on_pushButton_showtotal_clicked();
     void on_pushButton_withdraw_clicked();
     void on_pushButton_logout_clicked();

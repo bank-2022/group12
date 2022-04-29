@@ -19,6 +19,7 @@ public:
     void interfaceUpdateBalance(QString id_card, QString newBalance);
     void interfaceFiveActions(QString id_account);
     void interfaceActions(QString id_account);
+    void interfaceUpdateActions(QString date, QString action, QString total, QString id_account);
     void interfaceLockCard(QString id_card);
     void interfaceIsCardLocked(QString id_card);
 

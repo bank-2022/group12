@@ -12,6 +12,12 @@ Muusumma::Muusumma(QWidget *parent) :
     LCDtimer->start();
     time=11;
     LCDshow();
+
+    DLLRestAPI *oDLLRestAPI = new DLLRestAPI;
+    oDLLRestAPI->interfaceBalance("1111");
+    oDLLRestAPI->interfaceCustomerData("1");
+
+    connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveSaldo(QString)));
 }
 
 Muusumma::~Muusumma()
@@ -33,11 +39,41 @@ void Muusumma::LCDshow()
 }
 }
 
+//void Muusumma::on_pushButton_Ok_clicked()
+//{
+//    QString Muusumma = ui->lineEdit_Muusumma->text();
+//    nostarahaa *oNostaRahaa = new nostarahaa;
+//    int otherAmount=Muusumma.toInt();
+//    oNostaRahaa->withdraw(otherAmount, raha);
+//    this->close();
+//    delete oNostaRahaa;
+//    oNostaRahaa=nullptr;
+
+//}
+
+
 void Muusumma::on_pushButton_Ok_clicked()
 {
     QString Muusumma = ui->lineEdit_Muusumma->text();
-}
+    int otherAmount=Muusumma.toInt();
 
+    if (otherAmount / 10 != 10){
+        LCDtimer->stop();
+        time=11;
+        QMessageBox::warning(this, "Valitse tasaluku","Automaatissa vain kymmenen euron seteleitä, valitse tasaluku");
+        LCDtimer->start();
+    }
+
+    else
+        {
+        nostarahaa *oNostaRahaa = new nostarahaa;
+        qDebug() << otherAmount << "clicked";
+        oNostaRahaa->withdraw(otherAmount,raha);
+        this->close();
+        delete oNostaRahaa;
+        oNostaRahaa=nullptr;
+        }
+}
 
 
 void Muusumma::on_pushButton_1_clicked()
@@ -126,15 +162,20 @@ void Muusumma::on_pushButton_0_clicked()
 {
     LCDtimer->stop();
     time=11;
- ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "0");
- LCDtimer->start();
+    ui->lineEdit_Muusumma->setText(ui->lineEdit_Muusumma->text() + "0");
+     LCDtimer->start();
 }
 
 
 void Muusumma::on_pushButton_kumita_clicked()
 {
     LCDtimer->stop();
+    ui->lineEdit_Muusumma->clear();
     time=11;
     LCDtimer->start();
 }
 
+void Muusumma::receiveSaldo(QString f)
+{
+    raha=f.toInt();
+}

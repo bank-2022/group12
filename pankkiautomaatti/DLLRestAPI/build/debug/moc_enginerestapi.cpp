@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_engineRestApi_t {
-    QByteArrayData data[18];
-    char stringdata0[277];
+    QByteArrayData data[19];
+    char stringdata0[295];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -45,11 +45,12 @@ QT_MOC_LITERAL(9, 151, 14), // "QNetworkReply*"
 QT_MOC_LITERAL(10, 166, 5), // "reply"
 QT_MOC_LITERAL(11, 172, 11), // "actionsSlot"
 QT_MOC_LITERAL(12, 184, 15), // "fiveActionsSlot"
-QT_MOC_LITERAL(13, 200, 11), // "balanceSlot"
-QT_MOC_LITERAL(14, 212, 17), // "updateBalanceSlot"
-QT_MOC_LITERAL(15, 230, 16), // "customerDataSlot"
-QT_MOC_LITERAL(16, 247, 12), // "lockCardSlot"
-QT_MOC_LITERAL(17, 260, 16) // "isCardLockedSlot"
+QT_MOC_LITERAL(13, 200, 17), // "updateActionsSlot"
+QT_MOC_LITERAL(14, 218, 11), // "balanceSlot"
+QT_MOC_LITERAL(15, 230, 17), // "updateBalanceSlot"
+QT_MOC_LITERAL(16, 248, 16), // "customerDataSlot"
+QT_MOC_LITERAL(17, 265, 12), // "lockCardSlot"
+QT_MOC_LITERAL(18, 278, 16) // "isCardLockedSlot"
 
     },
     "engineRestApi\0responseDataFromActions\0"
@@ -58,9 +59,9 @@ QT_MOC_LITERAL(17, 260, 16) // "isCardLockedSlot"
     "responseDataFromFiveActions\0loginData\0"
     "cardLockedData\0loginSlot\0QNetworkReply*\0"
     "reply\0actionsSlot\0fiveActionsSlot\0"
-    "balanceSlot\0updateBalanceSlot\0"
-    "customerDataSlot\0lockCardSlot\0"
-    "isCardLockedSlot"
+    "updateActionsSlot\0balanceSlot\0"
+    "updateBalanceSlot\0customerDataSlot\0"
+    "lockCardSlot\0isCardLockedSlot"
 };
 #undef QT_MOC_LITERAL
 
@@ -70,7 +71,7 @@ static const uint qt_meta_data_engineRestApi[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      15,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -78,22 +79,23 @@ static const uint qt_meta_data_engineRestApi[] = {
        6,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   84,    2, 0x06 /* Public */,
-       3,    1,   87,    2, 0x06 /* Public */,
-       4,    1,   90,    2, 0x06 /* Public */,
-       5,    1,   93,    2, 0x06 /* Public */,
-       6,    1,   96,    2, 0x06 /* Public */,
-       7,    1,   99,    2, 0x06 /* Public */,
+       1,    1,   89,    2, 0x06 /* Public */,
+       3,    1,   92,    2, 0x06 /* Public */,
+       4,    1,   95,    2, 0x06 /* Public */,
+       5,    1,   98,    2, 0x06 /* Public */,
+       6,    1,  101,    2, 0x06 /* Public */,
+       7,    1,  104,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       8,    1,  102,    2, 0x0a /* Public */,
-      11,    1,  105,    2, 0x0a /* Public */,
-      12,    1,  108,    2, 0x0a /* Public */,
-      13,    1,  111,    2, 0x0a /* Public */,
-      14,    1,  114,    2, 0x0a /* Public */,
-      15,    1,  117,    2, 0x0a /* Public */,
-      16,    1,  120,    2, 0x0a /* Public */,
-      17,    1,  123,    2, 0x0a /* Public */,
+       8,    1,  107,    2, 0x0a /* Public */,
+      11,    1,  110,    2, 0x0a /* Public */,
+      12,    1,  113,    2, 0x0a /* Public */,
+      13,    1,  116,    2, 0x0a /* Public */,
+      14,    1,  119,    2, 0x0a /* Public */,
+      15,    1,  122,    2, 0x0a /* Public */,
+      16,    1,  125,    2, 0x0a /* Public */,
+      17,    1,  128,    2, 0x0a /* Public */,
+      18,    1,  131,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
@@ -104,6 +106,7 @@ static const uint qt_meta_data_engineRestApi[] = {
     QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
     QMetaType::Void, 0x80000000 | 9,   10,
@@ -131,11 +134,12 @@ void engineRestApi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
         case 6: _t->loginSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         case 7: _t->actionsSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         case 8: _t->fiveActionsSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 9: _t->balanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 10: _t->updateBalanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 11: _t->customerDataSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 12: _t->lockCardSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
-        case 13: _t->isCardLockedSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 9: _t->updateActionsSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 10: _t->balanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 11: _t->updateBalanceSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 12: _t->customerDataSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 13: _t->lockCardSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
+        case 14: _t->isCardLockedSlot((*reinterpret_cast< QNetworkReply*(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
@@ -191,6 +195,13 @@ void engineRestApi::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _i
             }
             break;
         case 13:
+            switch (*reinterpret_cast<int*>(_a[1])) {
+            default: *reinterpret_cast<int*>(_a[0]) = -1; break;
+            case 0:
+                *reinterpret_cast<int*>(_a[0]) = qRegisterMetaType< QNetworkReply* >(); break;
+            }
+            break;
+        case 14:
             switch (*reinterpret_cast<int*>(_a[1])) {
             default: *reinterpret_cast<int*>(_a[0]) = -1; break;
             case 0:
@@ -274,13 +285,13 @@ int engineRestApi::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 15)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

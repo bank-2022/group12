@@ -16,7 +16,7 @@ class engineRestApi : public QObject
 public:
     engineRestApi();
     ~engineRestApi();
-    void loginEngine(QString id_card, QString pinCode);
+
     QNetworkAccessManager *loginManager;
     QNetworkAccessManager *getManager;
     QNetworkReply *reply;
@@ -25,9 +25,11 @@ public:
 
     void actions(QString id_account);
     void fiveActions(QString id_account);
+    void updateActions(QString date, QString action, QString total, QString id_account);
     void balance(QString id_card);
-    void updateBalance(QString id_card, QString newBalance);
-    void customerData(QString id_account);    
+    void updateBalance(QString id_account, QString newBalance);
+    void customerData(QString id_account);
+    void loginEngine(QString id_card, QString pinCode);
     void lockCard(QString id_card);
     void isCardLocked(QString id_card);
 
@@ -37,6 +39,7 @@ public slots:
     void loginSlot(QNetworkReply *reply);
     void actionsSlot(QNetworkReply *reply);
     void fiveActionsSlot(QNetworkReply *reply);
+    void updateActionsSlot(QNetworkReply *reply);
     void balanceSlot(QNetworkReply *reply);
     void updateBalanceSlot(QNetworkReply *reply);
     void customerDataSlot(QNetworkReply *reply);

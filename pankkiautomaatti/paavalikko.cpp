@@ -32,6 +32,7 @@ paavalikko::~paavalikko()
     delete ui;
     delete timer;
     delete showTime;
+    delete oDLLRestAPI;
 
 }
 
@@ -48,19 +49,13 @@ void paavalikko::LCDshow()
     LCDtimer->setInterval(1000);
     ui->lcdNumber->display(time);
     if (time==0) {
-        QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
+        this->~paavalikko();
 }
-}
-
-void paavalikko::timerout()
-{
-    qApp->quit();
-    QProcess::startDetached(qApp->arguments()[0], qApp->arguments());
 }
 
 void paavalikko::on_pushButton_showtotal_clicked()
 {
-    timer->stop();
+    LCDtimer->stop();
     this->hide();
     saldo *Psaldo = new saldo();
     Psaldo->show();
@@ -68,10 +63,11 @@ void paavalikko::on_pushButton_showtotal_clicked()
 
 void paavalikko::on_pushButton_withdraw_clicked()
 {
-    timer->stop();
+    LCDtimer->stop();
     this->hide();
     nostarahaa *withdraw = new nostarahaa();
     withdraw->show();
+    this->~paavalikko();
 }
 
 void paavalikko::on_pushButton_logout_clicked()
@@ -84,10 +80,11 @@ void paavalikko::on_pushButton_logout_clicked()
 
 void paavalikko::on_pushButton_actions_clicked()
 {
-    timer->stop();
+    LCDtimer->stop();
     this->hide();
     browseTransactions *Transactions = new browseTransactions();
     Transactions->show();
+    this->~paavalikko();
 }
 
 void paavalikko::receiveDataFromCustomer(QString b)
