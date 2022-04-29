@@ -1,5 +1,6 @@
 #include "nostarahaa.h"
 #include "ui_nostarahaa.h"
+#include "paavalikko.h"
 
 nostarahaa::nostarahaa(QWidget *parent) :
     QDialog(parent),
@@ -9,6 +10,7 @@ nostarahaa::nostarahaa(QWidget *parent) :
 
     cardId="1111";
     id_account="1";
+
     Timer = new QTimer(this);
     LCDtimer = new QTimer(this);
     connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
@@ -50,10 +52,12 @@ void nostarahaa::LCDshow()
 void nostarahaa::withdraw(int x, int total)
 {
     total=total-x;
+    QString otto = "Otto";
     QString y = QString::number(x);
     QString z = QString::number(total);
     if (total >= 0){
         oDLLRestAPI->interfaceUpdateBalance(id_account,z);
+//        oDLLRestAPI->interfaceUpdateActions(date, otto, y, id_account)
         QMessageBox::information(this, "Veloitus","Tililtäsi on veloitettu " + y + "€, ja kate on " + z + "€. Kiitos ja näkemiin!");
 
     }

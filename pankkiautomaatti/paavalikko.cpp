@@ -49,7 +49,6 @@ void paavalikko::LCDshow()
     LCDtimer->setInterval(1000);
     ui->lcdNumber->display(time);
     if (time==0) {
-        qDebug() << "moro";
         this->~paavalikko();
 }
 }
