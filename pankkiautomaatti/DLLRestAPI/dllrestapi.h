@@ -19,9 +19,10 @@ public:
     void interfaceUpdateBalance(QString id_card, QString newBalance);
     void interfaceFiveActions(QString id_account);
     void interfaceActions(QString id_account);
-    void interfaceUpdateActions(QString date, QString action, QString total, QString id_account);
+    void interfaceUpdateActions(QString id, QString date, QString action, QString total, QString id_account, QString id_card);
     void interfaceLockCard(QString id_card);
     void interfaceIsCardLocked(QString id_card);
+    void interfaceId();
 
 private:
     QString a;
@@ -38,12 +39,14 @@ public slots:
     void receiveActions(QString);
     void receiveLogin(QString);
     void receiveLockStatus(QString);
+    void receiveId(QString);
 
 signals:
     void sendBalanceToExe(QString);
     void sendCustomerToExe(QString);
     void sendFiveActionsToExe(QString);
     void sendActionsToExe(QString);
+    void sendIdToExe(QString);
     void sendToExeLogin(QString);
     void sendToExeLockStatus(QString);
 };

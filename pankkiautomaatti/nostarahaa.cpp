@@ -1,6 +1,6 @@
 #include "nostarahaa.h"
 #include "ui_nostarahaa.h"
-#include "paavalikko.h"
+#include <QDateTime>
 
 nostarahaa::nostarahaa(QWidget *parent) :
     QDialog(parent),
@@ -21,9 +21,11 @@ nostarahaa::nostarahaa(QWidget *parent) :
     oDLLRestAPI = new DLLRestAPI;
     oDLLRestAPI->interfaceBalance(cardId);
     oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceId();
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
+    connect(oDLLRestAPI, SIGNAL(sendIdToExe(QString)), this, SLOT(receiveDataFromId(QString)));
 
 }
 
@@ -53,11 +55,16 @@ void nostarahaa::withdraw(int x, int total)
 {
     total=total-x;
     QString otto = "Otto";
+    QDateTime date = QDateTime::currentDateTime();
+    QString aika = date.toString("yyyy-MM-ddThh:mm:ss");
     QString y = QString::number(x);
     QString z = QString::number(total);
+    id = "16";
+    qDebug() << "id 1: " << id;
     if (total >= 0){
+        qDebug() << "id 2: " << id;
         oDLLRestAPI->interfaceUpdateBalance(id_account,z);
-//        oDLLRestAPI->interfaceUpdateActions(date, otto, y, id_account)
+        oDLLRestAPI->interfaceUpdateActions(id, aika, otto, y, id_account, cardId);
         QMessageBox::information(this, "Veloitus","Tililtäsi on veloitettu " + y + "€, ja kate on " + z + "€. Kiitos ja näkemiin!");
 
     }
@@ -150,4 +157,10 @@ void nostarahaa::receiveDataFromBalance(QString a)
 void nostarahaa::receiveDataFromCustomer(QString b)
 {
     ui->textEdit->setText(b);
+}
+
+void nostarahaa::receiveDataFromId(QString f)
+{
+    QString id = f;
+    qDebug() << "id f: " << id;
 }

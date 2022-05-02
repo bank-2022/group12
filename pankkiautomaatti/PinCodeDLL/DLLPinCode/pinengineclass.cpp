@@ -2,7 +2,7 @@
 #include "ui_pinengineclass.h"
 #include <QDebug>
 #include "dllpincode.h"
-
+#include <QTimer>
 
 PinEngineClass::PinEngineClass(QWidget *parent) :
     QDialog(parent),
@@ -10,6 +10,11 @@ PinEngineClass::PinEngineClass(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit_Pincode->setMaxLength(4);
+    QTimer *LCDtimer = new QTimer;
+    connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
+    LCDtimer->start();
+    time=11;
+    LCDshow();
 }
 
 
@@ -120,6 +125,16 @@ void PinEngineClass::wrongPinCode(int attempts)
     int i = 3-attempts;
     QString s = QString::number(i);
      QMessageBox::warning(this, "Kirjaudu","Pin koodi on väärä, " + s + " yritystä jäljellä.");
+    }
+}
+
+void PinEngineClass::LCDshow()
+{
+    QTimer *LCDtimer = new QTimer;
+    time--;
+        LCDtimer->setInterval(1000);
+        ui->lcdNumber->display(time);
+        if (time==0) {
     }
 }
 
