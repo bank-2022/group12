@@ -1,25 +1,32 @@
 #ifndef ENGINECLASS_H
 #define ENGINECLASS_H
 #include <QString>
+#include <QObject>
+#include <QByteArray>
 #include <QtSerialPort/QSerialPort>
 #include <QDebug>
-
+#include <QTextCodec>
+#include <QSerialPort>
+#include <QIODevice>
 
 class EngineClass : public QObject
 {
     Q_OBJECT
 public:
-    EngineClass();
+    EngineClass(QObject *parent = nullptr);
+    ~EngineClass();
+    void openConnection();
 
 private:
-    QSerialPort *serial;
-    QSerialPortInfo *info;
+    QSerialPort *pQSerialPort;
+    QByteArray *pQByteArray;
+    QString *pQString;
 
 public slots:
-    void handleSignal();
+    void serialReceived();
 
 signals:
-   void handle(QString ID);
+   void sendString(QString);
 };
 
 #endif // ENGINECLASS_H

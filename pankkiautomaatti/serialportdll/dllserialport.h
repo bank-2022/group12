@@ -12,14 +12,15 @@ Q_OBJECT
 public:
     DLLSerialPort();
     ~DLLSerialPort();
+    void interfaceFuctionOpenConnection();
 private:
     EngineClass *pEngineClass;
 
 public slots:
-    void recieveSignal(QString ID);
+    void receiveValue(QString);
 
 signals:
-    void passID(QString ID);
+    void returnValue(QString);
 
 };
 

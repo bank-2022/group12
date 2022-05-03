@@ -2,35 +2,42 @@
 #include <QIODevice>
 #include <QSerialPortInfo>
 
-EngineClass::EngineClass()
+EngineClass::EngineClass(QObject *parent) : QObject(parent)
 {
-    serial = new QSerialPort(this);
-    info = new QSerialPortInfo();
-    serial->setPortName("COM4");
-    serial->setBaudRate(QSerialPort::Baud9600);
-    serial->setDataBits(QSerialPort::Data8);
-    serial->setParity(QSerialPort::NoParity);
-    serial->setFlowControl(QSerialPort::NoFlowControl);
-    serial->setStopBits(QSerialPort::OneStop);
-//    serial->open(QIODevice::ReadOnly);
-    QObject::connect(serial, SIGNAL(readyRead()), this, SLOT(handleSignal()));
-    qDebug()<< "ENGINE: " ;
-    info->availablePorts();
-    info->standardBaudRates();
-    info->portName();
+    pQSerialPort = new QSerialPort(this);
+    pQSerialPort->setPortName("COM4");
+    pQSerialPort->setBaudRate(QSerialPort::Baud9600);
+    pQSerialPort->setDataBits(QSerialPort::Data8);
+    pQSerialPort->setParity(QSerialPort::NoParity);
+    pQSerialPort->setStopBits(QSerialPort::OneStop);
+    pQSerialPort->setFlowControl(QSerialPort::NoFlowControl);
+    //pQSerialPort->open(QIODevice::ReadOnly);
+    QObject::connect(pQSerialPort, SIGNAL(readyRead()), this, SLOT(serialReceived()));
 }
 
-void EngineClass::handleSignal()
+EngineClass::~EngineClass()
+{
+    pQSerialPort->close();
+    delete pQSerialPort;
+    pQSerialPort = NULL;
+}
+
+void EngineClass::serialReceived()
 {
     //Lukee RFID-kortinlukijan avulla RFID-kortin ID numeron
-    QString cardID = serial->readAll();
-    qDebug() << "handleSignal: " << cardID;
+    QByteArray = pQSerialPort->readAll();
 
     //Muokkaa luettua cardID:tä ja lähettää muokatun cardID:n eteenpäin
-    cardID = cardID.simplified();
-    cardID.replace("-","");
-    cardID.replace(">","");
-    cardID.replace(" ","");
-    emit handle(cardID);
+    pQString = QTextCodec::codecForMib(106)->toUnicode(pQByteArray);
+
+    pQString->remove("\r\n");
+    pQString->remove("-");
+    pQString->remove(">");
+    emit sendString(pQString);
 }
 
+void EngineClass::openConnection()
+{
+    pQSerialPort->open(QIODevice::ReadOnly);
+    pQSerialPort->clear(QSerialPort::AllDirections);
+}
