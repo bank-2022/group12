@@ -234,13 +234,6 @@ void engineRestApi::updateActions(QString id, QString date, QString action, QStr
     jsonObj.insert("id_account",id_account);
     jsonObj.insert("id_card",id_card);
 
-    qDebug() << id;
-    qDebug() << date;
-    qDebug() << action;
-    qDebug() << total;
-    qDebug() << id_account;
-    qDebug() << id_card;
-
     QString site_url="http://localhost:3000/actions/";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -260,17 +253,6 @@ void engineRestApi::updateActionsSlot(QNetworkReply *reply)
 
 void engineRestApi::getId()
 {
-//    QString url="http://localhost:3000/actions/";
-//    QNetworkRequest data((url));
-//    QNetworkAccessManager *getData = new QNetworkAccessManager(this);
-//    QNetworkReply *vastaus= getData->get(data);
-//    qDebug() << vastaus;
-//    QByteArray tieto = vastaus->readAll();
-//    qDebug() << tieto;
-//    QString id = tieto;
-
-//    qDebug() << id;
-
     QString site_url="http://localhost:3000/actions/";
     QNetworkRequest request((site_url));
     getManager = new QNetworkAccessManager(this);

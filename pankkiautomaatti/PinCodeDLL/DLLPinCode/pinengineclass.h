@@ -58,6 +58,7 @@ private:
     Ui::PinEngineClass *ui;
     QString pin;
     int time;
+    QTimer *LCDtimer;
 };
 
 #endif // PINENGINECLASS_H

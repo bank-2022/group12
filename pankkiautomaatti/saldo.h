@@ -2,12 +2,6 @@
 #define SALDO_H
 
 #include <QDialog>
-#include <QDebug>
-#include <QWidget>
-#include <QString>
-#include <QtNetwork>
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
 #include "DLLRestAPI/dllrestapi.h"
 #include "DLLRestAPI/enginerestapi.h"
 #include "paavalikko.h"

@@ -57,10 +57,10 @@ void Muusumma::on_pushButton_Ok_clicked()
     QString Muusumma = ui->lineEdit_Muusumma->text();
     int otherAmount=Muusumma.toInt();
 
-    if (otherAmount / 10 != 10){
+    if (otherAmount % 10 != 0){
         LCDtimer->stop();
         time=11;
-        QMessageBox::warning(this, "Valitse tasaluku","Automaatissa vain kymmenen euron seteleitä, valitse tasaluku");
+        QMessageBox::warning(this, "Valitse tasaluku","HUOM! Automaatista voi nostaa vain tasalukuja.");
         LCDtimer->start();
     }
 
