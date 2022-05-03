@@ -9,6 +9,7 @@ DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
     connect(oEngineRestApi, SIGNAL(responseDataFromCustomer(QString)), this, SLOT(receiveCustomer(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromFiveActions(QString)), this, SLOT(receiveFiveActions(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromActions(QString)), this, SLOT(receiveActions(QString)));
+    connect(oEngineRestApi, SIGNAL(responseDataFromId(QString)), this, SLOT(receiveId(QString)));
 
     connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
     connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
@@ -50,9 +51,9 @@ void DLLRestAPI::interfaceActions(QString id_account)
     oEngineRestApi->actions(id_account);
 }
 
-void DLLRestAPI::interfaceUpdateActions(QString date, QString action, QString total, QString id_account)
+void DLLRestAPI::interfaceUpdateActions(QString id, QString date, QString action, QString total, QString id_account, QString id_card)
 {
-    oEngineRestApi->updateActions(date,action,total,id_account);
+    oEngineRestApi->updateActions(id,date,action,total,id_account,id_card);
 }
 
 void DLLRestAPI::interfaceLockCard(QString id_card)
@@ -63,6 +64,11 @@ void DLLRestAPI::interfaceLockCard(QString id_card)
 void DLLRestAPI::interfaceIsCardLocked(QString id_card)
 {
     oEngineRestApi->isCardLocked(id_card);
+}
+
+void DLLRestAPI::interfaceId()
+{
+    oEngineRestApi->getId();
 }
 
 void DLLRestAPI::receiveLogin(QString l)
@@ -95,3 +101,7 @@ void DLLRestAPI::receiveActions(QString d)
     emit sendActionsToExe(d);
 }
 
+void DLLRestAPI::receiveId(QString f)
+{
+    emit sendIdToExe(f);
+}

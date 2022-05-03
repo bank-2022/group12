@@ -39,6 +39,7 @@ private slots:
 
     void receiveDataFromBalance(QString);
     void receiveDataFromCustomer(QString);
+    void receiveDataFromId(QString);
 
 private:
     Ui::nostarahaa *ui;
@@ -46,6 +47,8 @@ private:
     paavalikko *Pvalikko;
     QString a;
     QString b;
+    QString f;
+    QString id;
     QTimer *Timer;
     QTimer *LCDtimer;
     int time;

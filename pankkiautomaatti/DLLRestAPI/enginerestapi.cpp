@@ -87,6 +87,7 @@ void engineRestApi::isCardLockedSlot(QNetworkReply *reply)
     getManager->deleteLater();
 }
 
+
 //Asiakkaan tiedot ------------------------------------------------------
 
 void engineRestApi::customerData(QString id_account)
@@ -143,8 +144,6 @@ void engineRestApi::balanceSlot(QNetworkReply *reply)
     reply->deleteLater();
     getManager->deleteLater();
 }
-
-
 
 //Asiakkaan viisi viimeistä tilitapahtumaa ------------------------------------------------------
 
@@ -225,27 +224,74 @@ void engineRestApi::updateBalanceSlot(QNetworkReply *reply)
 
 //Tilitapahtumien päivitys ------------------------------------------------------
 
-void engineRestApi::updateActions(QString date, QString action, QString total, QString id_account)
+void engineRestApi::updateActions(QString id, QString date, QString action, QString total, QString id_account, QString id_card)
 {
     QJsonObject jsonObj;
+    jsonObj.insert("id_actions",id);
     jsonObj.insert("date",date);
     jsonObj.insert("action",action);
     jsonObj.insert("total",total);
     jsonObj.insert("id_account",id_account);
+    jsonObj.insert("id_card",id_card);
 
-    QString site_url="http://localhost:3000/actions/"+ id_account;
+    qDebug() << id;
+    qDebug() << date;
+    qDebug() << action;
+    qDebug() << total;
+    qDebug() << id_account;
+    qDebug() << id_card;
+
+    QString site_url="http://localhost:3000/actions/";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
 
     getManager = new QNetworkAccessManager(this);
     connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(updateActionsSlot(QNetworkReply*)));
-    reply = getManager->put(request, QJsonDocument(jsonObj).toJson());
+    reply = getManager->post(request, QJsonDocument(jsonObj).toJson());
 }
 
 void engineRestApi::updateActionsSlot(QNetworkReply *reply)
 {
     response_data=reply->readAll();
+    qDebug() << response_data;
     reply->deleteLater();
     getManager->deleteLater();
 }
 
+void engineRestApi::getId()
+{
+//    QString url="http://localhost:3000/actions/";
+//    QNetworkRequest data((url));
+//    QNetworkAccessManager *getData = new QNetworkAccessManager(this);
+//    QNetworkReply *vastaus= getData->get(data);
+//    qDebug() << vastaus;
+//    QByteArray tieto = vastaus->readAll();
+//    qDebug() << tieto;
+//    QString id = tieto;
+
+//    qDebug() << id;
+
+    QString site_url="http://localhost:3000/actions/";
+    QNetworkRequest request((site_url));
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(idSlot(QNetworkReply*)));
+    reply = getManager->get(request);
+
+}
+
+void engineRestApi::idSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString id;
+    foreach (const QJsonValue &value, json_array) {
+    QJsonObject json_obj = value.toObject();
+    id+=QString::number(json_obj["id_actions"].toInt());
+
+    emit responseDataFromId(id);
+
+}
+    reply->deleteLater();
+    getManager->deleteLater();
+}
