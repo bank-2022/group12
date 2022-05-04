@@ -12,71 +12,108 @@
 #include <QtNetwork>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
+#include <QThread>
+
+QString MainWindow::cardIdStat = "0";
+QString MainWindow::accountIdStat = "0";
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
+    , attempts(0)
+    , i(0)
 {
     ui->setupUi(this);
-    mainMenu = new paavalikko;
-
-
+    oDLLSerialPort = new DLLSerialPort;
+    oDllPinCode = new DLLPinCode;
+    oDllRestApi = new DLLRestAPI;
+    connect(oDLLSerialPort, SIGNAL(passID(QString)), this, SLOT(getID(QString)));
+    connect(oDllRestApi, SIGNAL(sendToExeLogin(QString)), this, SLOT(receiveDataLogin(QString)));
+    connect(oDllRestApi, SIGNAL(sendToExeLockStatus(QString)), this, SLOT(receiveDataLockStatus(QString)));
+    connect(oDllRestApi, SIGNAL(sendAccountIdToExe(QString)), this, SLOT(receiveAccountId(QString)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    //delete Pword;
-    delete oDllPinCode;
-    oDllPinCode=nullptr;
     delete mainMenu;
 
 }
 
-
-
-    void MainWindow::checkPin()
-    {
-        int i=0;
-        oDllPinCode = new DLLPinCode;
-        while (i == 0){
+void MainWindow::checkPin()
+{
         oDllPinCode->startupPin();
-        testipin = oDllPinCode->returnPinCode();
-        cardId="1111";
-        //oDllRestApi->interfaceLogin(testipin, cardId); //Ei toimi
+        pin = oDllPinCode->returnPinCode();
+        oDllRestApi->interfaceLogin(cardId, pin);
+        oDllRestApi->interfaceIsCardLocked(cardId);
+}
 
+void MainWindow::receiveDataLogin(QString l)
+{
+    loggedIn = l;
+    this->tryToLogin();
+}
 
-        if(attempts==3 || cardLocked == true){
-            i++;
-             oDllPinCode->wrongPin(3);
-             //oDllRestApi->lockCard();     Ei vielä koodattu
-        }
+void MainWindow::receiveDataLockStatus(QString lock)
+{
+    cardLocked = lock;
+}
 
-        else if(testipin == "1234"){
-           i++;
-           oDllPinCode->closePin();
-           mainMenu->exec();
+void MainWindow::receiveAccountId(QString account)
+{
+    accountId=account;
+    accountIdStat=account;
+    checkPin();
+}
 
+void MainWindow::tryToLogin()
+{
 
-       }
-       else{
-          attempts++;
-           oDllPinCode->wrongPin(attempts);
-           if (attempts==3){
-               i++;
-               oDllPinCode->closePin();
-
-           }
-
-      }
-        }
+    if(attempts==3 || cardLocked == "1"){
+        i++;
+         oDllPinCode->wrongPin(3);
+         oDllRestApi->interfaceLockCard(cardId);
+         oDllPinCode->closePin();
+         delete oDllPinCode;
+         oDllPinCode = nullptr;
     }
+
+    if(loggedIn == "true"){
+       i++;
+       oDllPinCode->closePin();
+       delete oDllPinCode;
+       oDllPinCode = nullptr;
+       mainMenu = new paavalikko;
+       mainMenu->exec();
+   }
+   else{
+      attempts++;
+       oDllPinCode->wrongPin(attempts);
+       if (attempts==3){
+           i++;
+           oDllRestApi->interfaceLockCard(cardId);
+           oDllPinCode->closePin();
+           delete oDllPinCode;
+           oDllPinCode = nullptr;
+       }
+       else
+       {this->checkPin();}
+}
+}
 
 void MainWindow::on_pushButton_clicked()
 {
-    checkPin();
-
+    //cardId = "0500CB5B34";
+    //cardIdStat = "0500CB5B34";
+    //oDllRestApi->interfaceAccountId(cardId);
+    //checkPin();
 }
 
-
-
+void MainWindow::getID(QString id)
+{
+    qDebug()<< "ID: " << id;
+    cardId = id;
+    cardIdStat = id;
+    qDebug()<< "cardID: " << cardId;
+    oDllRestApi->interfaceAccountId(cardId);
+}

@@ -2,12 +2,9 @@
 #define SALDO_H
 
 #include <QDialog>
-#include <QDebug>
-#include <QWidget>
-#include <QString>
-#include <QtNetwork>
-#include <QNetworkAccessManager>
-#include <QJsonDocument>
+#include "DLLRestAPI/dllrestapi.h"
+#include "DLLRestAPI/enginerestapi.h"
+#include "paavalikko.h"
 
 namespace Ui {
 class saldo;
@@ -23,20 +20,21 @@ public:
 
 
 private slots:
+    void LCDshow();
     void on_pushButton_takaisin_clicked();
-    void customerData();
-    void customerDataSlot(QNetworkReply *reply);
-    void balance();
-    void balanceSlot(QNetworkReply *reply);
-    void fiveActions();
-    void fiveActionsSlot(QNetworkReply *reply);
+    void receiveDataFromBalance(QString);
+    void receiveDataFromCustomer(QString);
+    void receiveDataFromFiveActions(QString);
 
 private:
     Ui::saldo *ui;
-    QNetworkAccessManager *getManager;
-    QNetworkReply *reply;
-    QByteArray response_data;
-
+    DLLRestAPI *oDLLRestAPI;
+    QString a;
+    QString b;
+    QString c;
+    QTimer *Timer;
+    int time;
+    QTimer *LCDtimer;
 
 
 };

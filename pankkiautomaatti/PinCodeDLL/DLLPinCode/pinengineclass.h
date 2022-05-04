@@ -29,8 +29,7 @@ signals:
     void emitPin(QString);
 
 private slots:
-
-
+    void LCDshow();
     void on_pushButton_1_clicked();
 
     void on_pushButton_2_clicked();
@@ -58,6 +57,8 @@ private slots:
 private:
     Ui::PinEngineClass *ui;
     QString pin;
+    int time;
+    QTimer *LCDtimer;
 };
 
 #endif // PINENGINECLASS_H

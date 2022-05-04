@@ -5,7 +5,7 @@ const saltRounds=10;
 
 const card = {
   getById: function(id, callback) {
-    return db.query('select * from card where id_card=?', [id], callback);
+    return db.query('select id_account from pankkiautomaatti.card where id_card=?', [id], callback);
   },
   getAll: function(callback) {
     return db.query('select * from card', callback);

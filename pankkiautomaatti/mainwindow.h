@@ -2,10 +2,12 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <QMessageBox>
-#include "PinCodeDLL/DLLPinCode/dllpincode.h"
-#include "paavalikko.h"
-#include "DLLRestAPI/dllrestapi.h"
 #include <QTimer>
+
+#include "PinCodeDLL/DLLPinCode/dllpincode.h"
+#include "serialportdll/dllserialport.h"
+#include "DLLRestAPI/dllrestapi.h"
+#include "paavalikko.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -19,23 +21,37 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
     void checkPin();
-
+    QString cardId;
+    static QString cardIdStat;
+    QString accountId;
+    static QString accountIdStat;
 
 private slots:
     void on_pushButton_clicked();
+    void getID(QString);
+
 
 
 public slots:
+    void receiveDataLogin(QString l);
+    void receiveDataLockStatus(QString lock);
+    void receiveAccountId(QString);
 
 private:
     Ui::MainWindow *ui;
     DLLPinCode *oDllPinCode;
+    DLLSerialPort *oDLLSerialPort;
     DLLRestAPI *oDllRestApi;
     paavalikko *mainMenu;
     QString testipin;
-    QString cardId;
-    int attempts=0;
-    bool cardLocked=false;
+    QString pin;
+    QString loggedIn;
+    int attempts;
+    QString cardLocked;
+    int i;
+    void tryToLogin();
+
+
 
 };
 #endif // MAINWINDOW_H
