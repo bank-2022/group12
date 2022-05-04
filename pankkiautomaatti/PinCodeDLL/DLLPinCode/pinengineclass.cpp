@@ -10,7 +10,7 @@ PinEngineClass::PinEngineClass(QWidget *parent) :
 {
     ui->setupUi(this);
     ui->lineEdit_Pincode->setMaxLength(4);
-    QTimer *LCDtimer = new QTimer;
+    LCDtimer = new QTimer;
     connect(LCDtimer, SIGNAL(timeout()), this, SLOT(LCDshow()));
     LCDtimer->start();
     time=11;
@@ -28,67 +28,89 @@ PinEngineClass::~PinEngineClass()
 
 void PinEngineClass::on_pushButton_1_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "1");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_2_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "2");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_3_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "3");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_4_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "4");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_5_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "5");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_6_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "6");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_7_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "7");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_8_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "8");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_9_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "9");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_0_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->setText(ui->lineEdit_Pincode->text() + "0");
+    LCDtimer->start();
 }
 
 
 void PinEngineClass::on_pushButton_Clear_clicked()
 {
+    time=11;
     ui->lineEdit_Pincode->clear();
+    LCDtimer->start();
 }
 
 
@@ -130,11 +152,11 @@ void PinEngineClass::wrongPinCode(int attempts)
 
 void PinEngineClass::LCDshow()
 {
-    QTimer *LCDtimer = new QTimer;
     time--;
-        LCDtimer->setInterval(1000);
-        ui->lcdNumber->display(time);
+    LCDtimer->setInterval(1000);
+    ui->lcdNumber->display(time);
         if (time==0) {
+            this->~PinEngineClass();
     }
 }
 
