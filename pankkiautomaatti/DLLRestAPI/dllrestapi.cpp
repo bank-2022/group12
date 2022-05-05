@@ -10,7 +10,7 @@ DLLRestAPI::DLLRestAPI(QObject * parent) : QObject(parent)
     connect(oEngineRestApi, SIGNAL(responseDataFromFiveActions(QString)), this, SLOT(receiveFiveActions(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromActions(QString)), this, SLOT(receiveActions(QString)));
     connect(oEngineRestApi, SIGNAL(responseDataFromId(QString)), this, SLOT(receiveId(QString)));
-
+    connect(oEngineRestApi, SIGNAL(responseDataFromAccountId(QString)), this, SLOT(receiveAccountId(QString)));
     connect(oEngineRestApi, SIGNAL(loginData(QString)), this, SLOT(receiveLogin(QString)));
     connect(oEngineRestApi, SIGNAL(cardLockedData(QString)), this, SLOT(receiveLockStatus(QString)));
 }
@@ -71,6 +71,11 @@ void DLLRestAPI::interfaceId()
     oEngineRestApi->getId();
 }
 
+void DLLRestAPI::interfaceAccountId(QString id_card)
+{
+    oEngineRestApi->getAccountId(id_card);
+}
+
 void DLLRestAPI::receiveLogin(QString l)
 {
     emit sendToExeLogin(l);
@@ -104,4 +109,9 @@ void DLLRestAPI::receiveActions(QString d)
 void DLLRestAPI::receiveId(QString f)
 {
     emit sendIdToExe(f);
+}
+
+void DLLRestAPI::receiveAccountId(QString g)
+{
+    emit sendAccountIdToExe(g);
 }

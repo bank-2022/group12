@@ -4,6 +4,7 @@
 #include "saldo.h"
 #include "nostarahaa.h"
 #include "browsetransactions.h"
+#include "mainwindow.h"
 
 
 paavalikko::paavalikko(QWidget *parent) :
@@ -12,7 +13,7 @@ paavalikko::paavalikko(QWidget *parent) :
 {
     ui->setupUi(this);
     oDLLRestAPI = new DLLRestAPI();
-    oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceCustomerData(MainWindow::accountIdStat);
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
 
     timer = new QTimer(this);

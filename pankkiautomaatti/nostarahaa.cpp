@@ -1,5 +1,6 @@
 #include "nostarahaa.h"
 #include "ui_nostarahaa.h"
+#include "mainwindow.h"
 #include <QDateTime>
 
 nostarahaa::nostarahaa(QWidget *parent) :
@@ -7,9 +8,6 @@ nostarahaa::nostarahaa(QWidget *parent) :
     ui(new Ui::nostarahaa)
 {
     ui->setupUi(this);
-
-    cardId="1111";
-    id_account="1";
 
     Timer = new QTimer(this);
     LCDtimer = new QTimer(this);
@@ -19,14 +17,13 @@ nostarahaa::nostarahaa(QWidget *parent) :
     LCDshow();
 
     oDLLRestAPI = new DLLRestAPI;
-    oDLLRestAPI->interfaceBalance(cardId);
-    oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceBalance(MainWindow::cardIdStat);
+    oDLLRestAPI->interfaceCustomerData(MainWindow::accountIdStat);
     oDLLRestAPI->interfaceId();
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));
     connect(oDLLRestAPI, SIGNAL(sendIdToExe(QString)), this, SLOT(receiveDataFromId(QString)));
-
 }
 
 nostarahaa::~nostarahaa()
@@ -61,8 +58,9 @@ void nostarahaa::withdraw(int x, int total)
     QString z = QString::number(total);
 
     if (total >= 0){
-        oDLLRestAPI->interfaceUpdateBalance(id_account,z);
-        oDLLRestAPI->interfaceUpdateActions(id, aika, otto, y, id_account, cardId);
+
+        oDLLRestAPI->interfaceUpdateBalance(MainWindow::accountIdStat,z);
+        oDLLRestAPI->interfaceUpdateActions(id, aika, otto, y, MainWindow::accountIdStat, MainWindow::cardIdStat);
         QMessageBox::information(this, "Veloitus","Tililtäsi on veloitettu " + y + "€, ja kate on " + z + "€. Kiitos ja näkemiin!");
     }
     else{

@@ -22,11 +22,11 @@ public:
     ~MainWindow();
     void checkPin();
     QString cardId;
-
-    const QString &getCardId() const;
+    static QString cardIdStat;
+    QString accountId;
+    static QString accountIdStat;
 
 private slots:
-    void on_pushButton_clicked();
     void getID(QString);
 
 
@@ -34,6 +34,7 @@ private slots:
 public slots:
     void receiveDataLogin(QString l);
     void receiveDataLockStatus(QString lock);
+    void receiveAccountId(QString);
 
 private:
     Ui::MainWindow *ui;

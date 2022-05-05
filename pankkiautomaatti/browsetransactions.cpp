@@ -1,6 +1,7 @@
 #include "browsetransactions.h"
 #include "ui_browsetransactions.h"
 #include "paavalikko.h"
+#include "mainwindow.h"
 
 browseTransactions::browseTransactions(QWidget *parent) :
     QDialog(parent),
@@ -16,9 +17,9 @@ browseTransactions::browseTransactions(QWidget *parent) :
     LCDshow();
 
     oDLLRestAPI = new DLLRestAPI;
-    oDLLRestAPI->interfaceBalance("1111");
-    oDLLRestAPI->interfaceCustomerData("1");
-    oDLLRestAPI->interfaceActions("1");
+    oDLLRestAPI->interfaceBalance(MainWindow::cardIdStat);
+    oDLLRestAPI->interfaceCustomerData(MainWindow::accountIdStat);
+    oDLLRestAPI->interfaceActions(MainWindow::accountIdStat);
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));

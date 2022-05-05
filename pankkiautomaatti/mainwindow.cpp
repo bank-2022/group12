@@ -14,6 +14,9 @@
 #include <QJsonDocument>
 #include <QThread>
 
+QString MainWindow::cardIdStat = "0";
+QString MainWindow::accountIdStat = "0";
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -27,20 +30,20 @@ MainWindow::MainWindow(QWidget *parent)
     connect(oDLLSerialPort, SIGNAL(passID(QString)), this, SLOT(getID(QString)));
     connect(oDllRestApi, SIGNAL(sendToExeLogin(QString)), this, SLOT(receiveDataLogin(QString)));
     connect(oDllRestApi, SIGNAL(sendToExeLockStatus(QString)), this, SLOT(receiveDataLockStatus(QString)));
+    connect(oDllRestApi, SIGNAL(sendAccountIdToExe(QString)), this, SLOT(receiveAccountId(QString)));
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
-    delete oDllPinCode;
-    oDllPinCode=nullptr;
+//    delete oDllPinCode;
+//    oDllPinCode=nullptr;
     delete mainMenu;
 
 }
 
 void MainWindow::checkPin()
 {
-        cardId="1111";
         oDllPinCode->startupPin();
         pin = oDllPinCode->returnPinCode();
         oDllRestApi->interfaceLogin(cardId, pin);
@@ -58,6 +61,13 @@ void MainWindow::receiveDataLockStatus(QString lock)
     cardLocked = lock;
 }
 
+void MainWindow::receiveAccountId(QString account)
+{
+    accountId=account;
+    accountIdStat=account;
+    checkPin();
+}
+
 void MainWindow::tryToLogin()
 {
 
@@ -66,15 +76,15 @@ void MainWindow::tryToLogin()
          oDllPinCode->wrongPin(3);
          oDllRestApi->interfaceLockCard(cardId);
          oDllPinCode->closePin();
-         delete oDllPinCode;
-         oDllPinCode = nullptr;
+//         delete oDllPinCode;
+//         oDllPinCode = nullptr;
     }
 
     if(loggedIn == "true"){
        i++;
        oDllPinCode->closePin();
-       delete oDllPinCode;
-       oDllPinCode = nullptr;
+//       delete oDllPinCode;
+//       oDllPinCode = nullptr;
        mainMenu = new paavalikko;
        mainMenu->exec();
    }
@@ -85,23 +95,19 @@ void MainWindow::tryToLogin()
            i++;
            oDllRestApi->interfaceLockCard(cardId);
            oDllPinCode->closePin();
-           delete oDllPinCode;
-           oDllPinCode = nullptr;
+//           delete oDllPinCode;
+//           oDllPinCode = nullptr;
        }
        else
        {this->checkPin();}
 }
 }
 
-void MainWindow::on_pushButton_clicked()
-{
-    checkPin();
-}
-
 void MainWindow::getID(QString id)
 {
     qDebug()<< "ID: " << id;
     cardId = id;
+    cardIdStat = id;
     qDebug()<< "cardID: " << cardId;
-    checkPin();
+    oDllRestApi->interfaceAccountId(cardId);
 }

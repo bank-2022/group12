@@ -33,6 +33,7 @@ public:
     void lockCard(QString id_card);
     void isCardLocked(QString id_card);
     void getId();
+    void getAccountId(QString);
 
 private:
 
@@ -47,6 +48,7 @@ public slots:
     void lockCardSlot(QNetworkReply *reply);
     void isCardLockedSlot(QNetworkReply *reply);
     void idSlot(QNetworkReply *reply);
+    void accountIdSlot(QNetworkReply *reply);
 
 signals:
     void responseDataFromActions(QString);
@@ -54,6 +56,7 @@ signals:
     void responseDataFromCustomer(QString);
     void responseDataFromFiveActions(QString);
     void responseDataFromId(QString);
+    void responseDataFromAccountId(QString);
     void loginData(QString);
     void cardLockedData(QString);
 };

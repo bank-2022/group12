@@ -22,8 +22,8 @@ QT_BEGIN_MOC_NAMESPACE
 QT_WARNING_PUSH
 QT_WARNING_DISABLE_DEPRECATED
 struct qt_meta_stringdata_DLLRestAPI_t {
-    QByteArrayData data[16];
-    char stringdata0[238];
+    QByteArrayData data[18];
+    char stringdata0[274];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,22 +41,26 @@ QT_MOC_LITERAL(5, 68, 16), // "sendActionsToExe"
 QT_MOC_LITERAL(6, 85, 11), // "sendIdToExe"
 QT_MOC_LITERAL(7, 97, 14), // "sendToExeLogin"
 QT_MOC_LITERAL(8, 112, 19), // "sendToExeLockStatus"
-QT_MOC_LITERAL(9, 132, 14), // "receiveBalance"
-QT_MOC_LITERAL(10, 147, 15), // "receiveCustomer"
-QT_MOC_LITERAL(11, 163, 18), // "receiveFiveActions"
-QT_MOC_LITERAL(12, 182, 14), // "receiveActions"
-QT_MOC_LITERAL(13, 197, 12), // "receiveLogin"
-QT_MOC_LITERAL(14, 210, 17), // "receiveLockStatus"
-QT_MOC_LITERAL(15, 228, 9) // "receiveId"
+QT_MOC_LITERAL(9, 132, 18), // "sendAccountIdToExe"
+QT_MOC_LITERAL(10, 151, 14), // "receiveBalance"
+QT_MOC_LITERAL(11, 166, 15), // "receiveCustomer"
+QT_MOC_LITERAL(12, 182, 18), // "receiveFiveActions"
+QT_MOC_LITERAL(13, 201, 14), // "receiveActions"
+QT_MOC_LITERAL(14, 216, 12), // "receiveLogin"
+QT_MOC_LITERAL(15, 229, 17), // "receiveLockStatus"
+QT_MOC_LITERAL(16, 247, 9), // "receiveId"
+QT_MOC_LITERAL(17, 257, 16) // "receiveAccountId"
 
     },
     "DLLRestAPI\0sendBalanceToExe\0\0"
     "sendCustomerToExe\0sendFiveActionsToExe\0"
     "sendActionsToExe\0sendIdToExe\0"
     "sendToExeLogin\0sendToExeLockStatus\0"
-    "receiveBalance\0receiveCustomer\0"
-    "receiveFiveActions\0receiveActions\0"
-    "receiveLogin\0receiveLockStatus\0receiveId"
+    "sendAccountIdToExe\0receiveBalance\0"
+    "receiveCustomer\0receiveFiveActions\0"
+    "receiveActions\0receiveLogin\0"
+    "receiveLockStatus\0receiveId\0"
+    "receiveAccountId"
 };
 #undef QT_MOC_LITERAL
 
@@ -66,30 +70,32 @@ static const uint qt_meta_data_DLLRestAPI[] = {
        8,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   14, // methods
+      16,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
        0,       // flags
-       7,       // signalCount
+       8,       // signalCount
 
  // signals: name, argc, parameters, tag, flags
-       1,    1,   84,    2, 0x06 /* Public */,
-       3,    1,   87,    2, 0x06 /* Public */,
-       4,    1,   90,    2, 0x06 /* Public */,
-       5,    1,   93,    2, 0x06 /* Public */,
-       6,    1,   96,    2, 0x06 /* Public */,
-       7,    1,   99,    2, 0x06 /* Public */,
-       8,    1,  102,    2, 0x06 /* Public */,
+       1,    1,   94,    2, 0x06 /* Public */,
+       3,    1,   97,    2, 0x06 /* Public */,
+       4,    1,  100,    2, 0x06 /* Public */,
+       5,    1,  103,    2, 0x06 /* Public */,
+       6,    1,  106,    2, 0x06 /* Public */,
+       7,    1,  109,    2, 0x06 /* Public */,
+       8,    1,  112,    2, 0x06 /* Public */,
+       9,    1,  115,    2, 0x06 /* Public */,
 
  // slots: name, argc, parameters, tag, flags
-       9,    1,  105,    2, 0x0a /* Public */,
-      10,    1,  108,    2, 0x0a /* Public */,
-      11,    1,  111,    2, 0x0a /* Public */,
-      12,    1,  114,    2, 0x0a /* Public */,
-      13,    1,  117,    2, 0x0a /* Public */,
-      14,    1,  120,    2, 0x0a /* Public */,
-      15,    1,  123,    2, 0x0a /* Public */,
+      10,    1,  118,    2, 0x0a /* Public */,
+      11,    1,  121,    2, 0x0a /* Public */,
+      12,    1,  124,    2, 0x0a /* Public */,
+      13,    1,  127,    2, 0x0a /* Public */,
+      14,    1,  130,    2, 0x0a /* Public */,
+      15,    1,  133,    2, 0x0a /* Public */,
+      16,    1,  136,    2, 0x0a /* Public */,
+      17,    1,  139,    2, 0x0a /* Public */,
 
  // signals: parameters
     QMetaType::Void, QMetaType::QString,    2,
@@ -99,8 +105,10 @@ static const uint qt_meta_data_DLLRestAPI[] = {
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
+    QMetaType::Void, QMetaType::QString,    2,
 
  // slots: parameters
+    QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
     QMetaType::Void, QMetaType::QString,    2,
@@ -125,13 +133,15 @@ void DLLRestAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 4: _t->sendIdToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 5: _t->sendToExeLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
         case 6: _t->sendToExeLockStatus((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 7: _t->receiveBalance((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 8: _t->receiveCustomer((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 9: _t->receiveFiveActions((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 10: _t->receiveActions((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 11: _t->receiveLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 12: _t->receiveLockStatus((*reinterpret_cast< QString(*)>(_a[1]))); break;
-        case 13: _t->receiveId((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 7: _t->sendAccountIdToExe((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 8: _t->receiveBalance((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 9: _t->receiveCustomer((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 10: _t->receiveFiveActions((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 11: _t->receiveActions((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 12: _t->receiveLogin((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 13: _t->receiveLockStatus((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 14: _t->receiveId((*reinterpret_cast< QString(*)>(_a[1]))); break;
+        case 15: _t->receiveAccountId((*reinterpret_cast< QString(*)>(_a[1]))); break;
         default: ;
         }
     } else if (_c == QMetaObject::IndexOfMethod) {
@@ -185,6 +195,13 @@ void DLLRestAPI::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
                 return;
             }
         }
+        {
+            using _t = void (DLLRestAPI::*)(QString );
+            if (*reinterpret_cast<_t *>(_a[1]) == static_cast<_t>(&DLLRestAPI::sendAccountIdToExe)) {
+                *result = 7;
+                return;
+            }
+        }
     }
 }
 
@@ -217,13 +234,13 @@ int DLLRestAPI::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 14)
+        if (_id < 16)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 14;
+        _id -= 16;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 14)
+        if (_id < 16)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 14;
+        _id -= 16;
     }
     return _id;
 }
@@ -275,6 +292,13 @@ void DLLRestAPI::sendToExeLockStatus(QString _t1)
 {
     void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
     QMetaObject::activate(this, &staticMetaObject, 6, _a);
+}
+
+// SIGNAL 7
+void DLLRestAPI::sendAccountIdToExe(QString _t1)
+{
+    void *_a[] = { nullptr, const_cast<void*>(reinterpret_cast<const void*>(std::addressof(_t1))) };
+    QMetaObject::activate(this, &staticMetaObject, 7, _a);
 }
 QT_WARNING_POP
 QT_END_MOC_NAMESPACE

@@ -23,6 +23,7 @@ public:
     void interfaceLockCard(QString id_card);
     void interfaceIsCardLocked(QString id_card);
     void interfaceId();
+    void interfaceAccountId(QString);
 
 private:
     QString a;
@@ -40,6 +41,7 @@ public slots:
     void receiveLogin(QString);
     void receiveLockStatus(QString);
     void receiveId(QString);
+    void receiveAccountId(QString);
 
 signals:
     void sendBalanceToExe(QString);
@@ -49,6 +51,7 @@ signals:
     void sendIdToExe(QString);
     void sendToExeLogin(QString);
     void sendToExeLockStatus(QString);
+    void sendAccountIdToExe(QString);
 };
 
 #endif // DLLRESTAPI_H

@@ -35,6 +35,7 @@ private slots:
     void on_pushButton_0_clicked();
     void on_pushButton_kumita_clicked();
     void receiveSaldo(QString);
+    void receiveDataFromId(QString);
 
 private:
     Ui::Muusumma *ui;
@@ -43,6 +44,8 @@ private:
     int time;
     int raha;
     QString f;
+    QString h;
+    QString id;
 };
 
 #endif // MUUSUMMA_H

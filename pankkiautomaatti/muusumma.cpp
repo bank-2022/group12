@@ -1,5 +1,6 @@
 #include "muusumma.h"
 #include "ui_muusumma.h"
+#include "mainwindow.h"
 
 Muusumma::Muusumma(QWidget *parent) :
     QDialog(parent),
@@ -14,10 +15,12 @@ Muusumma::Muusumma(QWidget *parent) :
     LCDshow();
 
     DLLRestAPI *oDLLRestAPI = new DLLRestAPI;
-    oDLLRestAPI->interfaceBalance("1111");
-    oDLLRestAPI->interfaceCustomerData("1");
+    oDLLRestAPI->interfaceBalance(MainWindow::cardIdStat);
+    oDLLRestAPI->interfaceCustomerData(MainWindow::accountIdStat);
+    oDLLRestAPI->interfaceId();
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveSaldo(QString)));
+//    connect(oDLLRestAPI, SIGNAL(sendIdToExe(QString)), this, SLOT(receiveDataFromId(QString)));
 }
 
 Muusumma::~Muusumma()
@@ -39,19 +42,6 @@ void Muusumma::LCDshow()
 }
 }
 
-//void Muusumma::on_pushButton_Ok_clicked()
-//{
-//    QString Muusumma = ui->lineEdit_Muusumma->text();
-//    nostarahaa *oNostaRahaa = new nostarahaa;
-//    int otherAmount=Muusumma.toInt();
-//    oNostaRahaa->withdraw(otherAmount, raha);
-//    this->close();
-//    delete oNostaRahaa;
-//    oNostaRahaa=nullptr;
-
-//}
-
-
 void Muusumma::on_pushButton_Ok_clicked()
 {
     QString Muusumma = ui->lineEdit_Muusumma->text();
@@ -68,7 +58,8 @@ void Muusumma::on_pushButton_Ok_clicked()
         {
         nostarahaa *oNostaRahaa = new nostarahaa;
         qDebug() << otherAmount << "clicked";
-        oNostaRahaa->withdraw(otherAmount,raha);
+//        oDLLRestAPI->interfaceId();
+        oNostaRahaa->nostarahaa::withdraw(otherAmount,raha);
         this->close();
         delete oNostaRahaa;
         oNostaRahaa=nullptr;
@@ -179,3 +170,8 @@ void Muusumma::receiveSaldo(QString f)
 {
     raha=f.toInt();
 }
+
+//void Muusumma::receiveDataFromId(QString h)
+//{
+//    id = h;
+//}

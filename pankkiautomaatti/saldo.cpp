@@ -16,9 +16,9 @@ saldo::saldo(QWidget *parent) :
     time=11;
 
     oDLLRestAPI = new DLLRestAPI;
-    oDLLRestAPI->interfaceBalance("1111");
-    oDLLRestAPI->interfaceCustomerData("1");
-    oDLLRestAPI->interfaceFiveActions("1");
+    oDLLRestAPI->interfaceBalance(MainWindow::cardIdStat);
+    oDLLRestAPI->interfaceCustomerData(MainWindow::accountIdStat);
+    oDLLRestAPI->interfaceFiveActions(MainWindow::accountIdStat);
 
     connect(oDLLRestAPI, SIGNAL(sendBalanceToExe(QString)), this, SLOT(receiveDataFromBalance(QString)));
     connect(oDLLRestAPI, SIGNAL(sendCustomerToExe(QString)), this, SLOT(receiveDataFromCustomer(QString)));

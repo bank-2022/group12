@@ -13,6 +13,5 @@ DLLSerialPort::~DLLSerialPort()
 
 void DLLSerialPort::recieveSignal(QString ID)
 {
-    qDebug() << "DLL: "<< ID;
      emit passID(ID);
 }

@@ -234,6 +234,13 @@ void engineRestApi::updateActions(QString id, QString date, QString action, QStr
     jsonObj.insert("id_account",id_account);
     jsonObj.insert("id_card",id_card);
 
+    qDebug()<< "id actions" << id;
+    qDebug()<< "date" << date;
+    qDebug()<< "action" << action;
+    qDebug()<< "total" << total;
+    qDebug()<< "id account" << id_account;
+    qDebug()<< "id card" << id_card;
+
     QString site_url="http://localhost:3000/actions/";
     QNetworkRequest request((site_url));
     request.setHeader(QNetworkRequest::ContentTypeHeader, "application/json");
@@ -272,6 +279,33 @@ void engineRestApi::idSlot(QNetworkReply *reply)
     id+=QString::number(json_obj["id_actions"].toInt());
 
     emit responseDataFromId(id);
+
+}
+    reply->deleteLater();
+    getManager->deleteLater();
+}
+
+//Account id ---------------------------------------------------------------
+
+void engineRestApi::getAccountId(QString id_card)
+{
+    QString site_url="http://localhost:3000/card/"+id_card;
+    QNetworkRequest request((site_url));
+    getManager = new QNetworkAccessManager(this);
+    connect(getManager, SIGNAL(finished(QNetworkReply*)), this, SLOT(accountIdSlot(QNetworkReply*)));
+    reply = getManager->get(request);
+}
+
+void engineRestApi::accountIdSlot(QNetworkReply *reply)
+{
+    response_data=reply->readAll();
+    QJsonDocument json_doc = QJsonDocument::fromJson(response_data);
+    QJsonArray json_array = json_doc.array();
+    QString accountId;
+    foreach (const QJsonValue &value, json_array) {
+    QJsonObject json_obj = value.toObject();
+    accountId+=QString::number(json_obj["id_account"].toInt());
+    emit responseDataFromAccountId(accountId);
 
 }
     reply->deleteLater();
